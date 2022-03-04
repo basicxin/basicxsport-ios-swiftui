@@ -28,7 +28,8 @@ struct OrderHistoryDetailView: View {
                 }
             }.padding(.top, 10)
 
-            List(order.itemList, id: \.self) { item in 
+            List(order.itemList, id: \.self) { item in
+
                 if item.tournamentCategory != nil {
                     VStack(alignment: .leading) {
                         Text(item.tournamentCategory!.name).fontWeight(.medium)
@@ -44,6 +45,7 @@ struct OrderHistoryDetailView: View {
                         }
                     }
                 }
+
                 if item.product != nil {
                     VStack(alignment: .leading) {
                         Text(item.product!.name).fontWeight(.medium)
@@ -59,6 +61,7 @@ struct OrderHistoryDetailView: View {
                         }
                     }
                 }
+
                 if item.subscription != nil {
                     VStack(alignment: .leading) {
                         Text(item.subscription!.name).fontWeight(.medium)

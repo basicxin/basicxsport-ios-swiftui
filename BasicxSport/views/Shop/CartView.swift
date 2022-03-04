@@ -139,9 +139,10 @@ struct CartView: View {
                 if viewModel.cart != nil {
                     let cart = viewModel.cart!
                     let orderNoWithTimestamp = (cart.orderNo + "_" + Date.currentTimeStamp.string)
+                    let print = print("🔶 passing orderNoWithTimestamp from CartView", orderNoWithTimestamp)
                     let callbackUrl = ("https://securegw-stage.paytm.in/" + "theia/paytmCallback?ORDER_ID=" + orderNoWithTimestamp)
                     NavigationLink(
-                        destination: CheckoutView(orderId: orderNoWithTimestamp,
+                        destination: CheckoutView(orderNoWithTimestamp: orderNoWithTimestamp,
                                                   callbackUrl: callbackUrl,
                                                   value: cart.totalAmount.string,
                                                   currency: "INR",

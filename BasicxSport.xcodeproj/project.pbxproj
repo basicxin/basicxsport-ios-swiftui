@@ -111,6 +111,8 @@
 		4CD81A9F278EE17400F4DD90 /* RazorPayOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81A94278EE17400F4DD90 /* RazorPayOrderRequest.swift */; };
 		4CD81AA0278EE17400F4DD90 /* ShopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81A95278EE17400F4DD90 /* ShopRequest.swift */; };
 		4CD81AA2278EF56800F4DD90 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81AA1278EF56700F4DD90 /* Extensions.swift */; };
+		4CE8975727D2103B000AF545 /* PaytmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8975627D2103B000AF545 /* PaytmView.swift */; };
+		4CE8975927D2127A000AF545 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8975827D2127A000AF545 /* AIModel.swift */; };
 		4CF2FE1127A7DC4300290D85 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2FE1027A7DC4300290D85 /* NavigationConfigurator.swift */; };
 		4CFFDE0827D0B6C400A6C58D /* InfiniteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFDE0727D0B6C400A6C58D /* InfiniteList.swift */; };
 		4CFFEA7727A0495500A722D6 /* ShopProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFEA7627A0495500A722D6 /* ShopProductDetailView.swift */; };
@@ -235,6 +237,8 @@
 		4CD81A94278EE17400F4DD90 /* RazorPayOrderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RazorPayOrderRequest.swift; sourceTree = "<group>"; };
 		4CD81A95278EE17400F4DD90 /* ShopRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopRequest.swift; sourceTree = "<group>"; };
 		4CD81AA1278EF56700F4DD90 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4CE8975627D2103B000AF545 /* PaytmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaytmView.swift; sourceTree = "<group>"; };
+		4CE8975827D2127A000AF545 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
 		4CF2FE1027A7DC4300290D85 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
 		4CFFDE0727D0B6C400A6C58D /* InfiniteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteList.swift; sourceTree = "<group>"; };
 		4CFFEA7627A0495500A722D6 /* ShopProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductDetailView.swift; sourceTree = "<group>"; };
@@ -377,6 +381,8 @@
 				4C6D6C0927B52DCD00C6CC89 /* CheckoutViewModel.swift */,
 				4CA41B9727CCE30800EF9EF9 /* ApplyCouponView.swift */,
 				4CA41B9927CCE58000EF9EF9 /* ApplyCouponCodeViewModel.swift */,
+				4CE8975627D2103B000AF545 /* PaytmView.swift */,
+				4CE8975827D2127A000AF545 /* AIModel.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -690,6 +696,7 @@
 				4CFFEA7927A058A500A722D6 /* ShopProductDetailViewModel.swift in Sources */,
 				4C7C72612797DBB200C7BF02 /* PreferedSportView.swift in Sources */,
 				4CD81A9A278EE17400F4DD90 /* SignInRequest.swift in Sources */,
+				4CE8975727D2103B000AF545 /* PaytmView.swift in Sources */,
 				4CD81A7D278EB99900F4DD90 /* CartResponse.swift in Sources */,
 				4CAD8A0427ABE4210012BFBC /* CircleInfoResponse.swift in Sources */,
 				4C7839AF27A3D83F00458FED /* CheckoutView.swift in Sources */,
@@ -704,6 +711,7 @@
 				4C7BF7812796FC0000C70C37 /* CircleListViewModel.swift in Sources */,
 				4C979D7B279FE3B300180161 /* ShopViewModel.swift in Sources */,
 				4CD81A9E278EE17400F4DD90 /* ForgetPasswordRequest.swift in Sources */,
+				4CE8975927D2127A000AF545 /* AIModel.swift in Sources */,
 				4CD81A7B278EB99900F4DD90 /* MyCircleResponse.swift in Sources */,
 				4C808E6C27956C1A00901CD9 /* HomeView.swift in Sources */,
 				4C808E6827952C8E00901CD9 /* NewsView.swift in Sources */,

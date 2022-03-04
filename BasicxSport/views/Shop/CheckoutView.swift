@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CheckoutView: View {
     @StateObject var viewModel = CheckoutViewModel()
-    var orderId: String
+    var orderNoWithTimestamp: String
     var callbackUrl: String
     var value: String
     var currency: String
@@ -19,19 +19,33 @@ struct CheckoutView: View {
     var body: some View {
         ZStack {
             if viewModel.paytmToken != nil {
-                PaytmView(orderId: orderId, txnToken: viewModel.paytmToken!, amount: value, callbackUrl: callbackUrl)
+                let prnt = print("🔶 got orderId on CheckoutView", orderNoWithTimestamp)
+                PaytmView(aiModel: AIModel(merchantId: "IzTqME52588233114427", orderId: orderNoWithTimestamp, txnToken: viewModel.paytmToken!, amount: value, callbackUrl: callbackUrl))
                     .navigationBarHidden(true)
                     .navigationBarTitleDisplayMode(.inline)
             }
         }
-        .onAppear {
-            viewModel.getPaytmToken(orderId: orderId, callbackUrl: callbackUrl, value: value, currency: currency, custId: custId)
+        .customProgressDialog(isShowing: $viewModel.isLoading, progressContent: {
+            ProgressView("Loading Merchant...")
+        })
+        .alert(item: $viewModel.alert) { currentAlert in
+            Alert(
+                title: Text("Alert"),
+                message: Text(currentAlert.message),
+                dismissButton: .default(Text("Ok")) {
+                    currentAlert.dismissAction?()
+                }
+            )
         }
+        .onAppear {
+            viewModel.getPaytmToken(orderId: orderNoWithTimestamp, callbackUrl: callbackUrl, value: value, currency: currency, custId: custId)
+        }
+        .navigationTitle("Checkout")
     }
 }
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(orderId: "", callbackUrl: "", value: "", currency: "", custId: "", redirectionTo: "")
+        CheckoutView(orderNoWithTimestamp: "", callbackUrl: "", value: "", currency: "", custId: "", redirectionTo: "")
     }
 }

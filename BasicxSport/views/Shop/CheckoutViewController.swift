@@ -8,37 +8,17 @@
 import AppInvokeSDK
 import SwiftUI
 
-struct PaytmView: UIViewControllerRepresentable {
-    var orderId: String
-    var txnToken: String
-    var amount: String
-    var callbackUrl: String
-    func makeUIViewController(context: Context) -> CheckoutViewController {
-        let vc = CheckoutViewController()
-        vc.orderId = orderId
-        vc.txnToken = txnToken
-        vc.amount = amount
-        vc.callbackUrl = callbackUrl
-        return vc
-    }
-
-    func updateUIViewController(_ uiViewController: CheckoutViewController, context: Context) {}
-
-    typealias UIViewControllerType = CheckoutViewController
-}
-
 class CheckoutViewController: UIViewController, AIDelegate {
-    var merchentID = "IzTqME52588233114427"
-    var orderId: String = ""
-    var txnToken: String = ""
-    var amount: String = ""
-    var callbackUrl: String = ""
-
     private let appInvoke = AIHandler()
+
+    var aiModel: AIModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        appInvoke.openPaytm(merchantId: merchentID, orderId: orderId, txnToken: txnToken, amount: amount, callbackUrl: callbackUrl, delegate: self, environment: AIEnvironment.staging, urlScheme: nil)
+        if let model = aiModel {
+            print("🔶 CheckoutViewController viewDidLoad() openPaytm", model.orderId)
+            appInvoke.openPaytm(merchantId: model.merchantId, orderId: model.orderId, txnToken: model.txnToken, amount: model.amount, callbackUrl: model.callbackUrl, delegate: self, environment: AIEnvironment.staging, urlScheme: nil)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +27,7 @@ class CheckoutViewController: UIViewController, AIDelegate {
 
     func openPaymentWebVC(_ controller: UIViewController?) {
         if let vc = controller {
-            print("Showing openPaymentWebVC")
+            print("🔶 Showing openPaymentWebVC")
             DispatchQueue.main.async { [weak self] in
                 self?.present(vc, animated: true, completion: nil)
             }
@@ -56,6 +36,7 @@ class CheckoutViewController: UIViewController, AIDelegate {
 
     func didFinish(with status: AIPaymentStatus, response: [String: Any]) {
         print("🔶 Paytm Callback Response: ", response)
+        dismiss(animated: true)
     }
 }
 
