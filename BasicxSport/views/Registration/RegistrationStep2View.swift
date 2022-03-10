@@ -48,7 +48,7 @@ struct RegistrationStep2MainView: View {
                     }
                 }
                 .onChange(of: viewModel.title) { newTitle in
-                    print(newTitle)
+                    
                 }
 
                 Divider()

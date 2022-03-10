@@ -24,11 +24,9 @@ struct ApplicationSwitcher: View {
 
     var body: some View {
         if settings.loggedIn {
-            let prnt  = print("inside logged in UserSettings")
             HomeView().environmentObject(settings)
         } else {
             NavigationView {
-                let prnt  = print("inside logged out UserSettings")
                 LoginView().environmentObject(settings)
             }
         }

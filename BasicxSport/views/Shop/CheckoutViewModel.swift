@@ -37,4 +37,22 @@ class CheckoutViewModel: ObservableObject {
             }
         }
     }
+
+    func sendPaymentTransaction(request: PaymentTransaction, completion: @escaping () -> ()) {
+        isLoading = true
+        let promise = api.sendPaymentTransaction(request: request)
+        PromiseHandler<DefaultResponseAIM>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isLoading = false
+            switch result {
+            case .success(let response):
+                if response.status == 1 {
+                    completion()
+                } else {
+                    alert = AlertDialog(message: response.message)
+                }
+            case .failure(let failure):
+                alert = AlertDialog(message: failure.getError())
+            }
+        }
+    }
 }

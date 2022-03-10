@@ -14,6 +14,7 @@ struct CartView: View {
     @State var shouldProceedToCheckout = false
     @State var shouldShowApplyCouponView = false
     var cartType: String
+    var timeInMillis = UUID().uuidString
     var body: some View {
         ScrollView {
             VStack {
@@ -138,9 +139,9 @@ struct CartView: View {
             Group {
                 if viewModel.cart != nil {
                     let cart = viewModel.cart!
-                    let orderNoWithTimestamp = (cart.orderNo + "_" + Date.currentTimeStamp.string)
-                    let print = print("🔶 passing orderNoWithTimestamp from CartView", orderNoWithTimestamp)
+                    let orderNoWithTimestamp = (cart.orderNo + "_" + timeInMillis)
                     let callbackUrl = ("https://securegw-stage.paytm.in/" + "theia/paytmCallback?ORDER_ID=" + orderNoWithTimestamp)
+
                     NavigationLink(
                         destination: CheckoutView(orderNoWithTimestamp: orderNoWithTimestamp,
                                                   callbackUrl: callbackUrl,

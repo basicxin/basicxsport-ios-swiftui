@@ -10,11 +10,17 @@ import SwiftUI
 
 struct MyProfileView: View {
     @State var moveToOrderHistoryView = false
+    @State var moveToDocumentView = false
+    @State var moveToEditProfileView = false
+    @State var moveToAddressView = false
 
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             Group {
                 NavigationLink(destination: OrderHistoryView(), isActive: $moveToOrderHistoryView) { EmptyView() }
+                NavigationLink(destination: DocumentListView(), isActive: $moveToDocumentView) { EmptyView() }
+                NavigationLink(destination: EditProfileView(), isActive: $moveToEditProfileView) { EmptyView() }
+                NavigationLink(destination: AddressListView(), isActive: $moveToAddressView) { EmptyView() }
             }
             HStack {
                 VStack(alignment: .leading) {
@@ -33,9 +39,13 @@ struct MyProfileView: View {
             }
 
             HStack {
-                OptionRow(profileOption: ProfileOptions(optionName: "Profile", optionImage: "person.text.rectangle", optionDesc: "Change your personal information")).onTapGesture {}
+                OptionRow(profileOption: ProfileOptions(optionName: "Profile", optionImage: "person.text.rectangle", optionDesc: "Change your personal information")).onTapGesture {
+                    moveToEditProfileView = true
+                }
 
-                OptionRow(profileOption: ProfileOptions(optionName: "Documents", optionImage: "doc.richtext", optionDesc: "Add or delete documents")).onTapGesture {}
+                OptionRow(profileOption: ProfileOptions(optionName: "Documents", optionImage: "doc.richtext", optionDesc: "Add or delete documents")).onTapGesture {
+                    moveToDocumentView = true
+                }
             }
 
             HStack {
@@ -43,7 +53,9 @@ struct MyProfileView: View {
                     moveToOrderHistoryView = true
                 }
 
-                OptionRow(profileOption: ProfileOptions(optionName: "Address", optionImage: "house", optionDesc: "Change or add the address")).onTapGesture {}
+                OptionRow(profileOption: ProfileOptions(optionName: "Address", optionImage: "house", optionDesc: "Change or add the address")).onTapGesture {
+                    moveToAddressView = true
+                }
             }
 
             Spacer()

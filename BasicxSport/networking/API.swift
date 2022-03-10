@@ -209,4 +209,53 @@ struct API: NetworkingService {
     func getOrderHistory(pageNo: Int) -> AnyPublisher<BaseResponse<OrderHistoryResponse>, Error> {
         get(URLs.ORDER_HISTORY, params: ["pageNo": pageNo])
     }
+
+    func getDocuments() -> AnyPublisher<BaseResponse<DocumentListResponse>, Error> {
+        get(URLs.DOCUMENT_LIST)
+    }
+
+    func sendPaymentTransaction(request: PaymentTransaction) -> AnyPublisher<DefaultResponseAIM, Error> {
+        get(URLs.PAYMENT_CONFIRMED, params: ["apiKey": request.apiKey,
+                                             "memberid": request.memberid,
+                                             "paymentMethod": request.paymentMethod,
+                                             "TXNID": request.TXNID,
+                                             "BANKNAME": request.BANKNAME,
+                                             "BANKTXNID": request.BANKTXNID,
+                                             "CURRENCY": request.CURRENCY,
+                                             "GATEWAYNAME": request.GATEWAYNAME,
+                                             "MID": request.MID,
+                                             "ORDERID": request.ORDERID,
+                                             "PAYMENTMODE": request.paymentMethod,
+                                             "RESPCODE": request.RESPCODE,
+                                             "RESPMSG": request.RESPMSG,
+                                             "STATUS": request.STATUS])
+    }
+
+    func getMemberProfile() -> AnyPublisher<BaseResponse<MemberProfileResponse>, Error> {
+        get(URLs.MEMBER_PROFILE_INFO)
+    }
+
+    func updateMemberProfile(firstName: String, lastName: String, title: String, gender: String, dob: String) -> AnyPublisher<BaseResponse<EmptyData>, Error> {
+        post(URLs.UPDATE_MEMBER_PROFILE_INFO, params: ["firstName": firstName,
+                                                       "lastName": lastName,
+                                                       "title": title,
+                                                       "gender": gender,
+                                                       "dob": dob])
+    }
+
+    func getAddresses() -> AnyPublisher<BaseResponse<AddressListResponse>, Error> {
+        get(URLs.ADDRESSES)
+    }
+
+    func makeDefaultAddress(objectId: Int) -> AnyPublisher<DefaultResponseAIM, Error> {
+        get(URLs.SET_DEFAULT_ADDRESS, params: ["apiKey": UserDefaults.jwtKey,
+                                               "memberId": UserDefaults.memberId,
+                                               "objectId": objectId])
+    }
+
+    func deleteAddress(objectId: Int) -> AnyPublisher<DefaultResponseAIM, Error> {
+        get(URLs.DELETE_ADDRESS, params: ["apiKey": UserDefaults.jwtKey,
+                                          "memberId": UserDefaults.memberId,
+                                          "objectId": objectId])
+    }
 }

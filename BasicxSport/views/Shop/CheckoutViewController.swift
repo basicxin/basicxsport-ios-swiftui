@@ -8,15 +8,20 @@
 import AppInvokeSDK
 import SwiftUI
 
+protocol ViewControllerDelegate: AnyObject {
+    func onPaymentResponseRecieved(_ viewController: CheckoutViewController, response: [String: Any])
+}
+
 class CheckoutViewController: UIViewController, AIDelegate {
+    weak var responseDelegate: ViewControllerDelegate?
     private let appInvoke = AIHandler()
 
     var aiModel: AIModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         if let model = aiModel {
-            print("🔶 CheckoutViewController viewDidLoad() openPaytm", model.orderId)
             appInvoke.openPaytm(merchantId: model.merchantId, orderId: model.orderId, txnToken: model.txnToken, amount: model.amount, callbackUrl: model.callbackUrl, delegate: self, environment: AIEnvironment.staging, urlScheme: nil)
         }
     }
@@ -27,7 +32,6 @@ class CheckoutViewController: UIViewController, AIDelegate {
 
     func openPaymentWebVC(_ controller: UIViewController?) {
         if let vc = controller {
-            print("🔶 Showing openPaymentWebVC")
             DispatchQueue.main.async { [weak self] in
                 self?.present(vc, animated: true, completion: nil)
             }
@@ -35,7 +39,8 @@ class CheckoutViewController: UIViewController, AIDelegate {
     }
 
     func didFinish(with status: AIPaymentStatus, response: [String: Any]) {
-        print("🔶 Paytm Callback Response: ", response)
+      
+        responseDelegate?.onPaymentResponseRecieved(self, response: response)
         dismiss(animated: true)
     }
 }
@@ -75,7 +80,7 @@ class CheckoutViewController: UIViewController, AIDelegate {
 //        }
 //    }
 // }
-//
+
 // class CheckoutViewController: UIViewController {
 //    override func viewDidLoad() {
 //        super.viewDidLoad()

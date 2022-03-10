@@ -7,8 +7,8 @@
 
 import Combine
 import Foundation
-import SwiftUI
 import Networking
+import SwiftUI
 
 class AddDocumentViewModel: ObservableObject {
     private let api = API()
@@ -18,17 +18,28 @@ class AddDocumentViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var documentNumber: String = ""
     @Published var searchName: String = ""
+    @Published var docUrl: String? = nil
     @Published var isFormDataValid = false
+    @Published var isDocumentNumberValid = false
     @Published var imageData: Data?
+    @Published var isViewMode = false
+
     var docRegex: String = ""
     var documentNumberPrompt: String {
-        isFormDataValid ? "" : "Document number is not valid"
+        isDocumentNumberValid ? "" : "Document number is not valid"
     }
 
     init() {
-        Publishers.CombineLatest($documentNumber, $imageData)
-            .map { docNumber, data in
-                data != nil && NSPredicate(format: "SELF MATCHES %@", self.docRegex).evaluate(with: docNumber)
+        $documentNumber
+            .map { docNumber in
+                NSPredicate(format: "SELF MATCHES %@", self.docRegex).evaluate(with: docNumber)
+            }
+            .assign(to: \.isDocumentNumberValid, on: self)
+            .store(in: &cancellables)
+
+        Publishers.CombineLatest3($documentNumber, $imageData, $docUrl)
+            .map { docNumber, data, docUrl in
+                (data != nil || !docUrl.isNilOrEmpty) && NSPredicate(format: "SELF MATCHES %@", self.docRegex).evaluate(with: docNumber)
             }
             .assign(to: \.isFormDataValid, on: self)
             .store(in: &cancellables)

@@ -45,7 +45,7 @@ struct RegistrationStep1View: View {
                             Text(self.viewModel.districts[$0].name)
                         }
                     }.onChange(of: viewModel.selectedDistrictIndex) { newValue in
-                        print(self.viewModel.districts[newValue].id)
+                        
                     }
 
                     Divider()

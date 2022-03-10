@@ -68,6 +68,8 @@ extension Optional where Wrapped: Collection {
         self?.isEmpty ?? true
     }
 
+   
+
     var isNil: Bool {
         self == nil
     }
@@ -165,5 +167,13 @@ public extension UIView {
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
         }
+    }
+}
+
+extension Decodable {
+    init(from: Any) throws {
+        let data = try JSONSerialization.data(withJSONObject: from, options: .prettyPrinted)
+        let decoder = JSONDecoder()
+        self = try decoder.decode(Self.self, from: data)
     }
 }

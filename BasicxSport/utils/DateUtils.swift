@@ -24,8 +24,21 @@ extension Date {
         dateformat.dateFormat = format
         return dateformat.string(from: self)
     }
-    
-    static var currentTimeStamp: Int64{
-           return Int64(Date().timeIntervalSince1970 * 1000)
-       }
+
+    static var currentTimeStamp: Int64 {
+        Int64(Date().timeIntervalSince1970 * 1000)
+    }
+}
+
+extension String {
+    func toDate(withFormat format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+
+        return date
+    }
 }
