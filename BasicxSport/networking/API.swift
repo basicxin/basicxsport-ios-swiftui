@@ -258,4 +258,17 @@ struct API: NetworkingService {
                                           "memberId": UserDefaults.memberId,
                                           "objectId": objectId])
     }
+
+    func addAddress(memberId: Int, apiKey: String, countryId: String, stateId: Int, districtId: Int, city: String, postalCode: String, streetAddress: String, addressType: String) -> AnyPublisher<DefaultResponseAIM, Error>
+    {
+        get(URLs.ADD_ADDRESS, params: ["memberId": memberId,
+                                          "apiKey": apiKey,
+                                          "countryId": countryId,
+                                          "stateId": stateId,
+                                          "districtId": districtId,
+                                          "city": city,
+                                          "postalcode": postalCode,
+                                          "streetAddress": streetAddress,
+                                          "addressType": addressType])
+    }
 }

@@ -24,8 +24,8 @@ struct RegistrationStep1View: View {
             ScrollView {
                 Group {
                     NavigationLink(destination: RegistrationStep2View()
-                                    .environmentObject(viewModel)
-                                    .environmentObject(settings), isActive: $shouldMoveToNextView) { EmptyView() }
+                        .environmentObject(viewModel)
+                        .environmentObject(settings), isActive: $shouldMoveToNextView) { EmptyView() }
                 }
                 VStack(alignment: .leading) {
                     Text("Choose State")
@@ -44,8 +44,6 @@ struct RegistrationStep1View: View {
                         ForEach(0 ..< viewModel.districts.count, id: \.self) {
                             Text(self.viewModel.districts[$0].name)
                         }
-                    }.onChange(of: viewModel.selectedDistrictIndex) { newValue in
-                        
                     }
 
                     Divider()

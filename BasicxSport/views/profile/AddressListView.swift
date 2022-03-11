@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct AddressListView: View {
-    @StateObject private var viewModel = ProfileViewModel()
+    @StateObject private var viewModel = AddressViewModel()
+
+    @State private var moveToNewAddressDetailView = false
+    @State private var moveToEditAddressDetailView = false
+    @State var selectedAddress: Address?
+
     var body: some View {
         VStack {
+            Group {
+                NavigationLink(destination: AddressDetailView(), isActive: $moveToNewAddressDetailView) { EmptyView() }
+                NavigationLink(destination: AddressDetailView(address: selectedAddress!), isActive: $moveToEditAddressDetailView) { EmptyView() }
+            }
+
             VStack {
-                Label("Add Address", systemImage: "plus")
+                Label("Add Address", systemImage: "plus").onTapGesture {
+                    moveToNewAddressDetailView = true
+                }
             }
             if viewModel.addressList != nil, viewModel.addressList!.isEmpty != true {
                 List(viewModel.addressList!, id: \.self) { address in
@@ -32,7 +44,10 @@ struct AddressListView: View {
                         }.padding(.bottom, 10)
 
                         HStack {
-                            Text("Edit").onTapGesture {}
+                            Text("Edit").onTapGesture {
+                                selectedAddress = address
+                                moveToEditAddressDetailView = true
+                            }
                             if !address.isPrimary {
                                 Spacer()
                                 Text("Set Default").onTapGesture {
