@@ -16,7 +16,7 @@ class MyCircleViewModel: ObservableObject {
     @Published var preferredCircleResponse: PreferredCircle? = nil
 
     @Published var alert: AlertDialog?
-    @Published var isLoading = false
+    @Published var isLoading = false 
 
     init() {
         getMyCircle()
@@ -31,6 +31,7 @@ class MyCircleViewModel: ObservableObject {
             case .success(let response):
                 if response.status, response.data != nil {
                     myCircleResponse = response.data!
+                    UserDefaults.preferredCircleId = myCircleResponse!.preferredCircle.id!
                 } else {
                     alert = AlertDialog(message: response.message)
                 }
@@ -48,7 +49,7 @@ class MyCircleViewModel: ObservableObject {
             switch result {
             case .success(let response):
                 if response.status {
-                    alert = AlertDialog(message: response.message)
+//                    alert = AlertDialog(message: response.message)
                     completion()
                 } else {
                     alert = AlertDialog(message: response.message)

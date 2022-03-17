@@ -15,6 +15,8 @@ struct Constants {
     static let DEFAULT_TOKEN = "bXTestKey"
     static let PLACEHOLDER_IMAGE = "basicxPlaceholder"
     static let RUPEE = "₹"
+    static let DEFAULT_COUNTRY_ID = "145682"
+    static let DEFAULT_COUNTRY_NAME = "INDIA"
 
     static let ITEM_TYPE_TOURNAMENT = "TOURNAMENT"
     static let ITEM_TYPE_MERCHANDISE = "MERCHANDISE"
@@ -28,8 +30,7 @@ struct Constants {
     static let VIEW_TO_SHOW_CATEGORY = "CATEGORY"
     static let VIEW_TO_SHOW_SHOP = "SHOP"
     static let VIEW_TO_SHOW_BATCHES = "BATCHES"
-    
-    
+
     static let SLIDESHOW_TIME_PRODUCT_IMAGES_SECONDS = 4
     static let SLIDESHOW_TIME_BANNERS_SECONDS = 4
 
@@ -49,13 +50,41 @@ struct Constants {
 
         static let mobilePredicate = NSPredicate(format: "SELF MATCHES %@", "^[6-9]\\d{9}$")
     }
-    
+
     enum DocumentStatus {
         static let STATUS_ADDED = "ADDED"
         static let STATUS_VALID = "VALIDATED"
         static let STATUS_PENDING = "PENDING"
         static let STATUS_REJECTED = "REJECTED"
         static let STATUS_UNNEEDED = "UNNEEDED"
-         
+    }
+
+    enum TournamentStatus {
+        static let TOURNAMENT_STATUS_OPEN = "OPEN"
+        static let TOURNAMENT_STATUS_NEW = "NEW"
+    }
+
+    enum Tournament {
+        static let CATEGORY_STATUS_OPEN = "OPEN"
+        static let CATEGORY_STATUS_IN_PLAY = "IN-PLAY"
+        static let CATEGORY_STATUS_COMPLETED = "COMPLETED"
+        static let CATEGORY_STATUS_CLOSED = "CLOSED"
+        static let MATCH_FORMAT_DOUBLE = "Double"
+        static let SEAT_TYPE_DOUBLE = "Double"
+        static let SEAT_TYPE_TEAM = "TEAM"
+        static let SEAT_TYPE_SINGLE = "Single"
+        static let SEAT_TYPE_MIXED = "Mixed"
+        static let MATCH_FORMAT_SINGLE_ELIMINATION = "SINGLE ELIMINATION"
+        static let SPORT_TYPE_SINGLE_ELIMINATION = "SINGLE ELIMINATION"
+    }
+
+    enum Circle {
+        static let STATUS_ACTIVE = "Active"
+    }
+
+    enum Matches {
+        static let MATCH_STATUS_OPEN = "OPEN"
+        static let MATCH_STATUS_IN_PLAY = "IN-PLAY"
+        static let MATCH_STATUS_COMPLETED = "COMPLETED"
     }
 }

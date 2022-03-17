@@ -9,7 +9,7 @@ import Kingfisher
 import SwiftUI
 
 struct CartView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = CartViewHolder()
     @State var shouldProceedToCheckout = false
     @State var shouldShowApplyCouponView = false
@@ -19,7 +19,7 @@ struct CartView: View {
         ScrollView {
             VStack {
                 if viewModel.cart != nil, !viewModel.cart!.items.isEmpty {
-                    var cart = viewModel.cart!
+                    let cart = viewModel.cart!
                     Group {
                         NavigationLink(destination: ApplyCouponView(salesId: cart.id), isActive: $shouldShowApplyCouponView) { EmptyView() }
                     }
@@ -42,17 +42,18 @@ struct CartView: View {
                                         .lineLimit(3)
                                         .font(.caption)
 
-                                    Stepper {
-                                        Text("Quantity \(cartItem.quantity.string)")
-                                    } onIncrement: {
-                                        viewModel.changeCartItemQuantity(lineItemId: cartItem.id, qty: cartItem.quantity + 1, cartType: cartType)
-                                    } onDecrement: {
-                                        if cartItem.quantity > 1 {
-                                            viewModel.changeCartItemQuantity(lineItemId: cartItem.id, qty: cartItem.quantity - 1, cartType: cartType)
+                                    if cartItem.itemType.caseInsensitiveCompare(Constants.ITEM_TYPE_MERCHANDISE) == .orderedSame {
+                                        Stepper {
+                                            Text("Quantity \(cartItem.quantity.string)")
+                                        } onIncrement: {
+                                            viewModel.changeCartItemQuantity(lineItemId: cartItem.id, qty: cartItem.quantity + 1, cartType: cartType)
+                                        } onDecrement: {
+                                            if cartItem.quantity > 1 {
+                                                viewModel.changeCartItemQuantity(lineItemId: cartItem.id, qty: cartItem.quantity - 1, cartType: cartType)
+                                            }
                                         }
+                                        .padding(.vertical)
                                     }
-                                    .padding(.vertical)
-
                                     HStack {
                                         Text(Constants.RUPEE + cartItem.price.string)
                                         Spacer()
@@ -166,6 +167,7 @@ struct CartView: View {
                 message: Text(currentAlert.message),
                 dismissButton: .default(Text("Ok")) {
                     currentAlert.dismissAction?()
+                    dismiss()
                 }
             )
         }
@@ -175,14 +177,14 @@ struct CartView: View {
                     Button {
                         shouldProceedToCheckout = true
                     } label: {
-                        Text("Proceed To Checkout")
-                    }
+                        Text("Checkout")
+                    } 
                 }
             }
         }
         .onChange(of: viewModel.goBack, perform: { newValue in
             if newValue {
-                self.presentationMode.wrappedValue.dismiss()
+                dismiss()
             }
         })
     }

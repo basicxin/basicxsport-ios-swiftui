@@ -18,7 +18,9 @@ struct AddressListView: View {
         VStack {
             Group {
                 NavigationLink(destination: AddressDetailView(), isActive: $moveToNewAddressDetailView) { EmptyView() }
-                NavigationLink(destination: AddressDetailView(address: selectedAddress!), isActive: $moveToEditAddressDetailView) { EmptyView() }
+                if selectedAddress != nil {
+                    NavigationLink(destination: AddressDetailView(address: selectedAddress!), isActive: $moveToEditAddressDetailView) { EmptyView() }
+                }
             }
 
             VStack {

@@ -15,7 +15,27 @@ class CartViewHolder: ObservableObject {
     @Published var isLoading = false
     @Published var cart: Cart? = nil
     @Published var goBack: Bool = false
+    @Published var isProductInCart = false
     var redirectionTo: String = Constants.VIEW_TO_SHOW_MY_CIRCLE
+
+    func addToCart(objectId: Int, itemType: String, completion: @escaping () -> ()) {
+        isLoading = true
+        let promise = api.addToCart(apiKey: UserDefaults.jwtKey, memberId: UserDefaults.memberId, objectId: objectId, itemType: itemType)
+        PromiseHandler<DefaultResponseAIM>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isLoading = false
+            switch result {
+            case .success(let response):
+                if response.status == 1 {
+                    isProductInCart = true
+                    completion()
+                } else {
+                    alert = AlertDialog(message: response.message)
+                }
+            case .failure(let failure):
+                alert = AlertDialog(message: failure.getError())
+            }
+        }
+    }
 
     func getCart(cartType: String) {
         isLoading = true

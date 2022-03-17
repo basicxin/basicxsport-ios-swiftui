@@ -11,7 +11,7 @@ import SwiftUI
 struct CircleInfoView: View {
     var circle: SearchedCircles
     @StateObject var viewModel = CircleInfoViewModel()
-    @ObservedObject var shopViewModel = ShopProductDetailViewModel()
+    @ObservedObject var cartViewModel = CartViewHolder()
     @State var shouldShowCartView = false
     var body: some View {
         GeometryReader { geometryReader in
@@ -54,11 +54,9 @@ struct CircleInfoView: View {
                                             Spacer()
 
                                             if checklist.status == Constants.DocumentStatus.STATUS_ADDED {
-                                                NavigationLink(destination: AddDocumentView(identityType: checklist.joiningChecklist.identityType)) {
-                                                    Label(checklist.status, systemImage: "checkmark")
-                                                        .foregroundColor(.green)
-                                                        .font(.subheadline)
-                                                }
+                                                Label(checklist.status, systemImage: "checkmark")
+                                                    .foregroundColor(.green)
+                                                    .font(.subheadline)
                                             }
 
                                             else if checklist.status == Constants.DocumentStatus.STATUS_PENDING {
@@ -160,17 +158,17 @@ struct CircleInfoView: View {
                                                     Spacer()
 
                                                     Button {
-                                                        if shopViewModel.isProductInCart {
+                                                        if cartViewModel.isProductInCart {
                                                             shouldShowCartView = true
                                                         }
                                                         else {
-                                                            shopViewModel.addToCart(objectId: subscription.id, itemType: Constants.ITEM_TYPE_SUBSCRIPTION) {
+                                                            cartViewModel.addToCart(objectId: subscription.id, itemType: Constants.ITEM_TYPE_SUBSCRIPTION) {
                                                                 shouldShowCartView = true
                                                             }
                                                         }
 
                                                     } label: {
-                                                        if shopViewModel.isProductInCart {
+                                                        if cartViewModel.isProductInCart {
                                                             Text("Go to Cart")
                                                         }
                                                         else {

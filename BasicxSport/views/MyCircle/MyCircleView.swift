@@ -10,16 +10,14 @@ import SwiftUI
 
 struct MyCircleView: View {
     @StateObject var viewModel = MyCircleViewModel()
-    @State var shouldShowGalleryView = false
     @State var showSwitchCircleSheet = false
     @State var showSwitchAccountSheet = false
     @State var showCircleDetailView = false
     @State var shouldShowMyProfileView = false
-
+    @StateObject var refresh = Events.shared
     var body: some View {
         ScrollView {
             Group {
-                NavigationLink(destination: GalleryListView(), isActive: $shouldShowGalleryView) { EmptyView() }
                 NavigationLink(destination: MyProfileView(), isActive: $shouldShowMyProfileView) { EmptyView() }
             }
             VStack {
@@ -105,34 +103,41 @@ struct MyCircleView: View {
 
                     // MARK: Feature Menu
 
-                    NavigationLink {} label: {
-                        AppFeatureRow(imageName: "sportscourt", menuText: "Tournament")
-                    }
+                    if myCircle.preferredCircle.circleMemberData.subscriptionStatus.caseInsensitiveCompare(Constants.Circle.STATUS_ACTIVE) == .orderedSame {
+                        NavigationLink {
+                            TournamentListView()
+                        } label: {
+                            AppFeatureRow(imageName: "sportscourt", menuText: "Tournament")
+                        }
 
-                    NavigationLink {
-                        GalleryListView()
-                    } label: {
-                        AppFeatureRow(imageName: "photo.on.rectangle", menuText: "Gallery")
-                    }
+                        NavigationLink {
+                            GalleryListView()
+                        } label: {
+                            AppFeatureRow(imageName: "photo.on.rectangle", menuText: "Gallery")
+                        }
 
-                    NavigationLink {} label: {
-                        AppFeatureRow(imageName: "gamecontroller", menuText: "My Matches")
-                    }
+                        NavigationLink {} label: {
+                            AppFeatureRow(imageName: "gamecontroller", menuText: "My Matches")
+                        }
 
-                    NavigationLink {} label: {
-                        AppFeatureRow(imageName: "line.horizontal.star.fill.line.horizontal", menuText: "My Wall")
-                    }
+                        NavigationLink {} label: {
+                            AppFeatureRow(imageName: "line.horizontal.star.fill.line.horizontal", menuText: "My Wall")
+                        }
 
-                    NavigationLink {
-                        MyBadgeView()
-                    } label: {
-                        AppFeatureRow(imageName: "sportscourt", menuText: "My badge")
+                        NavigationLink {
+                            MyBadgeView()
+                        } label: {
+                            AppFeatureRow(imageName: "sportscourt", menuText: "My badge")
+                        }
+                    }
+                    else {
+                        RenewCircleView(showCircleDetailView: $showCircleDetailView)
                     }
                 }
             }
             .sheet(isPresented: $showSwitchCircleSheet) {
                 if viewModel.myCircleResponse?.circles != nil {
-                    SwitchCircleSheet(viewModel: viewModel)
+                    SwitchCircleSheet(viewModel: viewModel, event: refresh)
                 }
             }
             .sheet(isPresented: $showSwitchAccountSheet) {
@@ -142,6 +147,11 @@ struct MyCircleView: View {
             }
         }
         .fullSize(alignement: .top)
+        .onReceive(refresh.$newCirclePurchased, perform: { newCirclePurchased in
+            if newCirclePurchased {
+                viewModel.getMyCircle()
+            }
+        })
         .customProgressDialog(isShowing: $viewModel.isLoading, progressContent: {
             ProgressView("Loading...")
         })
@@ -160,6 +170,7 @@ struct MyCircleView: View {
 struct SwitchCircleSheet: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: MyCircleViewModel
+    @ObservedObject var event: Events
     var body: some View {
         VStack {
             let preferredCircle = viewModel.myCircleResponse!.preferredCircle
@@ -173,6 +184,7 @@ struct SwitchCircleSheet: View {
                         }
                         .resizable()
                         .frame(width: 50, height: 50)
+
                     Text(circle.name)
                         .multilineTextAlignment(.leading)
                         .lineLimit(3)
@@ -186,6 +198,7 @@ struct SwitchCircleSheet: View {
                 .onTapGesture {
                     viewModel.changePreferredCircle(circleId: circle.id) {
                         viewModel.getMyCircle()
+                        event.myCircleChanged = true
                     }
                     dismiss()
                 }
@@ -263,10 +276,26 @@ struct AppFeatureRow: View {
     }
 }
 
+struct RenewCircleView: View {
+    @Binding var showCircleDetailView: Bool
+    var body: some View {
+        HStack(alignment: .center, spacing: 10) {
+            Image(systemName: "exclamationmark.triangle")
+            Text("Your subscription for the circle has expired. Click on RENEW button to enjoy all the features.")
+            Button {
+                showCircleDetailView = true
+            } label: {
+                Text("Renew")
+            }.buttonStyle(.borderedProminent)
+        }
+        .padding()
+        .fullWidth()
+        .withDefaultShadow()
+    }
+}
+
 struct MyCircleView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            MyCircleView()
-        }
+        MyCircleView()
     }
 }

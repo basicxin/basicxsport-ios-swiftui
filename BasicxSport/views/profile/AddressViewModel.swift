@@ -150,6 +150,24 @@ class AddressViewModel: ObservableObject {
         }
     }
 
+    func updateAddress(countryId: String, stateId: Int, districtId: Int, city: String, postalCode: String, streetAddress: String, addressType: String, addressId: Int, completion: @escaping () -> ()) {
+        isLoading = true
+        let promise = api.updateAddress(memberId: UserDefaults.memberId, apiKey: UserDefaults.jwtKey, countryId: countryId, stateId: stateId, districtId: districtId, city: city, postalCode: postalCode, streetAddress: streetAddress, addressType: addressType, addressId: addressId)
+        PromiseHandler<DefaultResponseAIM>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isLoading = false
+            switch result {
+            case .success(let response):
+                if response.status == 1 {
+                    completion()
+                } else {
+                    alert = AlertDialog(message: response.message)
+                }
+            case .failure(let error):
+                alert = AlertDialog(message: error.getError())
+            }
+        }
+    }
+
     func getFullAddress(address: Address) -> String {
         let NEW_LINE = "\n"
         let SEPARATOR = ", "

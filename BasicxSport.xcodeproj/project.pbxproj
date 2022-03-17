@@ -20,6 +20,11 @@
 		4C3FC5FB278C5DED00648BC3 /* RegistrationStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FC5FA278C5DED00648BC3 /* RegistrationStep1View.swift */; };
 		4C3FC5FD278C5DEF00648BC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3FC5FC278C5DEF00648BC3 /* Assets.xcassets */; };
 		4C3FC600278C5DEF00648BC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3FC5FF278C5DEF00648BC3 /* Preview Assets.xcassets */; };
+		4C6072F227E2FA1E0040E894 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6072F127E2FA1E0040E894 /* Events.swift */; };
+		4C6072F427E319D20040E894 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6072F327E319D20040E894 /* PagerView.swift */; };
+		4C6072F727E31B850040E894 /* MyMatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6072F627E31B850040E894 /* MyMatchesView.swift */; };
+		4C6072F927E33FAB0040E894 /* MyMatchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6072F827E33FAB0040E894 /* MyMatchesViewModel.swift */; };
+		4C6072FB27E340A50040E894 /* MyMatchesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6072FA27E340A50040E894 /* MyMatchesListResponse.swift */; };
 		4C6A422627D8C85500A20289 /* UploadProfilePictureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A422527D8C85500A20289 /* UploadProfilePictureResponse.swift */; };
 		4C6A422827D8D5BB00A20289 /* AddressListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A422727D8D5BA00A20289 /* AddressListView.swift */; };
 		4C6D6C0A27B52DCD00C6CC89 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D6C0927B52DCD00C6CC89 /* CheckoutViewModel.swift */; };
@@ -122,6 +127,11 @@
 		4CD81A9F278EE17400F4DD90 /* RazorPayOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81A94278EE17400F4DD90 /* RazorPayOrderRequest.swift */; };
 		4CD81AA0278EE17400F4DD90 /* ShopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81A95278EE17400F4DD90 /* ShopRequest.swift */; };
 		4CD81AA2278EF56800F4DD90 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81AA1278EF56700F4DD90 /* Extensions.swift */; };
+		4CDFC84D27DF168200F54511 /* TournamentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFC84C27DF168200F54511 /* TournamentListView.swift */; };
+		4CDFC84F27DF1C9500F54511 /* TournamentListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFC84E27DF1C9500F54511 /* TournamentListResponse.swift */; };
+		4CDFC85127DF208600F54511 /* TournamentCategoryListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFC85027DF208600F54511 /* TournamentCategoryListResponse.swift */; };
+		4CDFC85327DF20D600F54511 /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFC85227DF20D600F54511 /* TournamentViewModel.swift */; };
+		4CDFC85527DF5A9700F54511 /* TournamentCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFC85427DF5A9700F54511 /* TournamentCategoryListView.swift */; };
 		4CE8975727D2103B000AF545 /* PaytmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8975627D2103B000AF545 /* PaytmView.swift */; };
 		4CE8975927D2127A000AF545 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8975827D2127A000AF545 /* AIModel.swift */; };
 		4CF2FE1127A7DC4300290D85 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2FE1027A7DC4300290D85 /* NavigationConfigurator.swift */; };
@@ -160,6 +170,11 @@
 		4C3FC5FA278C5DED00648BC3 /* RegistrationStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep1View.swift; sourceTree = "<group>"; };
 		4C3FC5FC278C5DEF00648BC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C3FC5FF278C5DEF00648BC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C6072F127E2FA1E0040E894 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		4C6072F327E319D20040E894 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
+		4C6072F627E31B850040E894 /* MyMatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMatchesView.swift; sourceTree = "<group>"; };
+		4C6072F827E33FAB0040E894 /* MyMatchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMatchesViewModel.swift; sourceTree = "<group>"; };
+		4C6072FA27E340A50040E894 /* MyMatchesListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMatchesListResponse.swift; sourceTree = "<group>"; };
 		4C6A422527D8C85500A20289 /* UploadProfilePictureResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProfilePictureResponse.swift; sourceTree = "<group>"; };
 		4C6A422727D8D5BA00A20289 /* AddressListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListView.swift; sourceTree = "<group>"; };
 		4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AppInvokeSDK.xcframework; sourceTree = "<group>"; };
@@ -259,6 +274,11 @@
 		4CD81A94278EE17400F4DD90 /* RazorPayOrderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RazorPayOrderRequest.swift; sourceTree = "<group>"; };
 		4CD81A95278EE17400F4DD90 /* ShopRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopRequest.swift; sourceTree = "<group>"; };
 		4CD81AA1278EF56700F4DD90 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4CDFC84C27DF168200F54511 /* TournamentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentListView.swift; sourceTree = "<group>"; };
+		4CDFC84E27DF1C9500F54511 /* TournamentListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentListResponse.swift; sourceTree = "<group>"; };
+		4CDFC85027DF208600F54511 /* TournamentCategoryListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCategoryListResponse.swift; sourceTree = "<group>"; };
+		4CDFC85227DF20D600F54511 /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
+		4CDFC85427DF5A9700F54511 /* TournamentCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCategoryListView.swift; sourceTree = "<group>"; };
 		4CE8975627D2103B000AF545 /* PaytmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaytmView.swift; sourceTree = "<group>"; };
 		4CE8975827D2127A000AF545 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
 		4CF2FE1027A7DC4300290D85 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
@@ -336,6 +356,15 @@
 				4C3FC5FF278C5DEF00648BC3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C6072F527E31B640040E894 /* MyMatches */ = {
+			isa = PBXGroup;
+			children = (
+				4C6072F627E31B850040E894 /* MyMatchesView.swift */,
+				4C6072F827E33FAB0040E894 /* MyMatchesViewModel.swift */,
+			);
+			path = MyMatches;
 			sourceTree = "<group>";
 		};
 		4C7710D4278FFBEB00F4BB8A /* utils */ = {
@@ -450,6 +479,7 @@
 		4C8E740927992ABC00D2E8D7 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				4C6072F327E319D20040E894 /* PagerView.swift */,
 				4C7C72592797D53B00C7BF02 /* DefaultPlaceholder.swift */,
 				4C7C726627982D5000C7BF02 /* PrimaryButtonView.swift */,
 				4C8E7418279A915500D2E8D7 /* EntryFieldWithValidation.swift */,
@@ -494,6 +524,8 @@
 		4CD81A46278EA58300F4DD90 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				4CDFC84B27DF117C00F54511 /* Tournament */,
+				4C6072F527E31B640040E894 /* MyMatches */,
 				4C92E7DA27B7B5B0000CEF20 /* profile */,
 				4CD81A61278EB8E900F4DD90 /* Login */,
 				4C8E740827992A9D00D2E8D7 /* Registration */,
@@ -559,6 +591,9 @@
 				4C9D56E227D75608006F50EB /* MemberProfileResponse.swift */,
 				4C6A422527D8C85500A20289 /* UploadProfilePictureResponse.swift */,
 				4C81A67927D9D816000F6529 /* AddressListResponse.swift */,
+				4CDFC84E27DF1C9500F54511 /* TournamentListResponse.swift */,
+				4CDFC85027DF208600F54511 /* TournamentCategoryListResponse.swift */,
+				4C6072FA27E340A50040E894 /* MyMatchesListResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -593,8 +628,19 @@
 				4CD81A83278EDDEC00F4DD90 /* Defaults.swift */,
 				4CD81AA1278EF56700F4DD90 /* Extensions.swift */,
 				4C7BF77E2796DCD700C70C37 /* AlertDialog.swift */,
+				4C6072F127E2FA1E0040E894 /* Events.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		4CDFC84B27DF117C00F54511 /* Tournament */ = {
+			isa = PBXGroup;
+			children = (
+				4CDFC84C27DF168200F54511 /* TournamentListView.swift */,
+				4CDFC85227DF20D600F54511 /* TournamentViewModel.swift */,
+				4CDFC85427DF5A9700F54511 /* TournamentCategoryListView.swift */,
+			);
+			path = Tournament;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -710,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9D56DF27D72389006F50EB /* EditProfileView.swift in Sources */,
+				4CDFC85327DF20D600F54511 /* TournamentViewModel.swift in Sources */,
 				4CA41B9C27CCE6F900EF9EF9 /* PromoCodesResponse.swift in Sources */,
 				4CD81A9C278EE17400F4DD90 /* ShopProductDetailRequest.swift in Sources */,
 				4CD0C56727B0E883005E9304 /* AddDocumentViewModel.swift in Sources */,
@@ -728,6 +775,7 @@
 				4CD81A5D278EB88F00F4DD90 /* PromiseHandler.swift in Sources */,
 				4C9E0BB927AE81640048AAA5 /* ImagePicker.swift in Sources */,
 				4CFFEA7927A058A500A722D6 /* ShopProductDetailViewModel.swift in Sources */,
+				4CDFC84F27DF1C9500F54511 /* TournamentListResponse.swift in Sources */,
 				4C7C72612797DBB200C7BF02 /* PreferedSportView.swift in Sources */,
 				4CD81A9A278EE17400F4DD90 /* SignInRequest.swift in Sources */,
 				4CE8975727D2103B000AF545 /* PaytmView.swift in Sources */,
@@ -735,10 +783,12 @@
 				4CAD8A0427ABE4210012BFBC /* CircleInfoResponse.swift in Sources */,
 				4C24843327D6165F008276CE /* DocumentListResponse.swift in Sources */,
 				4C7839AF27A3D83F00458FED /* CheckoutView.swift in Sources */,
+				4C6072F227E2FA1E0040E894 /* Events.swift in Sources */,
 				4C24843127D6150A008276CE /* DocumentListView.swift in Sources */,
 				4CD81A88278EDE4000F4DD90 /* Utils.swift in Sources */,
 				4CD81A9D278EE17400F4DD90 /* NewsRequest.swift in Sources */,
 				4CD81A72278EB99900F4DD90 /* SignInResponse.swift in Sources */,
+				4CDFC85527DF5A9700F54511 /* TournamentCategoryListView.swift in Sources */,
 				4CD81A8A278EDE4700F4DD90 /* Constants.swift in Sources */,
 				4C979D79279FC61600180161 /* CustomDialog.swift in Sources */,
 				4C7CDF6927A54279009D6D76 /* MyCircleViewModel.swift in Sources */,
@@ -754,6 +804,7 @@
 				4CD81A7B278EB99900F4DD90 /* MyCircleResponse.swift in Sources */,
 				4C808E6C27956C1A00901CD9 /* HomeView.swift in Sources */,
 				4C808E6827952C8E00901CD9 /* NewsView.swift in Sources */,
+				4C6072F427E319D20040E894 /* PagerView.swift in Sources */,
 				4CD81A79278EB99900F4DD90 /* ShopResponse.swift in Sources */,
 				4C808E7227956CE600901CD9 /* MoreView.swift in Sources */,
 				4CD81AA2278EF56800F4DD90 /* Extensions.swift in Sources */,
@@ -784,6 +835,7 @@
 				4CD81A74278EB99900F4DD90 /* NewsResponse.swift in Sources */,
 				4CD81A7A278EB99900F4DD90 /* RazorPayOrderResponse.swift in Sources */,
 				4CD81A99278EE17400F4DD90 /* RemoveCartItemRequest.swift in Sources */,
+				4CDFC84D27DF168200F54511 /* TournamentListView.swift in Sources */,
 				4C81A67A27D9D816000F6529 /* AddressListResponse.swift in Sources */,
 				4CD81A71278EB99900F4DD90 /* SearchCircleResponse.swift in Sources */,
 				4C8E7419279A915500D2E8D7 /* EntryFieldWithValidation.swift in Sources */,
@@ -805,12 +857,16 @@
 				4C8E7417279A696100D2E8D7 /* RegistrationOTPView.swift in Sources */,
 				4CD81A97278EE17400F4DD90 /* AddToCartRequest.swift in Sources */,
 				4C25B49F27968CB50070D1BF /* NewsViewModel.swift in Sources */,
+				4C6072FB27E340A50040E894 /* MyMatchesListResponse.swift in Sources */,
 				4CD81A60278EB88F00F4DD90 /* Error+.swift in Sources */,
 				4C7C726727982D5000C7BF02 /* PrimaryButtonView.swift in Sources */,
 				4C808E6E27956CCA00901CD9 /* MyCircleView.swift in Sources */,
 				4CD25DCB27A8FBD1004490D6 /* GalleryListView.swift in Sources */,
 				4C9D56E127D7258D006F50EB /* EditProfileViewModel.swift in Sources */,
 				4C9F2A6A27CE3E5E00F9D5ED /* MyProfileView.swift in Sources */,
+				4C6072F727E31B850040E894 /* MyMatchesView.swift in Sources */,
+				4C6072F927E33FAB0040E894 /* MyMatchesViewModel.swift in Sources */,
+				4CDFC85127DF208600F54511 /* TournamentCategoryListResponse.swift in Sources */,
 				4C7C726527982BB100C7BF02 /* ForgotPasswordView.swift in Sources */,
 				4C92D4D427B7C756002CA1E5 /* ProfileViewModel.swift in Sources */,
 				4C0F9CB927CF8C0200EE2040 /* OrderHistoryResponse.swift in Sources */,

@@ -20,65 +20,71 @@ extension UserDefaults {
         static let preferredSportId = "preferredSportId"
         static let preferredSportName = "preferredSportName"
         static let preferredSportLogoUrl = "preferredSportLogoUrl"
+        static let preferredCircleId = "preferredCircleId"
     }
 
     class var jwtKey: String {
-        get { return UserDefaults.standard.string(forKey: Keys.jwtKey) ?? Constants.DEFAULT_TOKEN }
+        get { UserDefaults.standard.string(forKey: Keys.jwtKey) ?? Constants.DEFAULT_TOKEN }
         set { UserDefaults.standard.set(newValue, forKey: Keys.jwtKey) }
     }
 
     class var isLoggedIn: Bool {
-        get { return UserDefaults.standard.bool(forKey: Keys.isLoggedIn) }
+        get { UserDefaults.standard.bool(forKey: Keys.isLoggedIn) }
         set { UserDefaults.standard.set(newValue, forKey: Keys.isLoggedIn) }
     }
 
     class var memberId: Int {
-        get { return UserDefaults.standard.integer(forKey: Keys.memberId) }
+        get { UserDefaults.standard.integer(forKey: Keys.memberId) }
         set { UserDefaults.standard.set(newValue, forKey: Keys.memberId) }
     }
 
     class var userFirstName: String {
-        get { return UserDefaults.standard.string(forKey: Keys.userFirstName) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.userFirstName) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.userFirstName) }
     }
 
     class var userLastName: String {
-        get { return UserDefaults.standard.string(forKey: Keys.userLastName) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.userLastName) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.userLastName) }
     }
 
     class var email: String {
-        get { return UserDefaults.standard.string(forKey: Keys.email) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.email) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.email) }
     }
 
     class var phoneNo: String {
-        get { return UserDefaults.standard.string(forKey: Keys.phoneNo) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.phoneNo) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.phoneNo) }
     }
 
     class var profilePictureUrl: String {
-        get { return UserDefaults.standard.string(forKey: Keys.profilePictureUrl) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.profilePictureUrl) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.profilePictureUrl) }
     }
 
     class var relationshipType: String {
-        get { return UserDefaults.standard.string(forKey: Keys.relationshipType) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.relationshipType) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.relationshipType) }
     }
 
     class var preferredSportId: Int {
-        get { return UserDefaults.standard.integer(forKey: Keys.preferredSportId) }
+        get { UserDefaults.standard.integer(forKey: Keys.preferredSportId) }
         set { UserDefaults.standard.set(newValue, forKey: Keys.preferredSportId) }
     }
 
     class var preferredSportName: String {
-        get { return UserDefaults.standard.string(forKey: Keys.preferredSportName) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.preferredSportName) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.preferredSportName) }
     }
 
     class var preferredSportLogoUrl: String {
-        get { return UserDefaults.standard.string(forKey: Keys.preferredSportLogoUrl) ?? "" }
+        get { UserDefaults.standard.string(forKey: Keys.preferredSportLogoUrl) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: Keys.preferredSportLogoUrl) }
+    }
+
+    class var preferredCircleId: Int {
+        get { UserDefaults.standard.integer(forKey: Keys.preferredCircleId) }
+        set { UserDefaults.standard.set(newValue, forKey: Keys.preferredCircleId) }
     }
 }

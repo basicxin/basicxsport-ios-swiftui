@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NewsView: View {
     @StateObject private var viewModel = NewsViewModel()
-
+    @StateObject var refresh = Events.shared
     var body: some View {
         List(viewModel.newsList, id: \.self) { news in
             Link(destination: URL(string: news.publishedNewsURL)!) {
@@ -18,6 +18,16 @@ struct NewsView: View {
             }
         }
         .listStyle(.plain)
+        .onReceive(refresh.$myCircleChanged, perform: { isCircleChanged in
+            if isCircleChanged {
+                viewModel.getNews(isNew: true, time: 0)
+            }
+        })
+        .onReceive(refresh.$newCirclePurchased, perform: { newCirclePurchased in
+            if newCirclePurchased {
+                viewModel.getNews(isNew: true, time: 0)
+            }
+        })
         .customProgressDialog(isShowing: $viewModel.isLoading, progressContent: {
             ProgressView("Loading...")
         })
@@ -29,7 +39,7 @@ struct NewsView: View {
                     alert.dismissAction?()
                 }
             )
-        } 
+        }
     }
 }
 

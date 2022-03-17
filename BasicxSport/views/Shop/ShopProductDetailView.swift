@@ -10,6 +10,7 @@ import Kingfisher
 import SwiftUI
 struct ShopProductDetailView: View {
     @ObservedObject var viewModel = ShopProductDetailViewModel()
+    @ObservedObject var cartViewModel = CartViewHolder()
     @State var shouldShowCartView = false
     var productId: Int
 
@@ -65,7 +66,9 @@ struct ShopProductDetailView: View {
                     if viewModel.isProductInCart == true {
                         shouldShowCartView = true
                     } else {
-                        viewModel.addToCart(objectId: productId, itemType: Constants.ITEM_TYPE_MERCHANDISE) {}
+                        cartViewModel.addToCart(objectId: productId, itemType: Constants.ITEM_TYPE_MERCHANDISE) {
+                            viewModel.isProductInCart = true
+                        }
                     }
                 } label: {
                     if viewModel.isProductInCart == true {

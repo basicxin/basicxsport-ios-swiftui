@@ -10,6 +10,7 @@ import SwiftUI
 
 class UserSettings: ObservableObject {
     @Published var loggedIn: Bool = false
+    @Published var refreshView: Bool = false
 
     init() {
         loggedIn = UserDefaults.isLoggedIn

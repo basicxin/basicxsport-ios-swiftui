@@ -33,7 +33,7 @@ struct Member: Codable {
 
 // MARK: - Sport
 
-struct Sport: Codable {
+struct Sport: Codable, Hashable {
     let id: Int
     let name: String
     let sportIconURL: String
@@ -43,4 +43,3 @@ struct Sport: Codable {
         case sportIconURL = "sportIconUrl"
     }
 }
- 

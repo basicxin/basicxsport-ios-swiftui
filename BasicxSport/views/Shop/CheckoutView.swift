@@ -24,7 +24,7 @@ struct CheckoutView: View {
                 VStack {
                     PaytmView(aiModel: AIModel(merchantId: "IzTqME52588233114427", orderId: orderNoWithTimestamp, txnToken: viewModel.paytmToken!, amount: value, callbackUrl: callbackUrl), response: $paytmResponse)
                         .navigationBarHidden(true)
-                    .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitleDisplayMode(.inline)
                 }
             }
 
@@ -55,6 +55,7 @@ struct CheckoutView: View {
 
 struct ReceiptView: View {
     @Environment(\.dismiss) var dismiss
+    @StateObject var refresh = Events.shared
     var paytmResponse: [String: Any]
     var body: some View {
         VStack {
@@ -106,8 +107,11 @@ struct ReceiptView: View {
             } label: {
                 Text("Done")
             }.buttonStyle(.borderedProminent)
-
-        }.fullSize()
+        }
+        .fullSize()
+        .onAppear {
+            refresh.newCirclePurchased = true
+        }
     }
 }
 

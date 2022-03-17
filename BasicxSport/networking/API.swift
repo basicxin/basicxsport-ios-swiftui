@@ -45,24 +45,7 @@ struct API: NetworkingService {
                                     "fcmToken": request.fcmToken])
     }
 
-    func forgetPassword(emailAddress: String, apiKey: String) -> AnyPublisher<DefaultResponseAIM, Error> {
-        post(URLs.FORGOT_PASSWORD, params: ["emailAddress": emailAddress,
-                                            "apiKey": apiKey])
-    }
-
     // MARK: Sign in / Sign up
-
-    func getDistricts(withStateId stateId: Int) -> AnyPublisher<BaseResponse<DistrictResponse>, Error> {
-        get("\(URLs.DISTRICTS)/\(stateId)")
-    }
-
-    func getStates() -> AnyPublisher<BaseResponse<StateResponse>, Error> {
-        get(URLs.STATES)
-    }
-
-    func getSportList() -> AnyPublisher<BaseResponse<SportsListResponse>, Error> {
-        get(URLs.SPORTS)
-    }
 
     func getOTP(mobile: String, apiKey: String) -> AnyPublisher<MobileOtpResponse, Error> {
         get(URLs.MOBILE_OTP, params: ["mobile": mobile, "apiKey": apiKey])
@@ -180,6 +163,23 @@ struct API: NetworkingService {
 
     // MARK: User  APIs
 
+    func forgetPassword(emailAddress: String, apiKey: String) -> AnyPublisher<DefaultResponseAIM, Error> {
+        post(URLs.FORGOT_PASSWORD, params: ["emailAddress": emailAddress,
+                                            "apiKey": apiKey])
+    }
+
+    func getDistricts(withStateId stateId: Int) -> AnyPublisher<BaseResponse<DistrictResponse>, Error> {
+        get("\(URLs.DISTRICTS)/\(stateId)")
+    }
+
+    func getStates() -> AnyPublisher<BaseResponse<StateResponse>, Error> {
+        get(URLs.STATES)
+    }
+
+    func getSportList() -> AnyPublisher<BaseResponse<SportsListResponse>, Error> {
+        get(URLs.SPORTS)
+    }
+
     func changePassword(newPassword: String, oldPassword: String) -> AnyPublisher<BaseResponse<EmptyData>, Error> {
         post(URLs.CHANGE_PASSWORD, params: ["newPassword": newPassword,
                                             "oldPassword": oldPassword])
@@ -243,6 +243,8 @@ struct API: NetworkingService {
                                                        "dob": dob])
     }
 
+    // MARK: User Address
+
     func getAddresses() -> AnyPublisher<BaseResponse<AddressListResponse>, Error> {
         get(URLs.ADDRESSES)
     }
@@ -262,6 +264,19 @@ struct API: NetworkingService {
     func addAddress(memberId: Int, apiKey: String, countryId: String, stateId: Int, districtId: Int, city: String, postalCode: String, streetAddress: String, addressType: String) -> AnyPublisher<DefaultResponseAIM, Error>
     {
         get(URLs.ADD_ADDRESS, params: ["memberId": memberId,
+                                       "apiKey": apiKey,
+                                       "countryId": countryId,
+                                       "stateId": stateId,
+                                       "districtId": districtId,
+                                       "city": city,
+                                       "postalcode": postalCode,
+                                       "streetAddress": streetAddress,
+                                       "addressType": addressType])
+    }
+
+    func updateAddress(memberId: Int, apiKey: String, countryId: String, stateId: Int, districtId: Int, city: String, postalCode: String, streetAddress: String, addressType: String, addressId: Int) -> AnyPublisher<DefaultResponseAIM, Error>
+    {
+        get(URLs.UPDATE_ADDRESS, params: ["memberId": memberId,
                                           "apiKey": apiKey,
                                           "countryId": countryId,
                                           "stateId": stateId,
@@ -269,6 +284,21 @@ struct API: NetworkingService {
                                           "city": city,
                                           "postalcode": postalCode,
                                           "streetAddress": streetAddress,
-                                          "addressType": addressType])
+                                          "addressType": addressType,
+                                          "objectId": addressId])
+    }
+
+    // MARK: Tournament APIs
+
+    func getTournaments(circleId: Int) -> AnyPublisher<BaseResponse<TournamentListResponse>, Error> {
+        get(URLs.TOURNAMENTS.appending(circleId.string))
+    }
+
+    func getTournamentCategories(tournamentId: Int) -> AnyPublisher<BaseResponse<TournamentCategoryListResponse>, Error> {
+        get(URLs.TOURNAMENT_CATEGORIES.appending(tournamentId.string))
+    }
+
+    func getMyMatches(matchType: String) -> AnyPublisher<BaseResponse<MyMatchesListResponse>, Error> {
+        get(URLs.MATCH_LIST, params: ["matchStatus": matchType])
     }
 }

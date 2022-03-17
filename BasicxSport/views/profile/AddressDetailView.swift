@@ -11,15 +11,14 @@ struct AddressDetailView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = AddressViewModel()
     var isEditMode = false
-
+    var address: Address?
     init() {
         self.isEditMode = false
     }
 
     init(address: Address) {
         self.isEditMode = true
-        viewModel.addressType = address.addressType!
-        viewModel.streetAddress = address.streetAddress!
+        self.address = address
     }
 
     var body: some View {
@@ -50,7 +49,7 @@ struct AddressDetailView: View {
                 Group {
                     Text("Country").font(.subheadline).fontWeight(.light) + Text("*").foregroundColor(.red)
                     Picker(selection: $viewModel.country, label: Text("Country")) {
-                        Text("India")
+                        Text(Constants.DEFAULT_COUNTRY_NAME)
                     }
                     Divider()
 
@@ -93,14 +92,27 @@ struct AddressDetailView: View {
             }
         }
         .padding()
-        .onAppear(perform: {
+        .onAppear {
+            if address != nil {
+                viewModel.addressType = address!.addressType!
+                viewModel.streetAddress = address!.streetAddress!
+                viewModel.city = address!.city!
+                viewModel.postalCode = address!.postalCode!
+                viewModel.country = Constants.DEFAULT_COUNTRY_NAME
+            }
             viewModel.getStates()
-        })
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    viewModel.addAddress(countryId: "145682", stateId: viewModel.states[viewModel.selectedStateIndex].id, districtId: viewModel.districts[viewModel.selectedDistrictIndex].id, city: viewModel.city, postalCode: viewModel.postalCode, streetAddress: viewModel.streetAddress, addressType: viewModel.addressType) {
-                        dismiss()
+                    if isEditMode {
+                        viewModel.updateAddress(countryId: Constants.DEFAULT_COUNTRY_ID, stateId: viewModel.states[viewModel.selectedStateIndex].id, districtId: viewModel.districts[viewModel.selectedDistrictIndex].id, city: viewModel.city, postalCode: viewModel.postalCode, streetAddress: viewModel.streetAddress, addressType: viewModel.addressType, addressId: address!.id) {
+                            dismiss()
+                        }
+                    } else {
+                        viewModel.addAddress(countryId: Constants.DEFAULT_COUNTRY_ID, stateId: viewModel.states[viewModel.selectedStateIndex].id, districtId: viewModel.districts[viewModel.selectedDistrictIndex].id, city: viewModel.city, postalCode: viewModel.postalCode, streetAddress: viewModel.streetAddress, addressType: viewModel.addressType) {
+                            dismiss()
+                        }
                     }
                 } label: {
                     if isEditMode {
