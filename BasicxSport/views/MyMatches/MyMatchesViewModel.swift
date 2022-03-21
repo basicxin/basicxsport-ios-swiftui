@@ -19,12 +19,7 @@ class MyMatchesViewModel: ObservableObject {
     @Published var inPlayMatches = [Match]()
     @Published var completedMatches = [Match]()
 
-    init() {
-        getMyMatches(matchType: Constants.Matches.MATCH_STATUS_OPEN)
-        getMyMatches(matchType: Constants.Matches.MATCH_STATUS_IN_PLAY)
-        getMyMatches(matchType: Constants.Matches.MATCH_STATUS_COMPLETED)
-    }
-
+ 
     func getMyMatches(matchType: String) {
         isLoading = true
         let promise = api.getMyMatches(matchType: matchType)

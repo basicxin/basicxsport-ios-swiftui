@@ -15,33 +15,33 @@ struct MyMatchesListResponse: Codable {
 
 // MARK: - Match
 
-struct Match: Codable , Hashable{
+struct Match: Codable, Hashable {
     let id, startTime: Int
     let matchName: String
     let endTime: Int
     let status, matchType: String
     let isBye: Bool
     let winner: MyMatchesWinner?
-    let team1, team2: MyMatchesTeam
+    let team1, team2: MyMatchesTeam?
     let sets: [MyMatchesSet]
 }
 
 // MARK: - Set
 
-struct MyMatchesSet: Codable  , Hashable{
+struct MyMatchesSet: Codable, Hashable {
     let id, setNo, playerAScore, playerBScore: Int
     let winner: String
 }
 
 // MARK: - Set
 
-struct MyMatchesWinner: Codable , Hashable {
+struct MyMatchesWinner: Codable, Hashable {
     let winnerId: Int
 }
 
 // MARK: - Team
 
-struct MyMatchesTeam: Codable , Hashable {
+struct MyMatchesTeam: Codable, Hashable {
     let id: Int
     let name, seatType: String
     let teamLogoUrl: String
@@ -50,7 +50,7 @@ struct MyMatchesTeam: Codable , Hashable {
 
 // MARK: - Player
 
-struct MyMatchesPlayer: Codable , Hashable {
+struct MyMatchesPlayer: Codable, Hashable {
     let id: Int
     let name: String
     let profilePictureUrl: String

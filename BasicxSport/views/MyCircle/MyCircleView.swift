@@ -116,7 +116,9 @@ struct MyCircleView: View {
                             AppFeatureRow(imageName: "photo.on.rectangle", menuText: "Gallery")
                         }
 
-                        NavigationLink {} label: {
+                        NavigationLink {
+                            MyMatchesView()
+                        } label: {
                             AppFeatureRow(imageName: "gamecontroller", menuText: "My Matches")
                         }
 
