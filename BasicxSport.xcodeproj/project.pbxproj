@@ -71,8 +71,8 @@
 		4C94B10527E885A400DB17E9 /* RazorPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10427E885A400DB17E9 /* RazorPayView.swift */; };
 		4C94B10727E8895500DB17E9 /* RazorPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */; };
 		4C962AD127EAF3250030800D /* TournamentLocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */; };
-		4C962AD327EB34520030800D /* TournamentRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD227EB34520030800D /* TournamentRulesView.swift */; };
 		4C962AD527EB36C30030800D /* TournamentRulesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */; };
+		4C962AD727EB446B0030800D /* TournamentRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD627EB446B0030800D /* TournamentRulesView.swift */; };
 		4C979D79279FC61600180161 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C979D78279FC61600180161 /* CustomDialog.swift */; };
 		4C979D7B279FE3B300180161 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C979D7A279FE3B200180161 /* ShopViewModel.swift */; };
 		4C9D56DF27D72389006F50EB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D56DE27D72389006F50EB /* EditProfileView.swift */; };
@@ -231,8 +231,8 @@
 		4C94B10427E885A400DB17E9 /* RazorPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayView.swift; sourceTree = "<group>"; };
 		4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayViewController.swift; sourceTree = "<group>"; };
 		4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentLocationMapView.swift; sourceTree = "<group>"; };
-		4C962AD227EB34520030800D /* TournamentRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentRulesView.swift; sourceTree = "<group>"; };
 		4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentRulesResponse.swift; sourceTree = "<group>"; };
+		4C962AD627EB446B0030800D /* TournamentRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentRulesView.swift; sourceTree = "<group>"; };
 		4C979D78279FC61600180161 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		4C979D7A279FE3B200180161 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		4C9D56DE27D72389006F50EB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -676,7 +676,7 @@
 				4CDFC85227DF20D600F54511 /* TournamentViewModel.swift */,
 				4CDFC85427DF5A9700F54511 /* TournamentCategoryListView.swift */,
 				4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */,
-				4C962AD227EB34520030800D /* TournamentRulesView.swift */,
+				4C962AD627EB446B0030800D /* TournamentRulesView.swift */,
 			);
 			path = Tournament;
 			sourceTree = "<group>";
@@ -800,6 +800,7 @@
 				4CD0C56727B0E883005E9304 /* AddDocumentViewModel.swift in Sources */,
 				4CD81A81278EBC1600F4DD90 /* API.swift in Sources */,
 				4C8E740F27992FA200D2E8D7 /* MobileOtpResponse.swift in Sources */,
+				4C962AD727EB446B0030800D /* TournamentRulesView.swift in Sources */,
 				4CFFDE0827D0B6C400A6C58D /* InfiniteList.swift in Sources */,
 				4CFFEA7727A0495500A722D6 /* ShopProductDetailView.swift in Sources */,
 				4CB0977F27D0C55E0015C4AF /* OrderHistoryDetailView.swift in Sources */,
@@ -910,7 +911,6 @@
 				4C9F2A6A27CE3E5E00F9D5ED /* MyProfileView.swift in Sources */,
 				4C6072F727E31B850040E894 /* MyMatchesView.swift in Sources */,
 				4C6072F927E33FAB0040E894 /* MyMatchesViewModel.swift in Sources */,
-				4C962AD327EB34520030800D /* TournamentRulesView.swift in Sources */,
 				4CDFC85127DF208600F54511 /* TournamentCategoryListResponse.swift in Sources */,
 				4C7C726527982BB100C7BF02 /* ForgotPasswordView.swift in Sources */,
 				4C92D4D427B7C756002CA1E5 /* ProfileViewModel.swift in Sources */,
