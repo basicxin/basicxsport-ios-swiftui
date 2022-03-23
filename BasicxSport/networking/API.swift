@@ -76,6 +76,20 @@ struct API: NetworkingService {
                                     "districtId": request.districtId])
     }
 
+    func addNewChild(_ request: RegisterNewChildRequest) -> AnyPublisher<DefaultResponseAIM, Error> {
+        post(URLs.NEW_RELATION_REGISTRATION, params: ["firstName": request.firstName,
+                                                      "lastName": request.lastName,
+                                                      "title": request.title,
+                                                      "gender": request.gender,
+                                                      "dob": request.dob,
+                                                      "os": request.os,
+                                                      "apiKey": request.apiKey,
+                                                      "memberId": request.memberId,
+                                                      "sportId": request.sportId,
+                                                      "stateId": request.stateId,
+                                                      "districtId": request.districtId])
+    }
+
     // MARK: News
 
     func getNews(isNew: Bool, time: Int64) -> AnyPublisher<BaseResponse<NewsResponse>, Error> {
@@ -297,8 +311,15 @@ struct API: NetworkingService {
     func getTournamentCategories(tournamentId: Int) -> AnyPublisher<BaseResponse<TournamentCategoryListResponse>, Error> {
         get(URLs.TOURNAMENT_CATEGORIES.appending(tournamentId.string))
     }
+    func getTournamentRules(tournamentId: Int) -> AnyPublisher<BaseResponse<TournamentRulesResponse>, Error> {
+        get(URLs.TOURNAMENT_RULES.appending(tournamentId.string))
+    }
 
     func getMyMatches(matchType: String) -> AnyPublisher<BaseResponse<MyMatchesListResponse>, Error> {
         get(URLs.MATCH_LIST, params: ["matchStatus": matchType])
+    }
+
+    func getMyWall() -> AnyPublisher<BaseResponse<MyWallResponse>, Error> {
+        get(URLs.MY_WALL)
     }
 }

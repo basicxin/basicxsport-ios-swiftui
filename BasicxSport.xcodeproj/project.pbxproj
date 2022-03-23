@@ -11,6 +11,7 @@
 		4C0F9CB927CF8C0200EE2040 /* OrderHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9CB827CF8C0200EE2040 /* OrderHistoryResponse.swift */; };
 		4C1699AC27DB187900A633E4 /* AddressDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1699AB27DB187900A633E4 /* AddressDetailView.swift */; };
 		4C1699AE27DB24DF00A633E4 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1699AD27DB24DF00A633E4 /* AddressViewModel.swift */; };
+		4C18553D27E89E87003A6673 /* MyWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18553C27E89E87003A6673 /* MyWallView.swift */; };
 		4C202CA527A2726D0009B587 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C202CA427A2726D0009B587 /* CartView.swift */; };
 		4C202CA727A2B90B0009B587 /* CartViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C202CA627A2B90B0009B587 /* CartViewHolder.swift */; };
 		4C24843127D6150A008276CE /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24843027D6150A008276CE /* DocumentListView.swift */; };
@@ -27,12 +28,12 @@
 		4C6072FB27E340A50040E894 /* MyMatchesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6072FA27E340A50040E894 /* MyMatchesListResponse.swift */; };
 		4C6A422627D8C85500A20289 /* UploadProfilePictureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A422527D8C85500A20289 /* UploadProfilePictureResponse.swift */; };
 		4C6A422827D8D5BB00A20289 /* AddressListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A422727D8D5BA00A20289 /* AddressListView.swift */; };
-		4C6D6C0A27B52DCD00C6CC89 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D6C0927B52DCD00C6CC89 /* CheckoutViewModel.swift */; };
+		4C6D6C0A27B52DCD00C6CC89 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D6C0927B52DCD00C6CC89 /* PaymentViewModel.swift */; };
 		4C6D6C0C27B52F3D00C6CC89 /* PaytmTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D6C0B27B52F3D00C6CC89 /* PaytmTokenResponse.swift */; };
 		4C6D6C0D27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */; };
 		4C6D6C0E27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4C7839AF27A3D83F00458FED /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7839AE27A3D83F00458FED /* CheckoutView.swift */; };
-		4C7839BB27A418DC00458FED /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7839BA27A418DC00458FED /* CheckoutViewController.swift */; };
+		4C7839AF27A3D83F00458FED /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7839AE27A3D83F00458FED /* PaymentView.swift */; };
+		4C7839BB27A418DC00458FED /* PaytmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7839BA27A418DC00458FED /* PaytmViewController.swift */; };
 		4C7BF77F2796DCD800C70C37 /* AlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7BF77E2796DCD700C70C37 /* AlertDialog.swift */; };
 		4C7BF7812796FC0000C70C37 /* CircleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7BF7802796FC0000C70C37 /* CircleListViewModel.swift */; };
 		4C7C725A2797D53B00C7BF02 /* DefaultPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C72592797D53B00C7BF02 /* DefaultPlaceholder.swift */; };
@@ -52,6 +53,8 @@
 		4C8372CF27A94B19009AB7DA /* GalleryPhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8372CE27A94B19009AB7DA /* GalleryPhotoListView.swift */; };
 		4C8AA228278DAE1100D9009B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AA227278DAE1100D9009B /* LoginView.swift */; };
 		4C8AA22A278DAE9200D9009B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C8AA229278DAE9200D9009B /* Launch Screen.storyboard */; };
+		4C8DF6CD27E9941C00B7A025 /* MyWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DF6CC27E9941C00B7A025 /* MyWallViewModel.swift */; };
+		4C8DF6CF27E99A1200B7A025 /* MyWallResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DF6CE27E99A1200B7A025 /* MyWallResponse.swift */; };
 		4C8E7407279920C500D2E8D7 /* RegistrationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E7406279920C500D2E8D7 /* RegistrationUser.swift */; };
 		4C8E740B27992BB000D2E8D7 /* RegisterNewUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E740A27992BB000D2E8D7 /* RegisterNewUserRequest.swift */; };
 		4C8E740D27992D0C00D2E8D7 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E740C27992D0C00D2E8D7 /* SignUpResponse.swift */; };
@@ -63,6 +66,13 @@
 		4C92D4D427B7C756002CA1E5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D4D327B7C755002CA1E5 /* ProfileViewModel.swift */; };
 		4C92D4D627B7D987002CA1E5 /* UserBadgeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D4D527B7D987002CA1E5 /* UserBadgeResponse.swift */; };
 		4C92E7DC27B7B616000CEF20 /* MyBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92E7DB27B7B616000CEF20 /* MyBadgeView.swift */; };
+		4C94B10227E8721D00DB17E9 /* Razorpay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */; };
+		4C94B10327E8721D00DB17E9 /* Razorpay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C94B10527E885A400DB17E9 /* RazorPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10427E885A400DB17E9 /* RazorPayView.swift */; };
+		4C94B10727E8895500DB17E9 /* RazorPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */; };
+		4C962AD127EAF3250030800D /* TournamentLocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */; };
+		4C962AD327EB34520030800D /* TournamentRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD227EB34520030800D /* TournamentRulesView.swift */; };
+		4C962AD527EB36C30030800D /* TournamentRulesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */; };
 		4C979D79279FC61600180161 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C979D78279FC61600180161 /* CustomDialog.swift */; };
 		4C979D7B279FE3B300180161 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C979D7A279FE3B200180161 /* ShopViewModel.swift */; };
 		4C9D56DF27D72389006F50EB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D56DE27D72389006F50EB /* EditProfileView.swift */; };
@@ -149,6 +159,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4C6D6C0E27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Embed Frameworks */,
+				4C94B10327E8721D00DB17E9 /* Razorpay.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +171,7 @@
 		4C0F9CB827CF8C0200EE2040 /* OrderHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryResponse.swift; sourceTree = "<group>"; };
 		4C1699AB27DB187900A633E4 /* AddressDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailView.swift; sourceTree = "<group>"; };
 		4C1699AD27DB24DF00A633E4 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		4C18553C27E89E87003A6673 /* MyWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWallView.swift; sourceTree = "<group>"; };
 		4C202CA427A2726D0009B587 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		4C202CA627A2B90B0009B587 /* CartViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewHolder.swift; sourceTree = "<group>"; };
 		4C24843027D6150A008276CE /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
@@ -178,10 +190,10 @@
 		4C6A422527D8C85500A20289 /* UploadProfilePictureResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProfilePictureResponse.swift; sourceTree = "<group>"; };
 		4C6A422727D8D5BA00A20289 /* AddressListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListView.swift; sourceTree = "<group>"; };
 		4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AppInvokeSDK.xcframework; sourceTree = "<group>"; };
-		4C6D6C0927B52DCD00C6CC89 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		4C6D6C0927B52DCD00C6CC89 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		4C6D6C0B27B52F3D00C6CC89 /* PaytmTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaytmTokenResponse.swift; sourceTree = "<group>"; };
-		4C7839AE27A3D83F00458FED /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
-		4C7839BA27A418DC00458FED /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		4C7839AE27A3D83F00458FED /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		4C7839BA27A418DC00458FED /* PaytmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaytmViewController.swift; sourceTree = "<group>"; };
 		4C7BF77D2796CAEC00C70C37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C7BF77E2796DCD700C70C37 /* AlertDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertDialog.swift; path = BasicxSport/utils/AlertDialog.swift; sourceTree = SOURCE_ROOT; };
 		4C7BF7802796FC0000C70C37 /* CircleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleListViewModel.swift; sourceTree = "<group>"; };
@@ -202,6 +214,8 @@
 		4C8372CE27A94B19009AB7DA /* GalleryPhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoListView.swift; sourceTree = "<group>"; };
 		4C8AA227278DAE1100D9009B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4C8AA229278DAE9200D9009B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4C8DF6CC27E9941C00B7A025 /* MyWallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWallViewModel.swift; sourceTree = "<group>"; };
+		4C8DF6CE27E99A1200B7A025 /* MyWallResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWallResponse.swift; sourceTree = "<group>"; };
 		4C8E7406279920C500D2E8D7 /* RegistrationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUser.swift; sourceTree = "<group>"; };
 		4C8E740A27992BB000D2E8D7 /* RegisterNewUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewUserRequest.swift; sourceTree = "<group>"; };
 		4C8E740C27992D0C00D2E8D7 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
@@ -213,6 +227,12 @@
 		4C92D4D327B7C755002CA1E5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4C92D4D527B7D987002CA1E5 /* UserBadgeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBadgeResponse.swift; sourceTree = "<group>"; };
 		4C92E7DB27B7B616000CEF20 /* MyBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeView.swift; sourceTree = "<group>"; };
+		4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Razorpay.xcframework; sourceTree = "<group>"; };
+		4C94B10427E885A400DB17E9 /* RazorPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayView.swift; sourceTree = "<group>"; };
+		4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayViewController.swift; sourceTree = "<group>"; };
+		4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentLocationMapView.swift; sourceTree = "<group>"; };
+		4C962AD227EB34520030800D /* TournamentRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentRulesView.swift; sourceTree = "<group>"; };
+		4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentRulesResponse.swift; sourceTree = "<group>"; };
 		4C979D78279FC61600180161 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		4C979D7A279FE3B200180161 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		4C9D56DE27D72389006F50EB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -296,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C6D6C0D27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Frameworks */,
+				4C94B10227E8721D00DB17E9 /* Razorpay.xcframework in Frameworks */,
 				4CCC0A392790511800CE0928 /* Kingfisher in Frameworks */,
 				4CCC0A3C2790576700CE0928 /* SwifterSwift in Frameworks */,
 				4CD81A55278EB6A900F4DD90 /* Networking in Frameworks */,
@@ -315,9 +336,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4C18553B27E89E62003A6673 /* MyWall */ = {
+			isa = PBXGroup;
+			children = (
+				4C18553C27E89E87003A6673 /* MyWallView.swift */,
+				4C8DF6CC27E9941C00B7A025 /* MyWallViewModel.swift */,
+			);
+			path = MyWall;
+			sourceTree = "<group>";
+		};
 		4C3FC5EC278C5DED00648BC3 = {
 			isa = PBXGroup;
 			children = (
+				4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */,
 				4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */,
 				4C808E752795A53800901CD9 /* Localizable.strings */,
 				4C3FC5F7278C5DED00648BC3 /* BasicxSport */,
@@ -427,13 +458,15 @@
 				4CFFEA7827A058A500A722D6 /* ShopProductDetailViewModel.swift */,
 				4C202CA427A2726D0009B587 /* CartView.swift */,
 				4C202CA627A2B90B0009B587 /* CartViewHolder.swift */,
-				4C7839AE27A3D83F00458FED /* CheckoutView.swift */,
-				4C7839BA27A418DC00458FED /* CheckoutViewController.swift */,
-				4C6D6C0927B52DCD00C6CC89 /* CheckoutViewModel.swift */,
+				4C7839AE27A3D83F00458FED /* PaymentView.swift */,
+				4C6D6C0927B52DCD00C6CC89 /* PaymentViewModel.swift */,
 				4CA41B9727CCE30800EF9EF9 /* ApplyCouponView.swift */,
 				4CA41B9927CCE58000EF9EF9 /* ApplyCouponCodeViewModel.swift */,
 				4CE8975627D2103B000AF545 /* PaytmView.swift */,
+				4C7839BA27A418DC00458FED /* PaytmViewController.swift */,
 				4CE8975827D2127A000AF545 /* AIModel.swift */,
+				4C94B10427E885A400DB17E9 /* RazorPayView.swift */,
+				4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -536,6 +569,7 @@
 				4C7C725E2797DA8400C7BF02 /* Shop */,
 				4C7C725F2797DA8B00C7BF02 /* More */,
 				4CD25DC927A8FBA7004490D6 /* Gallery */,
+				4C18553B27E89E62003A6673 /* MyWall */,
 				4C8E740927992ABC00D2E8D7 /* common */,
 			);
 			path = views;
@@ -594,6 +628,8 @@
 				4CDFC84E27DF1C9500F54511 /* TournamentListResponse.swift */,
 				4CDFC85027DF208600F54511 /* TournamentCategoryListResponse.swift */,
 				4C6072FA27E340A50040E894 /* MyMatchesListResponse.swift */,
+				4C8DF6CE27E99A1200B7A025 /* MyWallResponse.swift */,
+				4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -639,6 +675,8 @@
 				4CDFC84C27DF168200F54511 /* TournamentListView.swift */,
 				4CDFC85227DF20D600F54511 /* TournamentViewModel.swift */,
 				4CDFC85427DF5A9700F54511 /* TournamentCategoryListView.swift */,
+				4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */,
+				4C962AD227EB34520030800D /* TournamentRulesView.swift */,
 			);
 			path = Tournament;
 			sourceTree = "<group>";
@@ -774,15 +812,17 @@
 				4CCC0A322790190800CE0928 /* RegistrationViewModel.swift in Sources */,
 				4CD81A5D278EB88F00F4DD90 /* PromiseHandler.swift in Sources */,
 				4C9E0BB927AE81640048AAA5 /* ImagePicker.swift in Sources */,
+				4C18553D27E89E87003A6673 /* MyWallView.swift in Sources */,
 				4CFFEA7927A058A500A722D6 /* ShopProductDetailViewModel.swift in Sources */,
 				4CDFC84F27DF1C9500F54511 /* TournamentListResponse.swift in Sources */,
 				4C7C72612797DBB200C7BF02 /* PreferedSportView.swift in Sources */,
 				4CD81A9A278EE17400F4DD90 /* SignInRequest.swift in Sources */,
 				4CE8975727D2103B000AF545 /* PaytmView.swift in Sources */,
+				4C962AD127EAF3250030800D /* TournamentLocationMapView.swift in Sources */,
 				4CD81A7D278EB99900F4DD90 /* CartResponse.swift in Sources */,
 				4CAD8A0427ABE4210012BFBC /* CircleInfoResponse.swift in Sources */,
 				4C24843327D6165F008276CE /* DocumentListResponse.swift in Sources */,
-				4C7839AF27A3D83F00458FED /* CheckoutView.swift in Sources */,
+				4C7839AF27A3D83F00458FED /* PaymentView.swift in Sources */,
 				4C6072F227E2FA1E0040E894 /* Events.swift in Sources */,
 				4C24843127D6150A008276CE /* DocumentListView.swift in Sources */,
 				4CD81A88278EDE4000F4DD90 /* Utils.swift in Sources */,
@@ -816,7 +856,9 @@
 				4CD81A5E278EB88F00F4DD90 /* LoginViewModel.swift in Sources */,
 				4C6D6C0C27B52F3D00C6CC89 /* PaytmTokenResponse.swift in Sources */,
 				4CAD8A0627ABE51F0012BFBC /* CircleInfoViewModel.swift in Sources */,
+				4C962AD527EB36C30030800D /* TournamentRulesResponse.swift in Sources */,
 				4CD81A7F278EBB6D00F4DD90 /* URLs.swift in Sources */,
+				4C8DF6CF27E99A1200B7A025 /* MyWallResponse.swift in Sources */,
 				4C8E741127998CD700D2E8D7 /* RegistrationStep2View.swift in Sources */,
 				4C8E7407279920C500D2E8D7 /* RegistrationUser.swift in Sources */,
 				4CD81A7C278EB99900F4DD90 /* ShopProductDetailResponse.swift in Sources */,
@@ -839,16 +881,17 @@
 				4C81A67A27D9D816000F6529 /* AddressListResponse.swift in Sources */,
 				4CD81A71278EB99900F4DD90 /* SearchCircleResponse.swift in Sources */,
 				4C8E7419279A915500D2E8D7 /* EntryFieldWithValidation.swift in Sources */,
-				4C7839BB27A418DC00458FED /* CheckoutViewController.swift in Sources */,
+				4C7839BB27A418DC00458FED /* PaytmViewController.swift in Sources */,
 				4CD81A9F278EE17400F4DD90 /* RazorPayOrderRequest.swift in Sources */,
 				4C8372CF27A94B19009AB7DA /* GalleryPhotoListView.swift in Sources */,
 				4C3FC5FB278C5DED00648BC3 /* RegistrationStep1View.swift in Sources */,
 				4CD81A98278EE17400F4DD90 /* SearchCircleRequest.swift in Sources */,
 				4C7C725A2797D53B00C7BF02 /* DefaultPlaceholder.swift in Sources */,
-				4C6D6C0A27B52DCD00C6CC89 /* CheckoutViewModel.swift in Sources */,
+				4C6D6C0A27B52DCD00C6CC89 /* PaymentViewModel.swift in Sources */,
 				4CD81AA0278EE17400F4DD90 /* ShopRequest.swift in Sources */,
 				4CBF87C727B64A98000371B6 /* ChangePasswordView.swift in Sources */,
 				4C7BF77F2796DCD800C70C37 /* AlertDialog.swift in Sources */,
+				4C94B10727E8895500DB17E9 /* RazorPayViewController.swift in Sources */,
 				4CD81A84278EDDEC00F4DD90 /* Defaults.swift in Sources */,
 				4C8E74152799B1CE00D2E8D7 /* RegistrationStep3View.swift in Sources */,
 				4CD81A73278EB99900F4DD90 /* SportsListResponse.swift in Sources */,
@@ -860,12 +903,14 @@
 				4C6072FB27E340A50040E894 /* MyMatchesListResponse.swift in Sources */,
 				4CD81A60278EB88F00F4DD90 /* Error+.swift in Sources */,
 				4C7C726727982D5000C7BF02 /* PrimaryButtonView.swift in Sources */,
+				4C94B10527E885A400DB17E9 /* RazorPayView.swift in Sources */,
 				4C808E6E27956CCA00901CD9 /* MyCircleView.swift in Sources */,
 				4CD25DCB27A8FBD1004490D6 /* GalleryListView.swift in Sources */,
 				4C9D56E127D7258D006F50EB /* EditProfileViewModel.swift in Sources */,
 				4C9F2A6A27CE3E5E00F9D5ED /* MyProfileView.swift in Sources */,
 				4C6072F727E31B850040E894 /* MyMatchesView.swift in Sources */,
 				4C6072F927E33FAB0040E894 /* MyMatchesViewModel.swift in Sources */,
+				4C962AD327EB34520030800D /* TournamentRulesView.swift in Sources */,
 				4CDFC85127DF208600F54511 /* TournamentCategoryListResponse.swift in Sources */,
 				4C7C726527982BB100C7BF02 /* ForgotPasswordView.swift in Sources */,
 				4C92D4D427B7C756002CA1E5 /* ProfileViewModel.swift in Sources */,
@@ -874,6 +919,7 @@
 				4C3FC5F9278C5DED00648BC3 /* BasicxSport.swift in Sources */,
 				4C92D4D627B7D987002CA1E5 /* UserBadgeResponse.swift in Sources */,
 				4CCC0A362790223800CE0928 /* StateResponse.swift in Sources */,
+				4C8DF6CD27E9941C00B7A025 /* MyWallViewModel.swift in Sources */,
 				4CA41B9827CCE30900EF9EF9 /* ApplyCouponView.swift in Sources */,
 				4CD81A78278EB99900F4DD90 /* UpdateCartItemResponse.swift in Sources */,
 				4C7C726327981FCE00C7BF02 /* EmptyData.swift in Sources */,
