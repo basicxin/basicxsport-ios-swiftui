@@ -36,7 +36,7 @@ struct MyMatchesSet: Codable, Hashable {
 // MARK: - Set
 
 struct MyMatchesWinner: Codable, Hashable {
-    let winnerId: Int
+    let id: Int
 }
 
 // MARK: - Team

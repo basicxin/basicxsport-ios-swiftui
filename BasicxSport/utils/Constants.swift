@@ -10,8 +10,6 @@ import Foundation
 struct Constants {
     static let NA = "NA"
     static let NoData = "No data available"
-    static let userDefaultIsLoggedIn = "userDefaultIsLoggedIn"
-    static let userDefaultMemberId = "userDefaultMemberId"
     static let DEFAULT_TOKEN = "bXTestKey"
     static let PLACEHOLDER_IMAGE = "basicxPlaceholder"
     static let RUPEE = "₹"
@@ -34,6 +32,10 @@ struct Constants {
     static let SLIDESHOW_TIME_PRODUCT_IMAGES_SECONDS = 4
     static let SLIDESHOW_TIME_BANNERS_SECONDS = 4
 
+    enum Device {
+        static let OS = "iOS" 
+    }
+
     enum Size {
         static let DEFAULT_CORNER_RADIUS = 6.0
     }
@@ -42,7 +44,7 @@ struct Constants {
         static let STANDARD_DATE_FORMAT = "dd MMM, yyyy"
         static let STANDARD_DATE_TIME_FORMAT = "dd MMM, yyyy HH:mm"
         static let DOB_DATE_FORMAT = "dd MMMM, yyyy"
-        static let DOB_DATE_FORMAT_FORMAT_FOR_SERVER = "dd-MM-yyyy"
+        static let DOB_DATE_FORMAT_FOR_SERVER = "dd-MM-yyyy"
     }
 
     enum Predicate {

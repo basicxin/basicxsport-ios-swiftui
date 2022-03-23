@@ -14,12 +14,17 @@ struct MyCircleView: View {
     @State var showSwitchAccountSheet = false
     @State var showCircleDetailView = false
     @State var shouldShowMyProfileView = false
+    @State var shouldShowAddChildAccoutView = false
     @StateObject var refresh = Events.shared
     var body: some View {
         ScrollView {
             Group {
                 NavigationLink(destination: MyProfileView(), isActive: $shouldShowMyProfileView) { EmptyView() }
+
+                NavigationLink(destination: RegistrationStep1View(isAddingChild: true), isActive: $shouldShowAddChildAccoutView)
+                    { EmptyView() }
             }
+
             VStack {
                 if viewModel.myCircleResponse != nil {
                     let myCircle = viewModel.myCircleResponse!
@@ -122,7 +127,9 @@ struct MyCircleView: View {
                             AppFeatureRow(imageName: "gamecontroller", menuText: "My Matches")
                         }
 
-                        NavigationLink {} label: {
+                        NavigationLink {
+                            MyWallView()
+                        } label: {
                             AppFeatureRow(imageName: "line.horizontal.star.fill.line.horizontal", menuText: "My Wall")
                         }
 
@@ -144,7 +151,7 @@ struct MyCircleView: View {
             }
             .sheet(isPresented: $showSwitchAccountSheet) {
                 if viewModel.myCircleResponse?.circles != nil {
-                    SwitchAccountSheet(viewModel: viewModel)
+                    SwitchAccountSheet(viewModel: viewModel, shouldShowAddChildAccoutView: $shouldShowAddChildAccoutView)
                 }
             }
         }
@@ -212,10 +219,13 @@ struct SwitchCircleSheet: View {
 struct SwitchAccountSheet: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: MyCircleViewModel
+    @Binding var shouldShowAddChildAccoutView: Bool
+
     var body: some View {
         VStack {
             Text("Switch Account")
                 .padding(.top)
+
             List(viewModel.myCircleResponse!.relations, id: \.self) { relation in
                 HStack {
                     KFImage(URL(string: relation.profilePictureURL))
@@ -238,7 +248,16 @@ struct SwitchAccountSheet: View {
                     saveUserDefault(relation: relation)
                     dismiss()
                 }
-            }.listStyle(.inset)
+            }.listStyle(.plain)
+
+            Label("Add Account", systemImage: "plus")
+                .padding()
+                .fullWidth()
+                .withDefaultShadow()
+                .onTapGesture {
+                    dismiss()
+                    shouldShowAddChildAccoutView = true
+                }
         }
     }
 

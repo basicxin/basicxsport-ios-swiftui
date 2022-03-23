@@ -78,7 +78,7 @@ struct LoginView: View {
     }
 
     func loginUser() {
-        let signInRequest = SignInRequest(appVer: "Developement Build", deviceType: "iOS", emailAddress: viewModel.email, fcmToken: "", os: "iOS", password: viewModel.password)
+        let signInRequest = SignInRequest(appVer: "Developement Build", deviceType: Constants.Device.OS, emailAddress: viewModel.email, fcmToken: "", os: Constants.Device.OS, password: viewModel.password)
 
         viewModel.login(request: signInRequest) {
             saveUserDefault(signInResponse: viewModel.loginResponse!)

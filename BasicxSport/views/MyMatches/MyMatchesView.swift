@@ -17,8 +17,18 @@ struct MyMatchesView: View {
             PagerTabView(currentPage: $currentPage, myMatchesType: myMatchesType)
 
             PagerView(pageCount: myMatchesType.count, currentIndex: $currentPage) {
-                ForEach(myMatchesType, id: \.self) { matchType in
-                    MyMatchView(matchType: matchType, viewModel: viewModel)
+//                ForEach(myMatchesType, id: \.self) { matchType in
+//                    MyMatchView(matchType: matchType, viewModel: viewModel)
+//                }
+
+                MyMatchView(matchType: myMatchesType[0], matchList: viewModel.upcomingMatches).onAppear {
+                    viewModel.getMyMatches(matchType: myMatchesType[0])
+                }
+                MyMatchView(matchType: myMatchesType[1], matchList: viewModel.inPlayMatches).onAppear {
+                    viewModel.getMyMatches(matchType: myMatchesType[1])
+                }
+                MyMatchView(matchType: myMatchesType[2], matchList: viewModel.completedMatches).onAppear {
+                    viewModel.getMyMatches(matchType: myMatchesType[2])
                 }
             }
         }
@@ -40,81 +50,89 @@ struct MyMatchesView: View {
 
 struct MyMatchView: View {
     var matchType: String = ""
-    var viewModel: MyMatchesViewModel
+    var matchList: [Match]
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                if !viewModel.inPlayMatches.isEmpty {
-                    List(viewModel.inPlayMatches, id: \.self) { myMatch in
+                if !matchList.isEmpty {
+                    List(matchList, id: \.self) { myMatch in
 
                         HStack(spacing: 0) {
                             VStack(alignment: .leading) {
                                 HStack {
-                                    Text(myMatch.matchName).fontWeight(.light).textCase(.uppercase).font(.footnote)
+                                    Text(myMatch.matchName).fontWeight(.light).textCase(.uppercase).font(.caption)
                                     Spacer()
-                                    Text(myMatch.status).fontWeight(.light).textCase(.uppercase).font(.footnote)
+                                    Text(myMatch.status).fontWeight(.light).textCase(.uppercase).font(.caption)
                                 }
 
-                                if myMatch.team1 != nil {
-                                    HStack {
-                                        if myMatch.team1!.seatType == Constants.Tournament.SEAT_TYPE_SINGLE {
-                                            KFImage(URL(string: myMatch.team1!.players[0].profilePictureUrl))
-                                                .placeholder {
-                                                    DefaultPlaceholder()
-                                                }
-                                                .frame(width: 50, height: 50)
+                                if myMatch.matchType == Constants.Tournament.MATCH_FORMAT_DOUBLE {
+                                    if myMatch.team1 != nil, myMatch.team1!.players.count == 2 {
+                                        HStack {
+                                            VStack {
+                                                PlayerNameImageView(imageUrl: myMatch.team1!.players[0].profilePictureUrl, name: myMatch.team1!.players[0].name)
 
-                                            Text(myMatch.team1!.players[0].name)
-                                        } else {
-                                            KFImage(URL(string: myMatch.team1!.teamLogoUrl))
-                                                .placeholder {
-                                                    DefaultPlaceholder()
-                                                }
-                                                .frame(width: 50, height: 50)
+                                                PlayerNameImageView(imageUrl: myMatch.team1!.players[1].profilePictureUrl, name: myMatch.team1!.players[1].name)
+                                            }
 
-                                            Text(myMatch.team1!.name)
-                                        }
+                                            Spacer()
 
-                                        Spacer()
-
-                                        if myMatch.winner != nil, myMatch.winner!.winnerId == myMatch.team1!.id {
-                                            Image(systemName: "crown")
+                                            if myMatch.winner != nil, myMatch.winner!.id == myMatch.team1!.id {
+                                                Image(systemName: "crown")
+                                            }
                                         }
                                     }
-                                }
 
-                                if myMatch.team2 != nil {
-                                    HStack {
-                                        if myMatch.team2!.seatType == Constants.Tournament.SEAT_TYPE_SINGLE {
-                                            
-                                            KFImage(URL(string: myMatch.team2!.players[0].profilePictureUrl))
-                                                .placeholder {
-                                                    DefaultPlaceholder()
-                                                }
-                                                .frame(width: 50, height: 50)
+                                    if myMatch.team2 != nil,  myMatch.team2!.players.count == 2 {
+                                        HStack {
+                                            VStack {
+                                                PlayerNameImageView(imageUrl: myMatch.team2!.players[0].profilePictureUrl, name: myMatch.team2!.players[0].name)
 
-                                            Text(myMatch.team2!.players[0].name)
-                                            
-                                        } else {
-                                            
-                                            KFImage(URL(string: myMatch.team2!.teamLogoUrl))
-                                                .placeholder {
-                                                    DefaultPlaceholder()
-                                                }
-                                                .frame(width: 50, height: 50)
+                                                PlayerNameImageView(imageUrl: myMatch.team2!.players[1].profilePictureUrl, name: myMatch.team2!.players[1].name)
+                                            }
 
-                                            Text(myMatch.team2!.name)
-                                            
-                                        }
+                                            Spacer()
 
-                                        Spacer()
-
-                                        if myMatch.winner != nil, myMatch.winner!.winnerId == myMatch.team2!.id {
-                                            Image(systemName: "crown")
+                                            if myMatch.winner != nil, myMatch.winner!.id == myMatch.team2!.id {
+                                                Image(systemName: "crown")
+                                            }
                                         }
                                     }
                                 }
                                 
+                                else {
+                                    if myMatch.team1 != nil {
+                                        HStack {
+                                            if myMatch.team1!.seatType == Constants.Tournament.SEAT_TYPE_SINGLE {
+                                                PlayerNameImageView(imageUrl: myMatch.team1!.players[0].profilePictureUrl, name: myMatch.team1!.players[0].name)
+                                            } else {
+                                                PlayerNameImageView(imageUrl: myMatch.team1!.teamLogoUrl, name: myMatch.team1!.name)
+                                            }
+
+                                            Spacer()
+
+                                            if myMatch.winner != nil, myMatch.winner!.id == myMatch.team1!.id {
+                                                Image(systemName: "crown")
+                                            }
+                                        }
+                                    }
+
+                                    if myMatch.team2 != nil {
+                                        HStack {
+                                            if myMatch.team2!.seatType == Constants.Tournament.SEAT_TYPE_SINGLE {
+                                                PlayerNameImageView(imageUrl: myMatch.team2!.players[0].profilePictureUrl, name: myMatch.team2!.players[0].name)
+                                            } else {
+                                                PlayerNameImageView(imageUrl: myMatch.team2!.teamLogoUrl, name: myMatch.team1!.name)
+                                            }
+
+                                            Spacer()
+
+                                            if myMatch.winner != nil, myMatch.winner!.id == myMatch.team2!.id {
+                                                Image(systemName: "crown")
+                                            }
+                                        }
+                                    }
+                                }
+
                                 Text(Date(milliseconds: Int64(myMatch.startTime))
                                     .getFormattedDate(format: Constants.DateFormats.STANDARD_DATE_TIME_FORMAT))
                                     .font(.caption)
@@ -134,15 +152,15 @@ struct MyMatchView: View {
                                     } else {
                                         ForEach(myMatch.sets, id: \.self) { sets in
                                             VStack {
-                                                Text(sets.setNo.string).font(.subheadline)
+                                                Text(sets.setNo.string).font(.subheadline).fontWeight(.light)
                                                 Spacer()
                                                 Spacer()
 
-                                                Text(sets.playerAScore.string)
+                                                Text(sets.playerAScore.string).fontWeight(.light)
                                                 Spacer()
                                                 Spacer()
 
-                                                Text(sets.playerBScore.string)
+                                                Text(sets.playerBScore.string).fontWeight(.light)
                                                 Spacer()
                                                 Spacer()
                                             }
@@ -159,19 +177,12 @@ struct MyMatchView: View {
                 } else {
                     Text("No \(matchType.lowercased()) matches available right now")
                 }
-            }.fullSize(alignement: .center)
-        }
-        .onAppear {
-            viewModel.getMyMatches(matchType: matchType)
+            }
+            .fullSize(alignement: .center)
         }
     }
 }
 
-struct MyMatchesView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyMatchesView()
-    }
-}
 
 struct PagerTabView: View {
     @Binding var currentPage: Int
@@ -180,15 +191,42 @@ struct PagerTabView: View {
         HStack {
             ForEach(0 ..< myMatchesType.count, id: \.self) { index in
                 if currentPage == index {
-                    Text(myMatchesType[index]).font(.title).padding(5)
+                    Text(myMatchesType[index]).font(.title2).padding(5)
                 } else {
-                    Text(myMatchesType[index]).padding(5).onTapGesture {
+                    Text(myMatchesType[index]).fontWeight(.light).padding(5).onTapGesture {
                         currentPage = index
                     }
+                    .transition(.scale)
                 }
             }
         }
         .fullWidth(alignement: .leading)
         .padding()
+    }
+}
+
+struct PlayerNameImageView: View {
+    
+    var imageUrl: String
+    var name: String
+    
+    var body: some View {
+        HStack {
+            KFImage(URL(string: imageUrl))
+                .placeholder {
+                    DefaultPlaceholder()
+                }
+                .resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40)
+
+            Text(name).fontWeight(.light).font(.subheadline)
+        }
+    }
+}
+
+struct MyMatchesView_Previews: PreviewProvider {
+    static var previews: some View {
+        MyMatchesView()
     }
 }

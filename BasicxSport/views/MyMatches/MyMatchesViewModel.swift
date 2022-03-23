@@ -19,7 +19,6 @@ class MyMatchesViewModel: ObservableObject {
     @Published var inPlayMatches = [Match]()
     @Published var completedMatches = [Match]()
 
- 
     func getMyMatches(matchType: String) {
         isLoading = true
         let promise = api.getMyMatches(matchType: matchType)
@@ -27,8 +26,8 @@ class MyMatchesViewModel: ObservableObject {
             isLoading = false
             switch result {
             case .success(let response):
-                if response.status {
-                    if response.data?.matches.isEmpty == false {
+                if response.status, response.data != nil {
+                    if !response.data!.matches.isEmpty {
                         if matchType == Constants.Matches.MATCH_STATUS_OPEN {
                             upcomingMatches = response.data!.matches
                         } else if matchType == Constants.Matches.MATCH_STATUS_COMPLETED {

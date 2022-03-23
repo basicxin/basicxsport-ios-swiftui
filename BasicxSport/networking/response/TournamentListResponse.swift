@@ -27,7 +27,7 @@ struct Tournament: Codable, Hashable {
 
 // MARK: - Location
 
-struct Location: Codable, Hashable {
+struct Location: Codable, Hashable, Identifiable {
     let id: Int
     let name: String
     let latitude: Double
