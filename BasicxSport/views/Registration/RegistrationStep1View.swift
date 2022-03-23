@@ -10,14 +10,22 @@ import Kingfisher
 import SwiftUI
 
 struct RegistrationStep1View: View {
-    @State private var isLoading = false
-    @State private var showAlert = false
-    @State private var shouldMoveToNextView = false
-
     @StateObject private var viewModel = RegistrationViewModel()
     @EnvironmentObject var settings: UserSettings
 
+    @Environment(\.dismiss) var dismiss
+    @State private var isLoading = false
+    @State private var showAlert = false
+    @State private var shouldMoveToNextView = false
+    var isAddingChild: Bool = false
+
     private var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
+
+    init() {}
+
+    init(isAddingChild: Bool) {
+        self.isAddingChild = isAddingChild
+    }
 
     var body: some View {
         GeometryReader { geometryReader in
@@ -25,7 +33,7 @@ struct RegistrationStep1View: View {
                 Group {
                     NavigationLink(destination: RegistrationStep2View()
                         .environmentObject(viewModel)
-                        .environmentObject(settings), isActive: $shouldMoveToNextView) { EmptyView() }
+                        .environmentObject(settings), isActive: $shouldMoveToNextView) { EmptyView() }.isDetailLink(false)
                 }
                 VStack(alignment: .leading) {
                     Text("Choose State")
@@ -64,6 +72,7 @@ struct RegistrationStep1View: View {
                     }
                     .buttonStyle(.bordered)
                     .disabled(!viewModel.canSubmitStep1)
+                    .padding(.bottom, 20)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
                 }
                 .frame(
@@ -74,7 +83,7 @@ struct RegistrationStep1View: View {
                     alignment: .topLeading
                 )
                 .padding()
-                .navigationTitle("Registration (Step 1)")
+                .navigationTitle(viewModel.isAddingChild ? "Add Child (Step 1)" : "Registration (Step 1)")
                 .navigationBarTitleDisplayMode(.inline)
             }
             .frame(
@@ -84,22 +93,28 @@ struct RegistrationStep1View: View {
                 maxHeight: .infinity,
                 alignment: .topLeading
             )
-            .onAppear(perform: {
-                viewModel.getStates()
-                viewModel.getSportList()
-            })
-            .customProgressDialog(isShowing: $viewModel.isLoading, progressContent: {
-                ProgressView("Loading...")
-            })
-            .alert(item: $viewModel.alert) { alert in
-                Alert(
-                    title: Text("Alert"),
-                    message: Text(alert.message),
-                    dismissButton: .default(Text("Ok")) {
-                        alert.dismissAction?()
-                    }
-                )
+        }
+        .onReceive(viewModel.$childRegistrationSuccessful, perform: { isSuccess in
+            if isSuccess {
+                dismiss()
             }
+        })
+        .onAppear(perform: {
+            viewModel.getStates()
+            viewModel.getSportList()
+            viewModel.isAddingChild = self.isAddingChild
+        })
+        .customProgressDialog(isShowing: $viewModel.isLoading, progressContent: {
+            ProgressView("Loading...")
+        })
+        .alert(item: $viewModel.alert) { alert in
+            Alert(
+                title: Text("Alert"),
+                message: Text(alert.message),
+                dismissButton: .default(Text("Ok")) {
+                    alert.dismissAction?()
+                }
+            )
         }
     }
 

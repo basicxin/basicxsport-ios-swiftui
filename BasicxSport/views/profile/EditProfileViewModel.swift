@@ -97,7 +97,7 @@ class EditProfileviewModel: ObservableObject {
 
     func updateMemberProfile(completion: @escaping () -> ()) {
         isLoading = true
-        let promise = api.updateMemberProfile(firstName: firstName, lastName: lastName, title: title, gender: gender, dob: dob.getFormattedDate(format: Constants.DateFormats.DOB_DATE_FORMAT_FORMAT_FOR_SERVER))
+        let promise = api.updateMemberProfile(firstName: firstName, lastName: lastName, title: title, gender: gender, dob: dob.getFormattedDate(format: Constants.DateFormats.DOB_DATE_FORMAT_FOR_SERVER))
         PromiseHandler<BaseResponse<EmptyData>>.fulfill(promise, storedIn: &cancellables) { [self] result in
             isLoading = false
             switch result {

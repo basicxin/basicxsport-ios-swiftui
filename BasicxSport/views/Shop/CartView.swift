@@ -20,9 +20,11 @@ struct CartView: View {
             VStack {
                 if viewModel.cart != nil, !viewModel.cart!.items.isEmpty {
                     let cart = viewModel.cart!
+                    
                     Group {
                         NavigationLink(destination: ApplyCouponView(salesId: cart.id), isActive: $shouldShowApplyCouponView) { EmptyView() }
                     }
+                    
                     LazyVStack {
                         ForEach(cart.items, id: \.self) { cartItem in
                             HStack {
@@ -144,7 +146,7 @@ struct CartView: View {
                     let callbackUrl = ("https://securegw-stage.paytm.in/" + "theia/paytmCallback?ORDER_ID=" + orderNoWithTimestamp)
 
                     NavigationLink(
-                        destination: CheckoutView(orderNoWithTimestamp: orderNoWithTimestamp,
+                        destination: PaymentView(orderNoWithTimestamp: orderNoWithTimestamp,
                                                   callbackUrl: callbackUrl,
                                                   value: cart.totalAmount.string,
                                                   currency: "INR",

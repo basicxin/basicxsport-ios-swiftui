@@ -95,7 +95,7 @@ struct RegistrationOTPView: View {
     }
 
     func validateOTP() {
-        let newUser = RegisterNewUserRequest(firstName: viewModel.firstName, lastName: viewModel.lastName, title: viewModel.title, gender: viewModel.gender, emailAddress: viewModel.email, password: viewModel.password, mobile: viewModel.mobile, dob: viewModel.dob.getFormattedDate(format: Constants.DateFormats.DOB_DATE_FORMAT_FORMAT_FOR_SERVER), os: "iOS", token: "", deviceType: "iPhone", appVer: "Development Build", apiKey: UserDefaults.jwtKey, sportId: viewModel.selectedSportId!, stateId: viewModel.states[viewModel.selectedStateIndex].id, districtId: viewModel.districts[viewModel.selectedDistrictIndex].id)
+        let newUser = RegisterNewUserRequest(firstName: viewModel.firstName, lastName: viewModel.lastName, title: viewModel.title, gender: viewModel.gender, emailAddress: viewModel.email, password: viewModel.password, mobile: viewModel.mobile, dob: viewModel.dob.getFormattedDate(format: Constants.DateFormats.DOB_DATE_FORMAT_FOR_SERVER), os: Constants.Device.OS, token: "", deviceType: UIDevice.modelName, appVer: "Development Build", apiKey: UserDefaults.jwtKey, sportId: viewModel.selectedSportId!, stateId: viewModel.states[viewModel.selectedStateIndex].id, districtId: viewModel.districts[viewModel.selectedDistrictIndex].id)
         viewModel.validateOTPForSignup(otpCodeId: viewModel.otpObjectId, otp: viewModel.otp, newUser: newUser) {
             saveUserDefault(signUpResponse: viewModel.signUpResponse!)
             settings.loggedIn = true

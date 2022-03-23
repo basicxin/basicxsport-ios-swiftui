@@ -23,22 +23,22 @@ struct PaytmView: UIViewControllerRepresentable {
               self.paytmResponseBinding = responseBinding
           }
           
-          func onPaymentResponseRecieved(_ viewController: CheckoutViewController, response: [String: Any]) {
+          func onPaymentResponseRecieved(_ viewController: PaytmViewController, response: [String: Any]) {
               // whenever the view controller notifies it's delegate about receiving a new idenfifier
               // the line below will propagate the change up to SwiftUI
               paytmResponseBinding.wrappedValue = response
           }
       }
  
-    func makeUIViewController(context: Context) -> CheckoutViewController {
-        let vc = CheckoutViewController()
+    func makeUIViewController(context: Context) -> PaytmViewController {
+        let vc = PaytmViewController()
         vc.aiModel = aiModel
         vc.responseDelegate = context.coordinator
         return vc
     }
 
-    func updateUIViewController(_ uiViewController: CheckoutViewController, context: Context) {
-        typealias UIViewControllerType = CheckoutViewController
+    func updateUIViewController(_ uiViewController: PaytmViewController, context: Context) {
+        typealias UIViewControllerType = PaytmViewController
     }
     
     // this is very important, this coordinator will be used in `makeUIViewController`

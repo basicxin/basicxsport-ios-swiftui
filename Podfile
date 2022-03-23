@@ -6,5 +6,5 @@ target 'BasicxSport' do
   use_frameworks!
 
   # Pods for BasicxSport
-#  pod 'razorpay-pod', '~> 1.1.18' 
+  # pod 'razorpay-pod', '~> 1.2.1'
   end

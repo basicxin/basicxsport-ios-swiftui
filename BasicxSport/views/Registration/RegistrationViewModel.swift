@@ -60,6 +60,10 @@ class RegistrationViewModel: ObservableObject {
     @Published var canSubmitStep4 = false
     @Published var isRegistrationSuceessfull = false
 
+    // Step Child Add
+    @Published var isAddingChild: Bool = false
+    @Published var childRegistrationSuccessful: Bool = false
+    
     var firstNamePrompt: String {
         isFirstNameValid ? "" : "First name must not be empty"
     }
@@ -259,7 +263,7 @@ class RegistrationViewModel: ObservableObject {
             switch result {
             case .success(let response):
                 if response.status == 1 {
-                    registerNewsuser(newUser: newUser, completion:  completion)
+                    registerNewsuser(newUser: newUser, completion: completion)
                 } else {
                     alert = AlertDialog(message: response.message)
                 }
@@ -269,7 +273,7 @@ class RegistrationViewModel: ObservableObject {
         }
     }
 
-    func registerNewsuser(newUser: RegisterNewUserRequest,completion: @escaping () -> ()) {
+    func registerNewsuser(newUser: RegisterNewUserRequest, completion: @escaping () -> ()) {
         isLoading = true
         let promise = api.signup(newUser)
         PromiseHandler<SignUpResponse>.fulfill(promise, storedIn: &cancellables) { [self] result in
@@ -278,6 +282,25 @@ class RegistrationViewModel: ObservableObject {
             case .success(let response):
                 if response.status == 1 {
                     signUpResponse = response
+                    completion()
+                } else {
+                    alert = AlertDialog(message: response.message)
+                }
+            case .failure(let error):
+                alert = AlertDialog(message: error.getError())
+            }
+        }
+    }
+
+    func registerNewChild(newUser: RegisterNewChildRequest, completion: @escaping () -> ()) {
+        isLoading = true
+        let promise = api.addNewChild(newUser)
+        PromiseHandler<DefaultResponseAIM>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isLoading = false
+            switch result {
+            case .success(let response):
+                if response.status == 1 {
+                    childRegistrationSuccessful = true
                     completion()
                 } else {
                     alert = AlertDialog(message: response.message)

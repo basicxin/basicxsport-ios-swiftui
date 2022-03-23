@@ -56,7 +56,7 @@ struct URLs {
 
     static let TOURNAMENTS = REST_API_URL + "tournament/list/"
     static let TOURNAMENT_CATEGORIES = REST_API_URL + "tournament-category/list/"
-    static let TOURNAMENT_RULES = REST_API_URL + "tournament-rules/{tournamentId}"
+    static let TOURNAMENT_RULES = REST_API_URL + "tournament-rules/"
     static let TOURNAMENT_PLAYERS = REST_API_URL + "member/tournament-players/{tournamentCategoryId}"
     static let FIND_PLAYERS = REST_API_URL + "member/tournament-players/search/{circleId}"
     static let TEAMS = REST_API_URL + "team/list/{tournamentCategoryId}"

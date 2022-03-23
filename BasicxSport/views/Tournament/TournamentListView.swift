@@ -20,8 +20,7 @@ struct TournamentListView: View {
                     }
                 }
                 .listStyle(.plain)
-
-            } else {}
+            }
         }
         .listStyle(.plain)
         .onAppear {
@@ -45,8 +44,24 @@ struct TournamentListView: View {
 
 struct TournamentView: View {
     var tournament: Tournament
+    @State private var selectedLocation: Location? = nil
+    @State private var selectedTournamentId: Int? = nil
+    @State var shouldShowLocationView = false
+    @State var shouldShowRulesView = false
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
+            Group {
+                if let location = selectedLocation {
+                    NavigationLink(destination: TournamentLocationMapView(location: location), isActive: $shouldShowLocationView) { EmptyView() }
+                }
+                
+                if let tournamentId = selectedTournamentId {
+                    NavigationLink(destination: TournamentRulesView(tournamentId: tournamentId), isActive: $shouldShowRulesView) { EmptyView()
+                    }
+                }
+            }
+
             VStack(alignment: .leading, spacing: 10) {
                 KFImage(URL(string: tournament.bannerUrl))
                     .resizable()
@@ -75,9 +90,9 @@ struct TournamentView: View {
                     .lineLimit(3)
                 
                 HStack {
-                    Image(systemName: "location")
-                    
                     if !tournament.locations.isNilOrEmpty {
+                        Image(systemName: "location")
+                       
                         Text(tournament.locations![0].name)
                             .lineLimit(1)
                             .font(.footnote)
@@ -86,7 +101,8 @@ struct TournamentView: View {
                             .background(.foreground)
                             .cornerRadius(5)
                             .onTapGesture {
-                                tournament.id
+                                selectedLocation = tournament.locations!.first!
+                                shouldShowLocationView = true
                             }
                     }
                     
@@ -99,7 +115,8 @@ struct TournamentView: View {
                         .background(.foreground)
                         .cornerRadius(5)
                         .onTapGesture {
-                            tournament.id
+                            selectedTournamentId = tournament.id
+                            shouldShowRulesView = true
                         }
                 }
                 .fullWidth(alignement: .leading)

@@ -17,8 +17,8 @@ class TournamentViewModel: ObservableObject {
 
     @Published var tournamentList = [Tournament]()
     @Published var tournamentCategoryList = [TournamentCategory]()
+    @Published var tournamentRules: String = ""
 
-   
     func getTournaments(circleId: Int) {
         isLoading = true
         let promise = api.getTournaments(circleId: circleId)
@@ -51,6 +51,28 @@ class TournamentViewModel: ObservableObject {
                 if response.status {
                     if response.data?.categories.isEmpty == false {
                         tournamentCategoryList = response.data!.categories
+                    } else {
+                        alert = AlertDialog(message: Constants.NoData)
+                    }
+                } else {
+                    alert = AlertDialog(message: response.message)
+                }
+            case .failure(let failure):
+                alert = AlertDialog(message: failure.getError())
+            }
+        }
+    }
+
+    func getTournamentRules(tournamentId: Int) {
+        isLoading = true
+        let promise = api.getTournamentRules(tournamentId: tournamentId)
+        PromiseHandler<BaseResponse<TournamentRulesResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isLoading = false
+            switch result {
+            case .success(let response):
+                if response.status {
+                    if response.data != nil {
+                        tournamentRules = response.data!.sportRules.rulesContent
                     } else {
                         alert = AlertDialog(message: Constants.NoData)
                     }
