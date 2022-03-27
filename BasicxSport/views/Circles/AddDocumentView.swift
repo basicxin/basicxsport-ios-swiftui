@@ -104,7 +104,7 @@ struct AddDocumentView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if viewModel.isFormDataValid, !viewModel.isViewMode {
                     Button {
-                        viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.image.asUIImage().jpegData(compressionQuality: 0.1)!) {
+                        viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.image.asUIImage().jpegData(compressionQuality: 0.0)!) {
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     } label: {
@@ -121,7 +121,7 @@ struct AddDocumentView: View {
             ImagePicker(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
         }
         .onChange(of: self.image, perform: { newValue in
-            viewModel.imageData = newValue?.asUIImage().jpegData(compressionQuality: 0.2)
+            viewModel.imageData = newValue?.asUIImage().jpegData(compressionQuality: 0.0)
         })
         .actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
             ActionSheet(title: Text("Choose mode"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {

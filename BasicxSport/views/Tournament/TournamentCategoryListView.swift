@@ -54,11 +54,15 @@ struct TournamentCategoryListView: View {
                                 if category.seatType.caseInsensitiveCompare(Constants.Tournament.SEAT_TYPE_DOUBLE) == .orderedSame {
                                     Button {} label: {
                                         Text("My Partner")
-                                    }.buttonStyle(.borderedProminent)
+                                    }
+                                    .buttonStyle(.borderedProminent)
+                                    .hidden()
                                 } else if category.seatType.caseInsensitiveCompare(Constants.Tournament.SEAT_TYPE_TEAM) == .orderedSame || category.seatType.caseInsensitiveCompare(Constants.Tournament.SEAT_TYPE_MIXED) == .orderedSame {
                                     Button {} label: {
                                         Text("My Team")
-                                    }.buttonStyle(.borderedProminent)
+                                    }
+                                    .buttonStyle(.borderedProminent)
+                                    .hidden()
                                 }
                             }
 

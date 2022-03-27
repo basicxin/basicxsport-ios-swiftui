@@ -17,6 +17,8 @@ class RegistrationViewModel: ObservableObject {
 
     @Published var alert: AlertDialog?
     @Published var isLoading = false
+    @Published var isCheckingEmailOnServer = false
+    @Published var isCheckingMobileOnServer = false
 
     // Step 1
 
@@ -48,7 +50,9 @@ class RegistrationViewModel: ObservableObject {
     @Published var confirmPassword = ""
 
     @Published var isEmailValid = false
+    @Published var isEmailAvailableOnServer = false
     @Published var isMobileValid = false
+    @Published var isMobileAvailableOnServer = false
     @Published var isPasswordValid = false
     @Published var isConfirmPasswordValid = false
     @Published var canSubmitStep3 = false
@@ -63,7 +67,7 @@ class RegistrationViewModel: ObservableObject {
     // Step Child Add
     @Published var isAddingChild: Bool = false
     @Published var childRegistrationSuccessful: Bool = false
-    
+
     var firstNamePrompt: String {
         isFirstNameValid ? "" : "First name must not be empty"
     }
@@ -76,12 +80,14 @@ class RegistrationViewModel: ObservableObject {
         isDOBValid ? "" : "Age should be greter than 12"
     }
 
+    var emailError = "Enter valid email"
     var emailPrompt: String {
-        isEmailValid ? "" : "Enter valid email"
+        isEmailValid ? "" : emailError
     }
 
+    var mobileError = "Enter valid mobile number"
     var mobilePrompt: String {
-        isMobileValid ? "" : "Enter valid mobile number"
+        isMobileValid ? "" : mobileError
     }
 
     var passwordPrompt: String {
@@ -167,6 +173,13 @@ class RegistrationViewModel: ObservableObject {
             .assign(to: \.canSubmitStep3, on: self)
             .store(in: &cancellables)
 
+        Publishers.CombineLatest3($canSubmitStep3, $isEmailAvailableOnServer, $isMobileAvailableOnServer)
+            .map { canSubmitStep3, isEmailAvailable, isMobileNumberAvailable in
+                canSubmitStep3 && isEmailAvailable && isMobileNumberAvailable
+            }
+            .assign(to: \.canSubmitStep3, on: self)
+            .store(in: &cancellables)
+
         $otp
             .map { otp in
                 otp.trimmed.count >= 1
@@ -230,6 +243,46 @@ class RegistrationViewModel: ObservableObject {
                     }
                 } else {
                     alert = AlertDialog(message: response.message)
+                }
+            case .failure(let error):
+                alert = AlertDialog(message: error.getError())
+            }
+        }
+    }
+
+    func checkEmailOnServer(emailAddress: String, apiKey: String) {
+        isCheckingEmailOnServer = true
+        let promise = api.checkEmailOnServer(emailAddress: emailAddress, apiKey: apiKey)
+        PromiseHandler<DefaultResponseAIM>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isCheckingEmailOnServer = false
+            switch result {
+            case .success(let response):
+                if response.status == 1 {
+                    isEmailAvailableOnServer = true
+                } else {
+                    isEmailAvailableOnServer = true
+                    emailError = response.message
+                    isEmailValid = false
+                }
+            case .failure(let error):
+                alert = AlertDialog(message: error.getError())
+            }
+        }
+    }
+
+    func checkMobileOnServer(mobile: String, apiKey: String) {
+        isCheckingMobileOnServer = true
+        let promise = api.checkMobileOnServer(mobile: mobile, apiKey: apiKey)
+        PromiseHandler<DefaultResponseAIM>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isCheckingMobileOnServer = false
+            switch result {
+            case .success(let response):
+                if response.status == 1 {
+                    isMobileAvailableOnServer = true
+                } else {
+                    isMobileAvailableOnServer = false
+                    mobileError = response.message
+                    isMobileValid = false
                 }
             case .failure(let error):
                 alert = AlertDialog(message: error.getError())

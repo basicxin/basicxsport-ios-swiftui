@@ -35,9 +35,7 @@ struct MyCircleView: View {
 
                     HStack {
                         KFImage(URL(string: UserDefaults.profilePictureUrl))
-                            .placeholder {
-                                DefaultPlaceholder()
-                            }
+                            .placeholder { DefaultPlaceholder() }
                             .resizable()
                             .frame(width: 60, height: 60, alignment: .center)
                             .scaledToFit()
@@ -136,7 +134,7 @@ struct MyCircleView: View {
                         NavigationLink {
                             MyBadgeView()
                         } label: {
-                            AppFeatureRow(imageName: "sportscourt", menuText: "My badge")
+                            AppFeatureRow(imageName: "sportscourt", menuText: "My Badge")
                         }
                     }
                     else {
@@ -151,7 +149,7 @@ struct MyCircleView: View {
             }
             .sheet(isPresented: $showSwitchAccountSheet) {
                 if viewModel.myCircleResponse?.circles != nil {
-                    SwitchAccountSheet(viewModel: viewModel, shouldShowAddChildAccoutView: $shouldShowAddChildAccoutView)
+                    SwitchAccountSheet(viewModel: viewModel, shouldShowAddChildAccoutView: $shouldShowAddChildAccoutView, event: refresh)
                 }
             }
         }
@@ -220,6 +218,7 @@ struct SwitchAccountSheet: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: MyCircleViewModel
     @Binding var shouldShowAddChildAccoutView: Bool
+    @ObservedObject var event: Events
 
     var body: some View {
         VStack {
@@ -246,6 +245,7 @@ struct SwitchAccountSheet: View {
                 }
                 .onTapGesture {
                     saveUserDefault(relation: relation)
+                    event.newCirclePurchased = true
                     dismiss()
                 }
             }.listStyle(.plain)
@@ -270,7 +270,6 @@ struct SwitchAccountSheet: View {
         UserDefaults.preferredSportId = relation.sport.id ?? -1
         UserDefaults.preferredSportName = relation.sport.name ?? ""
         UserDefaults.preferredSportLogoUrl = relation.sport.sportIconURL ?? ""
-        viewModel.getMyCircle()
     }
 }
 

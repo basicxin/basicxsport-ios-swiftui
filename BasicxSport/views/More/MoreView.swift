@@ -42,7 +42,6 @@ struct MoreView: View {
                         }
 
                         Section(header: Text("Profile")) {
-                            
                             NavigationLink(destination: ChangePasswordView()) {
                                 OptionsRowView(text: "Change Password")
                             }
@@ -56,11 +55,11 @@ struct MoreView: View {
                     Spacer()
 
                     VStack {
-                        Text("Development Build")
+                        Text(Bundle.main.releaseVersionNumberPretty)
                             .font(.footnote)
                             .multilineTextAlignment(.center)
 
-                        Text("Copyright 2022 @StartWith Basicx Pvt. Ltd.")
+                        Text("Copyright \(Date().year.string) @StartWith Basicx Pvt. Ltd.")
                             .font(.footnote)
                             .multilineTextAlignment(.center)
                     }
@@ -76,7 +75,7 @@ struct MoreView: View {
     }
 
     func inviteSheet() {
-        guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+        guard let urlShare = URL(string: "https://www.basicxsport.com/") else { return }
         let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }

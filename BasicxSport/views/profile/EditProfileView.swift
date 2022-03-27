@@ -101,7 +101,7 @@ struct EditProfileView: View {
             ImagePicker(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
         }
         .onChange(of: self.image, perform: { newValue in
-            viewModel.imageData = newValue?.asUIImage().jpegData(compressionQuality: 0.2)
+            viewModel.imageData = newValue?.asUIImage().jpegData(compressionQuality: 0.0)
         })
         .actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
             ActionSheet(title: Text("Choose mode"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {

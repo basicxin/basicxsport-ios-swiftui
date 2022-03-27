@@ -272,3 +272,17 @@ public extension UIDevice {
         return mapToDevice(identifier: identifier)
     }()
 }
+
+extension Bundle {
+    var releaseVersionNumber: String? {
+        infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+
+    var buildVersionNumber: String? {
+        infoDictionary?["CFBundleVersion"] as? String
+    }
+
+    var releaseVersionNumberPretty: String {
+        "v\(self.releaseVersionNumber ?? "1.0.0")"
+    }
+}

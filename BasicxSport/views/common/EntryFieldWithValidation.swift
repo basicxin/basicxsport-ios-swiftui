@@ -13,6 +13,9 @@ struct EntryFieldWithValidation: View {
     var prompt: String
     @Binding var field: String
     var isSecure = false
+    @FocusState private var isFocused: Bool
+    typealias FocusHandler = (_ isFocused: Bool) -> Void
+    var onFocus: FocusHandler = { _ in }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,11 +28,17 @@ struct EntryFieldWithValidation: View {
                     SecureField(placeholder, text: $field)
                 } else {
                     TextField(placeholder, text: $field)
+                        .focused($isFocused)
+                        .onChange(of: isFocused) { isFocused in
+                            onFocus(isFocused)
+                        }
                 }
-            }.autocapitalization(.none)
-                .padding(16)
-                .background(Color(.secondarySystemBackground))
-                .overlay(RoundedRectangle(cornerRadius: Constants.Size.DEFAULT_CORNER_RADIUS).stroke(Color.gray, lineWidth: 1))
+            }
+            .autocapitalization(.none)
+            .padding(16)
+            .background(Color(.secondarySystemBackground))
+            .overlay(RoundedRectangle(cornerRadius: Constants.Size.DEFAULT_CORNER_RADIUS).stroke(Color.gray, lineWidth: 1))
+
             Text(prompt)
                 .fixedSize(horizontal: false, vertical: true)
                 .font(.caption)

@@ -23,7 +23,7 @@ class NewsViewModel: ObservableObject {
 
     func getNews(isNew: Bool, time: Int64) {
         isLoading = true
-        let promise = api.getNews(isNew: isNew, time: time)
+        let promise = API().getNews(isNew: isNew, time: time)
         PromiseHandler<BaseResponse<NewsResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in
             isLoading = false
             switch result {

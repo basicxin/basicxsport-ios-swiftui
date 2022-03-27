@@ -24,7 +24,7 @@ class MyCircleViewModel: ObservableObject {
 
     func getMyCircle() {
         isLoading = true
-        let promise = api.getMyCircle()
+        let promise = API().getMyCircle()
         PromiseHandler<BaseResponse<MyCircleResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in
             isLoading = false
             switch result {

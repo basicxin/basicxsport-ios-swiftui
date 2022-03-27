@@ -194,6 +194,16 @@ struct API: NetworkingService {
         get(URLs.SPORTS)
     }
 
+    func checkEmailOnServer(emailAddress: String, apiKey: String) -> AnyPublisher<DefaultResponseAIM, Error> {
+        get(URLs.VALIDATE_EMAIL, params: ["emailAddress": emailAddress,
+                                          "apiKey": apiKey])
+    }
+
+    func checkMobileOnServer(mobile: String, apiKey: String) -> AnyPublisher<DefaultResponseAIM, Error> {
+        get(URLs.VALIDATE_MOBILE, params: ["mobile": mobile,
+                                           "apiKey": apiKey])
+    }
+
     func changePassword(newPassword: String, oldPassword: String) -> AnyPublisher<BaseResponse<EmptyData>, Error> {
         post(URLs.CHANGE_PASSWORD, params: ["newPassword": newPassword,
                                             "oldPassword": oldPassword])
@@ -311,6 +321,7 @@ struct API: NetworkingService {
     func getTournamentCategories(tournamentId: Int) -> AnyPublisher<BaseResponse<TournamentCategoryListResponse>, Error> {
         get(URLs.TOURNAMENT_CATEGORIES.appending(tournamentId.string))
     }
+
     func getTournamentRules(tournamentId: Int) -> AnyPublisher<BaseResponse<TournamentRulesResponse>, Error> {
         get(URLs.TOURNAMENT_RULES.appending(tournamentId.string))
     }

@@ -32,7 +32,7 @@ struct MyBadgeView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
                             Text("Name").fontWeight(.light).frame(width: 150, alignment: .leading)
-                            Text(badge.member.firstName + badge.member.lastName)
+                            Text("\(badge.member.firstName) \(badge.member.lastName)")
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2)
                                 .font(.body)

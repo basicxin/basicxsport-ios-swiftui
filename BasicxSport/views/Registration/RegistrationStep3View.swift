@@ -25,14 +25,46 @@ struct RegistrationStep3View: View {
 struct RegistrationStep3MainView: View {
     @StateObject var viewModel: RegistrationViewModel
     @StateObject var settings: UserSettings
+    @State private var shouldMoveToNextView = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
+            Group {
+                NavigationLink(destination:
+                    RegistrationOTPView()
+                        .environmentObject(viewModel)
+                        .environmentObject(settings),
+                    isActive: $shouldMoveToNextView) {
+                        EmptyView()
+                    }
+            }
             Spacer()
 
-            EntryFieldWithValidation(sfSymbolName: "envelope", placeholder: "Email Id", prompt: viewModel.emailPrompt, field: $viewModel.email).keyboardType(.emailAddress)
+            ZStack(alignment: .trailing) {
+                EntryFieldWithValidation(sfSymbolName: "envelope", placeholder: "Email Id", prompt: viewModel.emailPrompt, field: $viewModel.email, onFocus: { isFocused in
+                    if viewModel.isEmailValid, !isFocused {
+                        viewModel.checkEmailOnServer(emailAddress: viewModel.email, apiKey: UserDefaults.jwtKey)
+                    }
+                })
+                .keyboardType(.emailAddress)
 
-            EntryFieldWithValidation(sfSymbolName: "iphone", placeholder: "Mobile", prompt: viewModel.mobilePrompt, field: $viewModel.mobile).keyboardType(.phonePad)
+                if viewModel.isCheckingEmailOnServer {
+                    ProgressView().progressViewStyle(.circular).padding(.horizontal).padding(.bottom, 10)
+                }
+            }
+
+            ZStack(alignment: .trailing) {
+                EntryFieldWithValidation(sfSymbolName: "iphone", placeholder: "Mobile", prompt: viewModel.mobilePrompt, field: $viewModel.mobile, onFocus: { isFocused in
+                    if viewModel.isMobileValid, !isFocused {
+                        viewModel.checkMobileOnServer(mobile: viewModel.mobile, apiKey: UserDefaults.jwtKey)
+                    }
+                })
+                .keyboardType(.phonePad)
+
+                if viewModel.isCheckingMobileOnServer {
+                    ProgressView().progressViewStyle(.circular).padding(.horizontal).padding(.bottom, 10)
+                }
+            }
 
             EntryFieldWithValidation(sfSymbolName: "lock", placeholder: "Password", prompt: viewModel.passwordPrompt, field: $viewModel.password, isSecure: true)
 
@@ -40,14 +72,13 @@ struct RegistrationStep3MainView: View {
 
             Spacer()
 
-            NavigationLink {
-                RegistrationOTPView()
-                    .environmentObject(viewModel)
-                    .environmentObject(settings)
+            Button {
+                shouldMoveToNextView = true
             } label: {
-                PrimaryButtonView(buttonText: "Next")
-                    .disabled(!viewModel.canSubmitStep3)
+                Text("Next")
             }
+            .disabled(!viewModel.canSubmitStep3)
+            .buttonStyle(.bordered)
             .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
