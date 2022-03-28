@@ -12,10 +12,12 @@ import SwiftUI
 struct AddDocumentView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel = AddDocumentViewModel()
-    @State private var image: Image? = Image("basicxPlaceholder")
-    @State private var shouldPresentImagePicker = false
     @State private var shouldPresentActionScheet = false
-    @State private var shouldPresentCamera = false
+
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
+
     @State var searchName: String = ""
     var title = "Document"
     var documentUrl = ""
@@ -51,7 +53,8 @@ struct AddDocumentView: View {
                 Text("Document Attachment").font(.subheadline).foregroundColor(.gray)
                 Spacer()
 
-                Button { self.shouldPresentActionScheet = true
+                Button {
+                    self.shouldPresentActionScheet = true
                 } label: {
                     Text("Browse Photo").font(.caption)
                 }
@@ -65,17 +68,26 @@ struct AddDocumentView: View {
                         DefaultPlaceholder()
                     }
                     .resizable()
-                    .scaledToFit()
-                    .fullWidth()
-                    .frame(height: 150)
-                    .clipped()
-            } else {
-                image!
-                    .resizable()
                     .scaledToFill()
                     .fullWidth()
                     .frame(height: 150)
                     .clipped()
+            } else {
+                if selectedImage != nil {
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .scaledToFill()
+                        .fullWidth()
+                        .frame(height: 150)
+                        .clipped()
+                } else {
+                    Image("basicxPlaceholder")
+                        .resizable()
+                        .scaledToFill()
+                        .fullWidth()
+                        .frame(height: 150)
+                        .clipped()
+                }
             }
 
             Section {
@@ -104,7 +116,7 @@ struct AddDocumentView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if viewModel.isFormDataValid, !viewModel.isViewMode {
                     Button {
-                        viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.image.asUIImage().jpegData(compressionQuality: 0.0)!) {
+                        viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.0)!) {
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     } label: {
@@ -117,19 +129,19 @@ struct AddDocumentView: View {
                 }
             }
         }
-        .sheet(isPresented: $shouldPresentImagePicker) {
-            ImagePicker(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
+        .sheet(isPresented: $isImagePickerDisplay) {
+            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
         }
-        .onChange(of: self.image, perform: { newValue in
-            viewModel.imageData = newValue?.asUIImage().jpegData(compressionQuality: 0.0)
+        .onChange(of: self.selectedImage, perform: { newValue in
+            viewModel.imageData = newValue?.jpegData(compressionQuality: 0.0)
         })
         .actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
             ActionSheet(title: Text("Choose mode"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
-                self.shouldPresentImagePicker = true
-                self.shouldPresentCamera = true
+                self.sourceType = .camera
+                self.isImagePickerDisplay.toggle()
             }), ActionSheet.Button.default(Text("Photo Library"), action: {
-                self.shouldPresentImagePicker = true
-                self.shouldPresentCamera = false
+                self.sourceType = .photoLibrary
+                self.isImagePickerDisplay.toggle()
             }), ActionSheet.Button.cancel()])
         }
         .customProgressDialog(isShowing: $viewModel.isLoading, progressContent: {

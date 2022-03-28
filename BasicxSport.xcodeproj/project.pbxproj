@@ -14,6 +14,7 @@
 		4C18553D27E89E87003A6673 /* MyWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18553C27E89E87003A6673 /* MyWallView.swift */; };
 		4C202CA527A2726D0009B587 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C202CA427A2726D0009B587 /* CartView.swift */; };
 		4C202CA727A2B90B0009B587 /* CartViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C202CA627A2B90B0009B587 /* CartViewHolder.swift */; };
+		4C23A07627F18BCD0098FD46 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23A07527F18BCD0098FD46 /* ImagePickerView.swift */; };
 		4C24843127D6150A008276CE /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24843027D6150A008276CE /* DocumentListView.swift */; };
 		4C24843327D6165F008276CE /* DocumentListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24843227D6165F008276CE /* DocumentListResponse.swift */; };
 		4C25B49F27968CB50070D1BF /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25B49E27968CB40070D1BF /* NewsViewModel.swift */; };
@@ -40,7 +41,6 @@
 		4C7C72612797DBB200C7BF02 /* PreferedSportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C72602797DBB200C7BF02 /* PreferedSportView.swift */; };
 		4C7C726327981FCE00C7BF02 /* EmptyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C726227981FCE00C7BF02 /* EmptyData.swift */; };
 		4C7C726527982BB100C7BF02 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C726427982BB100C7BF02 /* ForgotPasswordView.swift */; };
-		4C7C726727982D5000C7BF02 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C726627982D5000C7BF02 /* PrimaryButtonView.swift */; };
 		4C7CDF6927A54279009D6D76 /* MyCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CDF6827A54279009D6D76 /* MyCircleViewModel.swift */; };
 		4C808E6827952C8E00901CD9 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C808E6727952C8E00901CD9 /* NewsView.swift */; };
 		4C808E6C27956C1A00901CD9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C808E6B27956C1A00901CD9 /* HomeView.swift */; };
@@ -174,6 +174,7 @@
 		4C18553C27E89E87003A6673 /* MyWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWallView.swift; sourceTree = "<group>"; };
 		4C202CA427A2726D0009B587 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		4C202CA627A2B90B0009B587 /* CartViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewHolder.swift; sourceTree = "<group>"; };
+		4C23A07527F18BCD0098FD46 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		4C24843027D6150A008276CE /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
 		4C24843227D6165F008276CE /* DocumentListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListResponse.swift; sourceTree = "<group>"; };
 		4C25B49E27968CB40070D1BF /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -201,7 +202,6 @@
 		4C7C72602797DBB200C7BF02 /* PreferedSportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferedSportView.swift; sourceTree = "<group>"; };
 		4C7C726227981FCE00C7BF02 /* EmptyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyData.swift; sourceTree = "<group>"; };
 		4C7C726427982BB100C7BF02 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
-		4C7C726627982D5000C7BF02 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
 		4C7CDF6827A54279009D6D76 /* MyCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCircleViewModel.swift; sourceTree = "<group>"; };
 		4C808E6727952C8E00901CD9 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		4C808E6B27956C1A00901CD9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -514,7 +514,6 @@
 			children = (
 				4C6072F327E319D20040E894 /* PagerView.swift */,
 				4C7C72592797D53B00C7BF02 /* DefaultPlaceholder.swift */,
-				4C7C726627982D5000C7BF02 /* PrimaryButtonView.swift */,
 				4C8E7418279A915500D2E8D7 /* EntryFieldWithValidation.swift */,
 				4C979D78279FC61600180161 /* CustomDialog.swift */,
 				4CF2FE1027A7DC4300290D85 /* NavigationConfigurator.swift */,
@@ -523,6 +522,7 @@
 				4CAD89FF27AB9FD90012BFBC /* UserSettings.swift */,
 				4C9E0BB827AE81640048AAA5 /* ImagePicker.swift */,
 				4CFFDE0727D0B6C400A6C58D /* InfiniteList.swift */,
+				4C23A07527F18BCD0098FD46 /* ImagePickerView.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -858,6 +858,7 @@
 				4C6D6C0C27B52F3D00C6CC89 /* PaytmTokenResponse.swift in Sources */,
 				4CAD8A0627ABE51F0012BFBC /* CircleInfoViewModel.swift in Sources */,
 				4C962AD527EB36C30030800D /* TournamentRulesResponse.swift in Sources */,
+				4C23A07627F18BCD0098FD46 /* ImagePickerView.swift in Sources */,
 				4CD81A7F278EBB6D00F4DD90 /* URLs.swift in Sources */,
 				4C8DF6CF27E99A1200B7A025 /* MyWallResponse.swift in Sources */,
 				4C8E741127998CD700D2E8D7 /* RegistrationStep2View.swift in Sources */,
@@ -903,7 +904,6 @@
 				4C25B49F27968CB50070D1BF /* NewsViewModel.swift in Sources */,
 				4C6072FB27E340A50040E894 /* MyMatchesListResponse.swift in Sources */,
 				4CD81A60278EB88F00F4DD90 /* Error+.swift in Sources */,
-				4C7C726727982D5000C7BF02 /* PrimaryButtonView.swift in Sources */,
 				4C94B10527E885A400DB17E9 /* RazorPayView.swift in Sources */,
 				4C808E6E27956CCA00901CD9 /* MyCircleView.swift in Sources */,
 				4CD25DCB27A8FBD1004490D6 /* GalleryListView.swift in Sources */,
