@@ -27,6 +27,7 @@ struct AddDocumentView: View {
         self.identityType = identityType
         viewModel.docRegex = identityType.identityIdRule
         viewModel.isViewMode = false
+        viewModel.isEditingTheDocument = true
         viewModel.docUrl = nil
         title = "Add Document"
     }
@@ -35,7 +36,9 @@ struct AddDocumentView: View {
         identityType = memberDocument.docType
         viewModel.searchName = memberDocument.searchName
         viewModel.docRegex = memberDocument.docType.identityIdRule
+        viewModel.memberDocid = memberDocument.id
         viewModel.isViewMode = true
+        viewModel.isEditingTheDocument = false
         viewModel.documentNumber = memberDocument.docIdentityNo
         viewModel.docUrl = memberDocument.docFileUrl
         documentUrl = memberDocument.docFileUrl
@@ -59,10 +62,10 @@ struct AddDocumentView: View {
                     Text("Browse Photo").font(.caption)
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(viewModel.isViewMode)
+                .disabled(!viewModel.isEditingTheDocument)
             }
 
-            if viewModel.isViewMode {
+            if viewModel.isViewMode, !viewModel.isEditingTheDocument {
                 KFImage(URL(string: documentUrl))
                     .placeholder {
                         DefaultPlaceholder()
@@ -95,36 +98,37 @@ struct AddDocumentView: View {
 
                 EntryFieldWithValidation(sfSymbolName: "number", placeholder: "Document Number", prompt: viewModel.documentNumberPrompt, field: $viewModel.documentNumber)
                     .keyboardType(identityType.isNumeric ? UIKeyboardType.numberPad : UIKeyboardType.default)
-                    .disabled(viewModel.isViewMode)
+                    .disabled(!viewModel.isEditingTheDocument)
             }
 
             Section {
                 Text("Search name").font(.subheadline).foregroundColor(.gray)
-                TextField("Optional", text: $viewModel.searchName).disabled(viewModel.isViewMode)
+                TextField("Optional", text: $viewModel.searchName)
+                    .disabled(!viewModel.isEditingTheDocument)
             }
         }
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                if viewModel.isViewMode {
+                if viewModel.isViewMode, !viewModel.isEditingTheDocument {
                     Button {
-                        viewModel.isViewMode = false
+                        viewModel.isEditingTheDocument = true
                     } label: {
                         Text("Edit")
                     }
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                if viewModel.isFormDataValid, !viewModel.isViewMode {
+                if viewModel.isFormDataValid, viewModel.isEditingTheDocument {
                     Button {
-                        viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.0)!) {
-                            self.presentationMode.wrappedValue.dismiss()
+                        if viewModel.isViewMode {
+                            viewModel.updateDocument(memberdocId: viewModel.memberDocid, docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.0)!) {}
+                        } else {
+                            viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.0)!) {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
                         }
                     } label: {
-                        if viewModel.isViewMode {
-                            Text("Update")
-                        } else {
-                            Text("Add Document")
-                        }
+                        Text(viewModel.isViewMode ? "Update" : "Add Document")
                     }
                 }
             }

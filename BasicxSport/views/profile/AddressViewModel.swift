@@ -149,7 +149,7 @@ class AddressViewModel: ObservableObject {
             }
         }
     }
-
+    
     func updateAddress(countryId: String, stateId: Int, districtId: Int, city: String, postalCode: String, streetAddress: String, addressType: String, addressId: Int, completion: @escaping () -> ()) {
         isLoading = true
         let promise = api.updateAddress(memberId: UserDefaults.memberId, apiKey: UserDefaults.jwtKey, countryId: countryId, stateId: stateId, districtId: districtId, city: city, postalCode: postalCode, streetAddress: streetAddress, addressType: addressType, addressId: addressId)
