@@ -16,6 +16,7 @@ class NewsViewModel: ObservableObject {
     @Published var alert: AlertDialog?
     @Published var isLoading = false
     @Published var newsList = [News]()
+    @Published var bannerList = [Banner]()
 
     init() {
         getNews(isNew: true, time: 0)
@@ -28,12 +29,20 @@ class NewsViewModel: ObservableObject {
             isLoading = false
             switch result {
             case .success(let response):
-                if response.status {
-                    if response.data?.news.isEmpty == false {
+                if response.data != nil, response.status {
+                    
+                    if !response.data!.news.isEmpty {
                         newsList = response.data!.news
                     } else {
-                        alert = AlertDialog(message: Constants.NoData)
+                        newsList = []
                     }
+
+                    if !response.data!.banners.isEmpty {
+                        bannerList = response.data!.banners
+                    } else {
+                        bannerList = []
+                    }
+
                 } else {
                     alert = AlertDialog(message: response.message)
                 }

@@ -121,9 +121,9 @@ struct AddDocumentView: View {
                 if viewModel.isFormDataValid, viewModel.isEditingTheDocument {
                     Button {
                         if viewModel.isViewMode {
-                            viewModel.updateDocument(memberdocId: viewModel.memberDocid, docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.0)!) {}
+                            viewModel.updateDocument(memberdocId: viewModel.memberDocid, docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.1)!) {}
                         } else {
-                            viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.0)!) {
+                            viewModel.uplaodDocument(docTypeId: identityType.id, docName: viewModel.searchName.isEmpty ? identityType.name : viewModel.searchName, jpegData: self.selectedImage!.jpegData(compressionQuality: 0.1)!) {
                                 self.presentationMode.wrappedValue.dismiss()
                             }
                         }
@@ -137,7 +137,7 @@ struct AddDocumentView: View {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
         }
         .onChange(of: self.selectedImage, perform: { newValue in
-            viewModel.imageData = newValue?.jpegData(compressionQuality: 0.0)
+            viewModel.imageData = newValue?.jpegData(compressionQuality: 0.1)
         })
         .actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
             ActionSheet(title: Text("Choose mode"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {

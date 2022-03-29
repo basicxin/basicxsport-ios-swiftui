@@ -13,10 +13,12 @@ struct EditProfileView: View {
 
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = EditProfileviewModel()
-    @State private var image: Image? = Image("basicxPlaceholder")
-    @State private var shouldPresentImagePicker = false
-    @State private var shouldPresentActionScheet = false
-    @State private var shouldPresentCamera = false
+
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
+
+    @State private var shouldPresentActionSheet = false
 
     var body: some View {
         ZStack {
@@ -26,11 +28,20 @@ struct EditProfileView: View {
                     Group {
                         ZStack {
                             if !viewModel.imageData.isNilOrEmpty {
-                                image!
-                                    .resizable()
-                                    .clipShape(SwiftUI.Circle())
-                                    .clipped()
-                                    .frame(width: 100, height: 100)
+                                if selectedImage != nil {
+                                    Image(uiImage: selectedImage!)
+                                        .resizable()
+                                        .clipShape(SwiftUI.Circle())
+                                        .clipped()
+                                        .frame(width: 100, height: 100)
+                                } else {
+                                    Image("basicxPlaceholder")
+                                        .resizable()
+                                        .clipShape(SwiftUI.Circle())
+                                        .clipped()
+                                        .frame(width: 100, height: 100)
+                                }
+
                             } else {
                                 KFImage(URL(string: member.profilePictureUrl))
                                     .placeholder {
@@ -51,7 +62,7 @@ struct EditProfileView: View {
                                 .offset(x: 35, y: 35)
                                 .opacity(0.5)
                                 .onTapGesture {
-                                    self.shouldPresentActionScheet = true
+                                    self.shouldPresentActionSheet = true
                                 }
                         }
                         .fullWidth()
@@ -97,19 +108,19 @@ struct EditProfileView: View {
             }
         }
         .fullSize(alignement: .top).padding()
-        .sheet(isPresented: $shouldPresentImagePicker) {
-            ImagePicker(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
+        .sheet(isPresented: $isImagePickerDisplay) {
+            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
         }
-        .onChange(of: self.image, perform: { newValue in
-            viewModel.imageData = newValue?.asUIImage().jpegData(compressionQuality: 0.0)
+        .onChange(of: self.selectedImage, perform: { newValue in
+            viewModel.imageData = newValue?.jpegData(compressionQuality: 0.1)
         })
-        .actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
+        .actionSheet(isPresented: $shouldPresentActionSheet) { () -> ActionSheet in
             ActionSheet(title: Text("Choose mode"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
-                self.shouldPresentImagePicker = true
-                self.shouldPresentCamera = true
+                self.sourceType = .camera
+                self.isImagePickerDisplay.toggle()
             }), ActionSheet.Button.default(Text("Photo Library"), action: {
-                self.shouldPresentImagePicker = true
-                self.shouldPresentCamera = false
+                self.sourceType = .photoLibrary
+                self.isImagePickerDisplay.toggle()
             }), ActionSheet.Button.cancel()])
         }
         .customProgressDialog(isShowing: $viewModel.isLoading, progressContent: {
@@ -128,7 +139,7 @@ struct EditProfileView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     if viewModel.imageData != nil {
-                        viewModel.uploadProfilePicture(objectId: UserDefaults.memberId, objectName: "ProfilePicture", jpegData: self.image!.asUIImage().jpegData(compressionQuality: 0.1)!) {
+                        viewModel.uploadProfilePicture(objectId: UserDefaults.memberId, objectName: "ProfilePicture", jpegData: self.selectedImage!.jpegData(compressionQuality: 0.1)!) {
                             viewModel.updateMemberProfile {
                                 dismiss()
                             }

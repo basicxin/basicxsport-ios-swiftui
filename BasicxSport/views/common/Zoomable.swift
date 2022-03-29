@@ -143,7 +143,7 @@ struct Zoomable: ViewModifier {
         content
             .scaleEffect(scale, anchor: anchor)
             .offset(offset)
-            .animation(.spring()) // looks more natural
+            .animation(.spring())
             .overlay(ZoomableOverlay(scale: $scale,
                                      anchor: $anchor,
                                      offset: $offset,

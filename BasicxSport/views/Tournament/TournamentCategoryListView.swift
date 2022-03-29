@@ -70,6 +70,9 @@ struct TournamentCategoryListView: View {
 
                             if !viewModel.isCategoryNotOpen(category: category), category.isEligible, !category.isEnrolled {
                                 Button {
+                                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                                    impactMed.impactOccurred()
+                                    
                                     cartViewModel.addToCart(objectId: category.id, itemType: Constants.ITEM_TYPE_TOURNAMENT) {
                                         shouldShowCartView = true
                                     }

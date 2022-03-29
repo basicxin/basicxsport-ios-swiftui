@@ -5,6 +5,7 @@
 //  Created by Somesh K on 17/01/22.
 //
 
+import ACarousel
 import Kingfisher
 import SwiftUI
 
@@ -12,12 +13,36 @@ struct NewsView: View {
     @StateObject private var viewModel = NewsViewModel()
     @StateObject var refresh = Events.shared
     var body: some View {
-        List(viewModel.newsList, id: \.self) { news in
-            Link(destination: URL(string: news.publishedNewsURL)!) {
-                NewsRow(news: news)
+        VStack {
+            if !viewModel.newsList.isEmpty {
+                List {
+                    if !viewModel.bannerList.isEmpty {
+                        ACarousel(viewModel.bannerList, id: \.self, spacing: 15, headspace: 15, sidesScaling: 0.7, isWrap: false, autoScroll: .active(8)) { banner in
+                            KFImage(URL(string: banner.bannerURL))
+                                .placeholder {
+                                    DefaultPlaceholder()
+                                }
+                                .resizable()
+                                .frame(height: 150)
+                                .cornerRadius(Constants.Size.DEFAULT_CORNER_RADIUS)
+                        }
+                        .listRowInsets(EdgeInsets(.init(top: 5, leading: 0, bottom: 5, trailing: 0)))
+                        .frame(height: 150)
+                    }
+
+                    ForEach(viewModel.newsList, id: \.self) { news in
+                        Link(destination: URL(string: news.publishedNewsURL)!) {
+                            NewsRow(news: news)
+                        }
+                    }
+                }
+                .listStyle(.plain)
+            } else {
+                Text(Constants.NoData)
             }
         }
-        .listStyle(.plain)
+        .fullSize()
+
         .onReceive(refresh.$myCircleChanged, perform: { isCircleChanged in
             if isCircleChanged {
                 viewModel.getNews(isNew: true, time: 0)
@@ -58,7 +83,6 @@ struct NewsRow: View {
 
             VStack(alignment: HorizontalAlignment.leading) {
                 Text(news.title)
-                    .bold()
                     .font(.subheadline)
                     .multilineTextAlignment(.leading)
                     .lineLimit(4)

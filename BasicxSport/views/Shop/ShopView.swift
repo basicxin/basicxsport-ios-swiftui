@@ -12,34 +12,41 @@ struct ShopView: View {
     @ObservedObject var viewModel = ShopViewModel()
     private var columnGrid = [GridItem(.flexible()), GridItem(.flexible())]
     @State var shouldShowCartView = false
+    @StateObject var refresh = Events.shared
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columnGrid) {
-                ForEach(viewModel.shopProductList, id: \.self) { product in
-                    NavigationLink {
-                        ShopProductDetailView(productId: product.id)
-                    } label: {
-                        VStack {
-                            KFImage(URL(string: product.itemPictureURL))
-                                .placeholder { DefaultPlaceholder() }
-                                .cancelOnDisappear(true)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 180, height: 150)
-                                .clipped()
+            ZStack {
+                if !viewModel.shopProductList.isEmpty {
+                    LazyVGrid(columns: columnGrid) {
+                        ForEach(viewModel.shopProductList, id: \.self) { product in
+                            NavigationLink {
+                                ShopProductDetailView(productId: product.id)
+                            } label: {
+                                VStack {
+                                    KFImage(URL(string: product.itemPictureURL))
+                                        .placeholder { DefaultPlaceholder() }
+                                        .cancelOnDisappear(true)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 180, height: 150)
+                                        .clipped()
 
-                            Text(product.name)
-                                .font(.subheadline)
-                                .multilineTextAlignment(.center)
-                                .frame(height: 60)
-                                .padding(.horizontal, 2)
+                                    Text(product.name)
+                                        .font(.subheadline)
+                                        .multilineTextAlignment(.center)
+                                        .frame(height: 60)
+                                        .padding(.horizontal, 2)
+                                }
+                                .cornerRadius(Constants.Size.DEFAULT_CORNER_RADIUS)
+                                .withDefaultShadow()
+                            }
                         }
-                        .cornerRadius(Constants.Size.DEFAULT_CORNER_RADIUS)
-                        .withDefaultShadow()
                     }
+                } else {
+                    Text(Constants.NoData)
                 }
-            }
+            }.fullSize()
         }
         .background {
             Group {
@@ -69,6 +76,16 @@ struct ShopView: View {
                 }
             )
         }
+        .onReceive(refresh.$myCircleChanged, perform: { isCircleChanged in
+            if isCircleChanged {
+                viewModel.getShopProducts()
+            }
+        })
+        .onReceive(refresh.$newCirclePurchased, perform: { newCirclePurchased in
+            if newCirclePurchased {
+                viewModel.getShopProducts()
+            }
+        })
     }
 }
 

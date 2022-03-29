@@ -16,7 +16,7 @@ struct NewsResponse: Codable {
 }
 
 // MARK: - Banner
-struct Banner: Codable {
+struct Banner: Codable, Hashable {
     let id: Int
     let name: String
     let lastUpdated: Int

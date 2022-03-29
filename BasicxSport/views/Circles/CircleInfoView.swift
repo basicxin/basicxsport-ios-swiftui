@@ -164,6 +164,9 @@ struct CircleInfoView: View {
                                                         else {
                                                             cartViewModel.addToCart(objectId: subscription.id, itemType: Constants.ITEM_TYPE_SUBSCRIPTION) {
                                                                 shouldShowCartView = true
+
+                                                                let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                                                                impactMed.impactOccurred()
                                                             }
                                                         }
 

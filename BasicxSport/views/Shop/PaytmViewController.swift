@@ -9,7 +9,6 @@ import AppInvokeSDK
 import Razorpay
 import SwiftUI
 
-
 class PaytmViewController: UIViewController, AIDelegate {
     weak var responseDelegate: ViewControllerDelegate?
     private let appInvoke = AIHandler()
@@ -38,9 +37,11 @@ class PaytmViewController: UIViewController, AIDelegate {
 
     func didFinish(with status: AIPaymentStatus, response: [String: Any]) {
         responseDelegate?.onPaymentResponseRecieved(self, response: response)
+        let print = print(response.jsonString(prettify: true))
         dismiss(animated: true)
     }
 }
+
 protocol ViewControllerDelegate: AnyObject {
     func onPaymentResponseRecieved(_ viewController: PaytmViewController, response: [String: Any])
 }

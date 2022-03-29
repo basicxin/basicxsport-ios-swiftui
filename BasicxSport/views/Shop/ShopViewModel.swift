@@ -16,6 +16,7 @@ class ShopViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var shopProductList = [Merchandise]()
     @Published var cartItemCount = 0
+
     init() {
         getShopProducts()
     }
@@ -27,12 +28,13 @@ class ShopViewModel: ObservableObject {
             isLoading = false
             switch result {
             case .success(let response):
-                if response.status {
-                    if response.data?.merchandise.isEmpty == false {
+                if response.status, response.data != nil {
+                    if !response.data!.merchandise.isEmpty {
                         shopProductList = response.data!.merchandise
                         cartItemCount = response.data!.cartCount
                     } else {
-                        alert = AlertDialog(message: Constants.NoData)
+                        shopProductList = []
+                        cartItemCount = 0
                     }
                 } else {
                     alert = AlertDialog(message: response.message)

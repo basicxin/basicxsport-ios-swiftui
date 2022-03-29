@@ -6,25 +6,28 @@
 //
 
 import ACarousel
-import Kingfisher 
+import Kingfisher
 import SwiftUI
 struct ShopProductDetailView: View {
     @ObservedObject var viewModel = ShopProductDetailViewModel()
     @ObservedObject var cartViewModel = CartViewHolder()
     @State var shouldShowCartView = false
+    @State var shouldShowImageViewer = false
+    @State var selectedImageUrl: String?
     var productId: Int
 
     var body: some View {
         ScrollView {
             Group {
                 NavigationLink(destination: CartView(cartType: Constants.ITEM_TYPE_MERCHANDISE), isActive: $shouldShowCartView) { EmptyView() }
+                NavigationLink(destination: ImageViewerView(url: selectedImageUrl, caption: ""), isActive: $shouldShowImageViewer) { EmptyView() }
             }
 
             VStack {
                 if viewModel.shopProductDetail != nil {
                     let product = viewModel.shopProductDetail!
 
-                    ACarousel(product.productImages, id: \.self, autoScroll: .active(10)) { images in
+                    ACarousel(product.productImages, id: \.self, autoScroll: .active(8)) { images in
                         KFImage(URL(string: images.productImageURL))
                             .placeholder {
                                 DefaultPlaceholder()
@@ -32,6 +35,10 @@ struct ShopProductDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(maxWidth: .infinity, maxHeight: 200)
+                            .onTapGesture {
+                                selectedImageUrl = images.productImageURL
+                                shouldShowImageViewer = true
+                            }
                     }
                     .frame(height: 200)
 
@@ -68,6 +75,9 @@ struct ShopProductDetailView: View {
                     } else {
                         cartViewModel.addToCart(objectId: productId, itemType: Constants.ITEM_TYPE_MERCHANDISE) {
                             viewModel.isProductInCart = true
+
+                            let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                            impactMed.impactOccurred()
                         }
                     }
                 } label: {

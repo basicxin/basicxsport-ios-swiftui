@@ -79,7 +79,6 @@
 		4C9D56E127D7258D006F50EB /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D56E027D7258D006F50EB /* EditProfileViewModel.swift */; };
 		4C9D56E327D75608006F50EB /* MemberProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D56E227D75608006F50EB /* MemberProfileResponse.swift */; };
 		4C9E0BB727AE67E80048AAA5 /* AddDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E0BB627AE67E80048AAA5 /* AddDocumentView.swift */; };
-		4C9E0BB927AE81640048AAA5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E0BB827AE81640048AAA5 /* ImagePicker.swift */; };
 		4C9F2A6A27CE3E5E00F9D5ED /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F2A6927CE3E5D00F9D5ED /* MyProfileView.swift */; };
 		4CA41B9827CCE30900EF9EF9 /* ApplyCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA41B9727CCE30800EF9EF9 /* ApplyCouponView.swift */; };
 		4CA41B9A27CCE58000EF9EF9 /* ApplyCouponCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA41B9927CCE58000EF9EF9 /* ApplyCouponCodeViewModel.swift */; };
@@ -239,7 +238,6 @@
 		4C9D56E027D7258D006F50EB /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		4C9D56E227D75608006F50EB /* MemberProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileResponse.swift; sourceTree = "<group>"; };
 		4C9E0BB627AE67E80048AAA5 /* AddDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDocumentView.swift; sourceTree = "<group>"; };
-		4C9E0BB827AE81640048AAA5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4C9F2A6927CE3E5D00F9D5ED /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		4CA41B9727CCE30800EF9EF9 /* ApplyCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCouponView.swift; sourceTree = "<group>"; };
 		4CA41B9927CCE58000EF9EF9 /* ApplyCouponCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCouponCodeViewModel.swift; sourceTree = "<group>"; };
@@ -520,7 +518,6 @@
 				4CA60D0E27AA676D00E5D9C2 /* Zoomable.swift */,
 				4CA60D1027AA67C200E5D9C2 /* ImageViewerView.swift */,
 				4CAD89FF27AB9FD90012BFBC /* UserSettings.swift */,
-				4C9E0BB827AE81640048AAA5 /* ImagePicker.swift */,
 				4CFFDE0727D0B6C400A6C58D /* InfiniteList.swift */,
 				4C23A07527F18BCD0098FD46 /* ImagePickerView.swift */,
 			);
@@ -812,7 +809,6 @@
 				4C808E7027956CD900901CD9 /* CircleListView.swift in Sources */,
 				4CCC0A322790190800CE0928 /* RegistrationViewModel.swift in Sources */,
 				4CD81A5D278EB88F00F4DD90 /* PromiseHandler.swift in Sources */,
-				4C9E0BB927AE81640048AAA5 /* ImagePicker.swift in Sources */,
 				4C18553D27E89E87003A6673 /* MyWallView.swift in Sources */,
 				4CFFEA7927A058A500A722D6 /* ShopProductDetailViewModel.swift in Sources */,
 				4CDFC84F27DF1C9500F54511 /* TournamentListResponse.swift in Sources */,
