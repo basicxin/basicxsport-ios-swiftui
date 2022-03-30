@@ -63,14 +63,6 @@ struct AddressDetailView: View {
                         }
                     }
 
-//                    Picker("State", selection: $viewModel.selectedStateIndex) {
-//                        ForEach(0 ..< viewModel.states.count, id: \.self) {
-//                            Text(self.viewModel.states[$0].name)
-//                        }
-//                    }.onChange(of: viewModel.selectedStateIndex) { newIndex in
-//                        viewModel.getDistricts(withStateId: viewModel.states[newIndex].id)
-//                    }
-
                     Divider()
 
                     Text("District").font(.subheadline).fontWeight(.light) + Text("*").foregroundColor(.red)
@@ -81,12 +73,6 @@ struct AddressDetailView: View {
                             }
                         }
                     }
-
-//                    Picker("District", selection: $viewModel.selectedDistrictIndex) {
-//                        ForEach(0 ..< viewModel.districts.count, id: \.self) {
-//                            Text(self.viewModel.districts[$0].name)
-//                        }
-//                    }
 
                     Divider()
                 }
