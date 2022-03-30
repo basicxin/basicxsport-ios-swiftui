@@ -8,7 +8,7 @@
 // MARK: - DataClass
 
 struct StateResponse: Codable {
-    let states: [States]
+    let states: [Country]
 }
 
 // MARK: - District

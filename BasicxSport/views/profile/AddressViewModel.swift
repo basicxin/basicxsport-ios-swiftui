@@ -22,15 +22,19 @@ class AddressViewModel: ObservableObject {
     @Published var country: String = ""
     @Published var city: String = ""
     @Published var postalCode: String = ""
+
+    @Published var selectedState: String = "Select State"
+    @Published var selectedDistrict: String = "Select District"
+    @Published var selectedStateId: Int = -1
+    @Published var selectedDistrictId: Int = -1
+
+    @Published var states: [Country] = []
+    @Published var districts: [Country] = []
+
     @Published var canSubmitStep = false
 
-    @Published var selectedStateIndex: Int = -1
-    @Published var selectedDistrictIndex: Int = -1
-    @Published var states: [States] = [States(id: -1, name: "Select A State")]
-    @Published var districts: [District] = [District(id: -1, name: "Select A District")]
-
     init() {
-        Publishers.CombineLatest($selectedStateIndex, $selectedDistrictIndex)
+        Publishers.CombineLatest($selectedStateId, $selectedDistrictId)
             .map { selectedStateIndex, selectedDistrictIndex in
                 selectedStateIndex != -1 && selectedDistrictIndex != -1
             }
@@ -92,7 +96,7 @@ class AddressViewModel: ObservableObject {
         }
     }
 
-    func getStates() {
+    func getStates(completion: @escaping () -> ()) {
         isLoading = true
         let promise = api.getStates()
         PromiseHandler<BaseResponse<StateResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in
@@ -102,6 +106,7 @@ class AddressViewModel: ObservableObject {
                 if response.status {
                     response.data.run { data in
                         self.states = data.states
+                        completion()
                     }
                 } else {
                     alert = AlertDialog(message: response.message)
@@ -112,7 +117,7 @@ class AddressViewModel: ObservableObject {
         }
     }
 
-    func getDistricts(withStateId stateId: Int) {
+    func getDistricts(withStateId stateId: Int, completion: @escaping () -> ()) {
         isLoading = true
         let promise = api.getDistricts(withStateId: stateId)
         PromiseHandler<BaseResponse<DistrictResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in
@@ -122,6 +127,7 @@ class AddressViewModel: ObservableObject {
                 if response.status {
                     response.data.run { data in
                         self.districts = data.districts
+                        completion()
                     }
                 } else {
                     alert = AlertDialog(message: response.message)
@@ -149,7 +155,7 @@ class AddressViewModel: ObservableObject {
             }
         }
     }
-    
+
     func updateAddress(countryId: String, stateId: Int, districtId: Int, city: String, postalCode: String, streetAddress: String, addressType: String, addressId: Int, completion: @escaping () -> ()) {
         isLoading = true
         let promise = api.updateAddress(memberId: UserDefaults.memberId, apiKey: UserDefaults.jwtKey, countryId: countryId, stateId: stateId, districtId: districtId, city: city, postalCode: postalCode, streetAddress: streetAddress, addressType: addressType, addressId: addressId)

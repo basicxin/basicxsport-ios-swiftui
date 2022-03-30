@@ -37,7 +37,6 @@ class PaytmViewController: UIViewController, AIDelegate {
 
     func didFinish(with status: AIPaymentStatus, response: [String: Any]) {
         responseDelegate?.onPaymentResponseRecieved(self, response: response)
-        let print = print(response.jsonString(prettify: true))
         dismiss(animated: true)
     }
 }

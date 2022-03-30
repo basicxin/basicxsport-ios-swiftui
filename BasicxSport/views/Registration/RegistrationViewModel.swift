@@ -27,8 +27,8 @@ class RegistrationViewModel: ObservableObject {
     @Published var selectedSportId: Int? = nil
     @Published var canSubmitStep1 = false
 
-    @Published var states: [States] = [States(id: -1, name: "Select A State")]
-    @Published var districts: [District] = [District(id: -1, name: "Select A District")]
+    @Published var states: [Country] = [Country(id: -1, name: "Select A State")]
+    @Published var districts: [Country] = [Country(id: -1, name: "Select A District")]
     @Published var sportsList: [SportsListSport] = []
 
     // Step 2
