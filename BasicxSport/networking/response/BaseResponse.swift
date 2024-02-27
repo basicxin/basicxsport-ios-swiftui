@@ -15,3 +15,4 @@ struct BaseResponse<ResponseData: Codable>: Codable {
 }
 
 extension BaseResponse: NetworkingJSONDecodable {}
+

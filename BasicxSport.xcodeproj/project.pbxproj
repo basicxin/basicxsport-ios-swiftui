@@ -66,8 +66,6 @@
 		4C92D4D427B7C756002CA1E5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D4D327B7C755002CA1E5 /* ProfileViewModel.swift */; };
 		4C92D4D627B7D987002CA1E5 /* UserBadgeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D4D527B7D987002CA1E5 /* UserBadgeResponse.swift */; };
 		4C92E7DC27B7B616000CEF20 /* MyBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92E7DB27B7B616000CEF20 /* MyBadgeView.swift */; };
-		4C94B10227E8721D00DB17E9 /* Razorpay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */; };
-		4C94B10327E8721D00DB17E9 /* Razorpay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C94B10527E885A400DB17E9 /* RazorPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10427E885A400DB17E9 /* RazorPayView.swift */; };
 		4C94B10727E8895500DB17E9 /* RazorPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */; };
 		4C962AD127EAF3250030800D /* TournamentLocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */; };
@@ -101,7 +99,6 @@
 		4CD0C56727B0E883005E9304 /* AddDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0C56627B0E883005E9304 /* AddDocumentViewModel.swift */; };
 		4CD25DCB27A8FBD1004490D6 /* GalleryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25DCA27A8FBD1004490D6 /* GalleryListView.swift */; };
 		4CD25DCD27A8FBE5004490D6 /* GalleryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25DCC27A8FBE5004490D6 /* GalleryListViewModel.swift */; };
-		4CD81A55278EB6A900F4DD90 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 4CD81A54278EB6A900F4DD90 /* Networking */; };
 		4CD81A5D278EB88F00F4DD90 /* PromiseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81A58278EB88F00F4DD90 /* PromiseHandler.swift */; };
 		4CD81A5E278EB88F00F4DD90 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81A59278EB88F00F4DD90 /* LoginViewModel.swift */; };
 		4CD81A60278EB88F00F4DD90 /* Error+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD81A5B278EB88F00F4DD90 /* Error+.swift */; };
@@ -148,6 +145,9 @@
 		4CFFEA7727A0495500A722D6 /* ShopProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFEA7627A0495500A722D6 /* ShopProductDetailView.swift */; };
 		4CFFEA7927A058A500A722D6 /* ShopProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFEA7827A058A500A722D6 /* ShopProductDetailViewModel.swift */; };
 		4CFFEA7C27A1744100A722D6 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 4CFFEA7B27A1744100A722D6 /* ACarousel */; };
+		62E589172B8E0745003A2452 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 62E589162B8E0745003A2452 /* Networking */; };
+		62E5891E2B8E0C5C003A2452 /* Razorpay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */; };
+		62E5891F2B8E0C5C003A2452 /* Razorpay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -158,7 +158,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4C6D6C0E27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Embed Frameworks */,
-				4C94B10327E8721D00DB17E9 /* Razorpay.xcframework in Embed Frameworks */,
+				62E5891F2B8E0C5C003A2452 /* Razorpay.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,7 +226,6 @@
 		4C92D4D327B7C755002CA1E5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4C92D4D527B7D987002CA1E5 /* UserBadgeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBadgeResponse.swift; sourceTree = "<group>"; };
 		4C92E7DB27B7B616000CEF20 /* MyBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeView.swift; sourceTree = "<group>"; };
-		4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Razorpay.xcframework; sourceTree = "<group>"; };
 		4C94B10427E885A400DB17E9 /* RazorPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayView.swift; sourceTree = "<group>"; };
 		4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayViewController.swift; sourceTree = "<group>"; };
 		4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentLocationMapView.swift; sourceTree = "<group>"; };
@@ -304,6 +303,7 @@
 		4CFFEA7627A0495500A722D6 /* ShopProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductDetailView.swift; sourceTree = "<group>"; };
 		4CFFEA7827A058A500A722D6 /* ShopProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductDetailViewModel.swift; sourceTree = "<group>"; };
 		5E6C462333E7E4A99F0AA699 /* Pods-BasicxSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicxSport.release.xcconfig"; path = "Target Support Files/Pods-BasicxSport/Pods-BasicxSport.release.xcconfig"; sourceTree = "<group>"; };
+		62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Razorpay.xcframework; sourceTree = "<group>"; };
 		AEBA3F80523C73FAEA36C081 /* Pods_BasicxSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicxSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44AF5E135F32EEE47F00FE3 /* Pods-BasicxSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicxSport.debug.xcconfig"; path = "Target Support Files/Pods-BasicxSport/Pods-BasicxSport.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,11 +313,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62E589172B8E0745003A2452 /* Networking in Frameworks */,
+				62E5891E2B8E0C5C003A2452 /* Razorpay.xcframework in Frameworks */,
 				4C6D6C0D27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Frameworks */,
-				4C94B10227E8721D00DB17E9 /* Razorpay.xcframework in Frameworks */,
 				4CCC0A392790511800CE0928 /* Kingfisher in Frameworks */,
 				4CCC0A3C2790576700CE0928 /* SwifterSwift in Frameworks */,
-				4CD81A55278EB6A900F4DD90 /* Networking in Frameworks */,
 				4CFFEA7C27A1744100A722D6 /* ACarousel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +346,7 @@
 		4C3FC5EC278C5DED00648BC3 = {
 			isa = PBXGroup;
 			children = (
-				4C94B10027E8720B00DB17E9 /* Razorpay.xcframework */,
+				62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */,
 				4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */,
 				4C808E752795A53800901CD9 /* Localizable.strings */,
 				4C3FC5F7278C5DED00648BC3 /* BasicxSport */,
@@ -697,10 +697,10 @@
 			);
 			name = BasicxSport;
 			packageProductDependencies = (
-				4CD81A54278EB6A900F4DD90 /* Networking */,
 				4CCC0A382790511800CE0928 /* Kingfisher */,
 				4CCC0A3B2790576700CE0928 /* SwifterSwift */,
 				4CFFEA7B27A1744100A722D6 /* ACarousel */,
+				62E589162B8E0745003A2452 /* Networking */,
 			);
 			productName = BasicxSportSwiftUI;
 			productReference = 4C3FC5F5278C5DED00648BC3 /* Basicx Sport.app */;
@@ -732,10 +732,10 @@
 			);
 			mainGroup = 4C3FC5EC278C5DED00648BC3;
 			packageReferences = (
-				4CD81A53278EB6A900F4DD90 /* XCRemoteSwiftPackageReference "Networking" */,
 				4CCC0A372790511800CE0928 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				4CCC0A3A2790576700CE0928 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				4CFFEA7A27A1744100A722D6 /* XCRemoteSwiftPackageReference "ACarousel" */,
+				62E589152B8E0745003A2452 /* XCRemoteSwiftPackageReference "Networking" */,
 			);
 			productRefGroup = 4C3FC5F6278C5DED00648BC3 /* Products */;
 			projectDirPath = "";
@@ -1185,20 +1185,21 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		4CD81A53278EB6A900F4DD90 /* XCRemoteSwiftPackageReference "Networking" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/freshOS/Networking";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.5;
-			};
-		};
 		4CFFEA7A27A1744100A722D6 /* XCRemoteSwiftPackageReference "ACarousel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JWAutumn/ACarousel";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = versionRange;
+				maximumVersion = 4.0.0;
 				minimumVersion = 0.2.0;
+			};
+		};
+		62E589152B8E0745003A2452 /* XCRemoteSwiftPackageReference "Networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/freshOS/Networking";
+			requirement = {
+				kind = exactVersion;
+				version = 0.3.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1214,15 +1215,15 @@
 			package = 4CCC0A3A2790576700CE0928 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
 			productName = SwifterSwift;
 		};
-		4CD81A54278EB6A900F4DD90 /* Networking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4CD81A53278EB6A900F4DD90 /* XCRemoteSwiftPackageReference "Networking" */;
-			productName = Networking;
-		};
 		4CFFEA7B27A1744100A722D6 /* ACarousel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4CFFEA7A27A1744100A722D6 /* XCRemoteSwiftPackageReference "ACarousel" */;
 			productName = ACarousel;
+		};
+		62E589162B8E0745003A2452 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62E589152B8E0745003A2452 /* XCRemoteSwiftPackageReference "Networking" */;
+			productName = Networking;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

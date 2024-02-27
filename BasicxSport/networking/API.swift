@@ -14,7 +14,7 @@ class NetworkSetup {
         var client = NetworkingClient(baseURL: URLs.BASE_URL)
         client.timeout = 20
         client.logLevels = .debug
-        client.parameterEncoding = ParameterEncoding.json
+        client.parameterEncoding = .json
         let token = UserDefaults.jwtKey
         let memberId = UserDefaults.memberId
         let isLoggedIn = UserDefaults.isLoggedIn
@@ -37,12 +37,12 @@ struct API: NetworkingService {
     // MARK: Login / Forget Password
 
     func login(_ request: SignInRequest) -> AnyPublisher<BaseResponse<SignInResponse>, Error> {
-        post(URLs.SIGN_IN, params: ["emailAddress": request.emailAddress,
-                                    "password": request.password,
-                                    "os": request.os,
-                                    "appVer": request.appVer,
-                                    "deviceType": request.deviceType,
-                                    "fcmToken": request.fcmToken])
+         post(URLs.SIGN_IN, params: ["emailAddress": request.emailAddress,
+                                           "password": request.password,
+                                           "os": request.os,
+                                           "appVer": request.appVer,
+                                           "deviceType": request.deviceType,
+                                           "fcmToken": request.fcmToken])
     }
 
     // MARK: Sign in / Sign up

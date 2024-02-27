@@ -9,7 +9,8 @@ import Foundation
 import Networking
 
 struct SignUpResponse: Codable {
-    var memberId: Int?, status: Int
+    var memberId: Int?
+    var status: Int
     var lastName: String?, firstName: String?, jwtToken: String?, message: String, profilePictureUrl: String?, relationshipType: String?
 }
 
