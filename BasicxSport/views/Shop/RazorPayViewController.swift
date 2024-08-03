@@ -11,7 +11,7 @@ import UIKit
 class RazorPayViewController: UIViewController, RazorpayPaymentCompletionProtocolWithData {
     
     private var razorpay: RazorpayCheckout!
-    private let razorPayKey = "rzp_test_OD7UqFZXAstzsD"
+    private let razorPayKey = "rzp_test_fm8b0zG8AY3Tgw"
     var razorPayOptions: [String: Any] = [:]
 
     override func viewDidLoad() {
