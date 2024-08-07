@@ -34,7 +34,7 @@ struct URLs {
     static let CART = REST_API_URL + "cart/list/"
     static let PAYTM_TOKEN = REST_API_URL + "payment/paytm-token"
     static let ORDER_HISTORY = REST_API_URL + "order/history"
-    static let RAZOR_PAY_ORDER_ID = REST_API_URL + "payment/razorpay-orderid/"
+    static let RAZOR_PAY_ORDER_ID = REST_API_URL + "payment/razorpay-orderid"
 
     static let MY_CIRCLE_SCREEN = REST_API_URL + "custom/home"
     static let CIRCLE_SEARCH = REST_API_URL + "circle/search"

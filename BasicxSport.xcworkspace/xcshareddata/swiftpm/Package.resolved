@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "razorpay-pod",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/razorpay/razorpay-pod",
+      "state" : {
+        "revision" : "a92c0d71abd4b5220315830bb40f804af3a2b8fa",
+        "version" : "1.3.10"
+      }
+    },
+    {
       "identity" : "swifterswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwifterSwift/SwifterSwift.git",

@@ -174,6 +174,12 @@ struct API: NetworkingService {
                                         "currency": currency,
                                         "custId": custId])
     }
+ 
+
+    func getOrderId(trxId: String, amount: Int) -> AnyPublisher<BaseResponse<OrderIdResponse>, Error> {
+        post(URLs.RAZOR_PAY_ORDER_ID, params: ["trxId": trxId,
+                                               "amount": amount])
+    }
 
     // MARK: User  APIs
 

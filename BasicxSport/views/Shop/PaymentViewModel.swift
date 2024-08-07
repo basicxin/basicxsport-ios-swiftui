@@ -15,7 +15,29 @@ class PaymentViewModel: ObservableObject {
     @Published var alert: AlertDialog?
     @Published var isLoading = false
     @Published var paytmToken: String?
+    @Published var razorPayOrderId: String?
 
+    func getOrderId(trxId: String, amount: Int) {
+        isLoading = true
+        let promise = api.getOrderId(trxId: trxId, amount: amount)
+        PromiseHandler<BaseResponse<OrderIdResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in
+            isLoading = false
+            switch result {
+            case .success(let response):
+                if response.status {
+                    if response.data != nil {
+                        razorPayOrderId = response.data?.id
+                    } else {
+                        alert = AlertDialog(message: Constants.NoData)
+                    }
+                } else {
+                    alert = AlertDialog(message: response.message)
+                }
+            case .failure(let failure):
+                alert = AlertDialog(message: failure.getError())
+            }
+        }
+    }
     func getPaytmToken(orderId: String, callbackUrl: String, value: String, currency: String, custId: String) {
         isLoading = true
         let promise = api.getPaytmToken(orderId: orderId, callbackUrl: callbackUrl, value: value, currency: currency, custId: custId)

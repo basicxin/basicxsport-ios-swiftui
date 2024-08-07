@@ -178,7 +178,7 @@ struct CircleInfoView: View {
                                                             Text("BUY")
                                                         }
                                                     }
-                                                    .buttonStyle(.borderedProminent)
+                                                    .buttonStyle(.bordered)
 
                                                 }.fullWidth()
                                             }

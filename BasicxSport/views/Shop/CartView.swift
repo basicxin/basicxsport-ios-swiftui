@@ -14,7 +14,10 @@ struct CartView: View {
     @State var shouldProceedToCheckout = false
     @State var shouldShowApplyCouponView = false
     var cartType: String
-    var timeInMillis = UUID().uuidString
+    var timeInMillis : Int64 {
+        let now = Date()
+        return Int64(now.timeIntervalSince1970 * 1000)
+    }
     var body: some View {
         ScrollView {
             VStack {
@@ -34,16 +37,16 @@ struct CartView: View {
                                     .scaledToFill()
                                     .frame(width: 100, height: 100, alignment: .center)
                                     .clipped()
-
+                                
                                 VStack(alignment: .leading, spacing: 5) {
                                     Text(cartItem.name)
                                         .lineLimit(3)
                                         .font(.subheadline)
-
+                                    
                                     Text(cartItem.itemDescription)
                                         .lineLimit(3)
                                         .font(.caption)
-
+                                    
                                     if cartItem.itemType.caseInsensitiveCompare(Constants.ITEM_TYPE_MERCHANDISE) == .orderedSame {
                                         Stepper {
                                             Text("Quantity \(cartItem.quantity.string)")
@@ -70,9 +73,9 @@ struct CartView: View {
                             Divider()
                         }
                     }
-
+                    
                     Spacer()
-
+                    
                     HStack {
                         if !cart.promoCode.isEmpty {
                             HStack {
@@ -95,9 +98,9 @@ struct CartView: View {
                     .padding()
                     .fullWidth()
                     .withDefaultShadow()
-
+                    
                     Divider()
-
+                    
                     VStack {
                         HStack {
                             Text("Subtotal").font(.subheadline)
@@ -125,14 +128,14 @@ struct CartView: View {
                             Text(Constants.RUPEE + cart.roundOff.asStringOrZero())
                         }
                         Divider()
-
+                        
                         HStack {
                             Text("Total Payable Amount").font(.headline)
                             Spacer()
                             Text(Constants.RUPEE + cart.totalAmount.string).font(.headline)
                         }
                     }.fullWidth()
-
+                    
                     Divider()
                 }
             }
@@ -142,16 +145,16 @@ struct CartView: View {
             Group {
                 if viewModel.cart != nil {
                     let cart = viewModel.cart!
-                    let orderNoWithTimestamp = (cart.orderNo + "_" + timeInMillis)
+                    let orderNoWithTimestamp = (cart.orderNo + "_" + timeInMillis.description)
                     let callbackUrl = ("https://securegw-stage.paytm.in/" + "theia/paytmCallback?ORDER_ID=" + orderNoWithTimestamp)
-
+                    
                     NavigationLink(
                         destination: PaymentView(orderNoWithTimestamp: orderNoWithTimestamp,
-                                                  callbackUrl: callbackUrl,
-                                                  value: cart.totalAmount.string,
-                                                  currency: "INR",
-                                                  custId: UserDefaults.memberId.string,
-                                                  redirectionTo: viewModel.redirectionTo),
+                                                 callbackUrl: callbackUrl,
+                                                 value: (cart.totalAmount).string,
+                                                 currency: "INR",
+                                                 custId: UserDefaults.memberId.string,
+                                                 redirectionTo: viewModel.redirectionTo),
                         isActive: $shouldProceedToCheckout
                     ) { EmptyView() }
                 } else { EmptyView() }
@@ -180,7 +183,7 @@ struct CartView: View {
                         shouldProceedToCheckout = true
                     } label: {
                         Text("Checkout")
-                    } 
+                    }
                 }
             }
         }
