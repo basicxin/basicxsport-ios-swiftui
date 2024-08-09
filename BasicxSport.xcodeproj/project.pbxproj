@@ -152,6 +152,11 @@
 		4CFFEA7727A0495500A722D6 /* ShopProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFEA7627A0495500A722D6 /* ShopProductDetailView.swift */; };
 		4CFFEA7927A058A500A722D6 /* ShopProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFEA7827A058A500A722D6 /* ShopProductDetailViewModel.swift */; };
 		4CFFEA7C27A1744100A722D6 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 4CFFEA7B27A1744100A722D6 /* ACarousel */; };
+		629EB7922C5B8610002E5D6D /* RazorpayCheckout in Frameworks */ = {isa = PBXBuildFile; productRef = 629EB7912C5B8610002E5D6D /* RazorpayCheckout */; };
+		629EB7942C608DE7002E5D6D /* OrderIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EB7932C608DE7002E5D6D /* OrderIdResponse.swift */; };
+		629EB7962C626284002E5D6D /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EB7952C626284002E5D6D /* CheckoutView.swift */; };
+		629EB7982C6262D1002E5D6D /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EB7972C6262D1002E5D6D /* ViewExtension.swift */; };
+		62E32B262C663A1D00743984 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E32B252C663A1D00743984 /* Configuration.swift */; };
 		62E589172B8E0745003A2452 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 62E589162B8E0745003A2452 /* Networking */; };
 		62E5891E2B8E0C5C003A2452 /* Razorpay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */; };
 		62E5891F2B8E0C5C003A2452 /* Razorpay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -312,6 +317,14 @@
 		4CFFEA7627A0495500A722D6 /* ShopProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductDetailView.swift; sourceTree = "<group>"; };
 		4CFFEA7827A058A500A722D6 /* ShopProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductDetailViewModel.swift; sourceTree = "<group>"; };
 		5E6C462333E7E4A99F0AA699 /* Pods-BasicxSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicxSport.release.xcconfig"; path = "Target Support Files/Pods-BasicxSport/Pods-BasicxSport.release.xcconfig"; sourceTree = "<group>"; };
+		629EB7892C5B7FCB002E5D6D /* Razorpay.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:3J5MJT3GNL:Razorpay Software Private Limited"; lastKnownFileType = wrapper.xcframework; name = Razorpay.xcframework; path = ../../Downloads/Razorpay.xcframework; sourceTree = "<group>"; };
+		629EB7932C608DE7002E5D6D /* OrderIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderIdResponse.swift; sourceTree = "<group>"; };
+		629EB7952C626284002E5D6D /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		629EB7972C6262D1002E5D6D /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		62E32B242C6639A500743984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62E32B252C663A1D00743984 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		62E32B272C6643C000743984 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		62E32B282C6643DB00743984 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Razorpay.xcframework; sourceTree = "<group>"; };
 		AEBA3F80523C73FAEA36C081 /* Pods_BasicxSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicxSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44AF5E135F32EEE47F00FE3 /* Pods-BasicxSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicxSport.debug.xcconfig"; path = "Target Support Files/Pods-BasicxSport/Pods-BasicxSport.debug.xcconfig"; sourceTree = "<group>"; };
@@ -360,6 +373,8 @@
 		4C3FC5EC278C5DED00648BC3 = {
 			isa = PBXGroup;
 			children = (
+				62E32B282C6643DB00743984 /* Release.xcconfig */,
+				62E32B272C6643C000743984 /* Debug.xcconfig */,
 				62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */,
 				4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */,
 				4C808E752795A53800901CD9 /* Localizable.strings */,
@@ -381,6 +396,7 @@
 		4C3FC5F7278C5DED00648BC3 /* BasicxSport */ = {
 			isa = PBXGroup;
 			children = (
+				62E32B242C6639A500743984 /* Info.plist */,
 				26BDA2272C5E18CB00B2B0D9 /* GoogleService-Info.plist */,
 				4C8E7405279920AB00D2E8D7 /* data */,
 				4CD81A82278EDDE300F4DD90 /* utils */,
@@ -678,6 +694,7 @@
 				4CD81AA1278EF56700F4DD90 /* Extensions.swift */,
 				4C7BF77E2796DCD700C70C37 /* AlertDialog.swift */,
 				4C6072F127E2FA1E0040E894 /* Events.swift */,
+				62E32B252C663A1D00743984 /* Configuration.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -865,6 +882,7 @@
 				4CD81A7B278EB99900F4DD90 /* MyCircleResponse.swift in Sources */,
 				4C808E6C27956C1A00901CD9 /* HomeView.swift in Sources */,
 				4C808E6827952C8E00901CD9 /* NewsView.swift in Sources */,
+				62E32B262C663A1D00743984 /* Configuration.swift in Sources */,
 				4C6072F427E319D20040E894 /* PagerView.swift in Sources */,
 				4CD81A79278EB99900F4DD90 /* ShopResponse.swift in Sources */,
 				4C808E7227956CE600901CD9 /* MoreView.swift in Sources */,
@@ -963,6 +981,7 @@
 /* Begin XCBuildConfiguration section */
 		4C3FC601278C5DEF00648BC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62E32B272C6643C000743984 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -1030,6 +1049,7 @@
 		};
 		4C3FC602278C5DEF00648BC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62E32B282C6643DB00743984 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
@@ -1105,6 +1125,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BasicxSport/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Basicx require camera permission to capture image for documents, profile picture & etc.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Basicx require write permission to save file such as documents and profile picture";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Basicx require photo file persmission to get the image for documents, profile picture & etc.";
@@ -1146,6 +1168,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BasicxSport/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Basicx require camera permission to capture image for documents, profile picture & etc.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Basicx require write permission to save file such as documents and profile picture";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Basicx require photo file persmission to get the image for documents, profile picture & etc.";

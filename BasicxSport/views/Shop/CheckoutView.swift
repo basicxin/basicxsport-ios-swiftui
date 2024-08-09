@@ -75,7 +75,7 @@ struct CheckoutView: UIViewControllerRepresentable {
         
         typealias Razorpay = RazorpayCheckout
         var razorpay: RazorpayCheckout!
-        
+          
         init(
             _ parent: CheckoutView,
             onSuccess: @escaping (_ paymentId: String) -> (),
@@ -93,7 +93,7 @@ struct CheckoutView: UIViewControllerRepresentable {
             }
             
             razorpayObj = RazorpayCheckout.initWithKey(
-                "rzp_test_fm8b0zG8AY3Tgw",
+                DynamicValues.razorPaykey,
                 andDelegate: self
             ) 
             let options: [String: Any] = [
@@ -108,7 +108,7 @@ struct CheckoutView: UIViewControllerRepresentable {
                 "send_sms_hash": false,
                 "remember_customer": false,
                 "name": "BASICX SPORT",
-                "key":   "rzp_test_fm8b0zG8AY3Tgw",
+                "key":   DynamicValues.razorPaykey,
                 "order_id": razorPayOrderId,
                 "image": "https://basicxsports.in/logo.png",
                 "theme": [

@@ -7,7 +7,6 @@
 
 import Foundation
 struct URLs {
-    static let BASE_URL = "https://dev.basicxsport.com/basicX/"
     private static let BASICX_LINK = "https://www.basicxsport.com/links/"
     private static let SPORTS_RESOURCES = "res/"
     private static let API_VERSION = "v1/"

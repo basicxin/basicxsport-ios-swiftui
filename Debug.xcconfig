@@ -1,0 +1,11 @@
+//
+//  Debug.xcconfig
+//  BasicxSport
+//
+//  Created by BASICX Admin on 09/08/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+BASE_URL = dev.basicxsport.com/basicX/
+RAZOR_PAY_KEY = rzp_test_fm8b0zG8AY3Tgw
