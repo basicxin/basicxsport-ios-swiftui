@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -73,6 +73,8 @@
 		4C92D4D427B7C756002CA1E5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D4D327B7C755002CA1E5 /* ProfileViewModel.swift */; };
 		4C92D4D627B7D987002CA1E5 /* UserBadgeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D4D527B7D987002CA1E5 /* UserBadgeResponse.swift */; };
 		4C92E7DC27B7B616000CEF20 /* MyBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92E7DB27B7B616000CEF20 /* MyBadgeView.swift */; };
+		4C94B10527E885A400DB17E9 /* RazorPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10427E885A400DB17E9 /* RazorPayView.swift */; };
+		4C94B10727E8895500DB17E9 /* RazorPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */; };
 		4C962AD127EAF3250030800D /* TournamentLocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */; };
 		4C962AD527EB36C30030800D /* TournamentRulesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */; };
 		4C962AD727EB446B0030800D /* TournamentRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C962AD627EB446B0030800D /* TournamentRulesView.swift */; };
@@ -156,6 +158,8 @@
 		629EB7982C6262D1002E5D6D /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EB7972C6262D1002E5D6D /* ViewExtension.swift */; };
 		62E32B262C663A1D00743984 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E32B252C663A1D00743984 /* Configuration.swift */; };
 		62E589172B8E0745003A2452 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 62E589162B8E0745003A2452 /* Networking */; };
+		62E5891E2B8E0C5C003A2452 /* Razorpay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */; };
+		62E5891F2B8E0C5C003A2452 /* Razorpay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -166,6 +170,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4C6D6C0E27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Embed Frameworks */,
+				62E5891F2B8E0C5C003A2452 /* Razorpay.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +240,8 @@
 		4C92D4D327B7C755002CA1E5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4C92D4D527B7D987002CA1E5 /* UserBadgeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBadgeResponse.swift; sourceTree = "<group>"; };
 		4C92E7DB27B7B616000CEF20 /* MyBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeView.swift; sourceTree = "<group>"; };
+		4C94B10427E885A400DB17E9 /* RazorPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayView.swift; sourceTree = "<group>"; };
+		4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayViewController.swift; sourceTree = "<group>"; };
 		4C962AD027EAF3250030800D /* TournamentLocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentLocationMapView.swift; sourceTree = "<group>"; };
 		4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentRulesResponse.swift; sourceTree = "<group>"; };
 		4C962AD627EB446B0030800D /* TournamentRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentRulesView.swift; sourceTree = "<group>"; };
@@ -318,6 +325,7 @@
 		62E32B252C663A1D00743984 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		62E32B272C6643C000743984 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		62E32B282C6643DB00743984 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Razorpay.xcframework; sourceTree = "<group>"; };
 		AEBA3F80523C73FAEA36C081 /* Pods_BasicxSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicxSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44AF5E135F32EEE47F00FE3 /* Pods-BasicxSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicxSport.debug.xcconfig"; path = "Target Support Files/Pods-BasicxSport/Pods-BasicxSport.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,10 +337,10 @@
 			files = (
 				26BDA22B2C5E194800B2B0D9 /* FirebaseAnalytics in Frameworks */,
 				62E589172B8E0745003A2452 /* Networking in Frameworks */,
+				62E5891E2B8E0C5C003A2452 /* Razorpay.xcframework in Frameworks */,
 				4C6D6C0D27B53EB500C6CC89 /* AppInvokeSDK.xcframework in Frameworks */,
 				4CCC0A392790511800CE0928 /* Kingfisher in Frameworks */,
 				4CCC0A3C2790576700CE0928 /* SwifterSwift in Frameworks */,
-				629EB7922C5B8610002E5D6D /* RazorpayCheckout in Frameworks */,
 				4CFFEA7C27A1744100A722D6 /* ACarousel in Frameworks */,
 				26BDA22F2C5E194800B2B0D9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				26BDA2312C5E194800B2B0D9 /* FirebaseAppCheck in Frameworks */,
@@ -367,6 +375,7 @@
 			children = (
 				62E32B282C6643DB00743984 /* Release.xcconfig */,
 				62E32B272C6643C000743984 /* Debug.xcconfig */,
+				62E5891C2B8E0C44003A2452 /* Razorpay.xcframework */,
 				4C6D6C0727B529A800C6CC89 /* AppInvokeSDK.xcframework */,
 				4C808E752795A53800901CD9 /* Localizable.strings */,
 				4C3FC5F7278C5DED00648BC3 /* BasicxSport */,
@@ -432,7 +441,6 @@
 		4C7839B227A4088300458FED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				629EB7892C5B7FCB002E5D6D /* Razorpay.xcframework */,
 				AEBA3F80523C73FAEA36C081 /* Pods_BasicxSport.framework */,
 			);
 			name = Frameworks;
@@ -487,8 +495,8 @@
 				4CE8975627D2103B000AF545 /* PaytmView.swift */,
 				4C7839BA27A418DC00458FED /* PaytmViewController.swift */,
 				4CE8975827D2127A000AF545 /* AIModel.swift */,
-				629EB7952C626284002E5D6D /* CheckoutView.swift */,
-				629EB7972C6262D1002E5D6D /* ViewExtension.swift */,
+				4C94B10427E885A400DB17E9 /* RazorPayView.swift */,
+				4C94B10627E8895500DB17E9 /* RazorPayViewController.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -651,7 +659,6 @@
 				4C6072FA27E340A50040E894 /* MyMatchesListResponse.swift */,
 				4C8DF6CE27E99A1200B7A025 /* MyWallResponse.swift */,
 				4C962AD427EB36C30030800D /* TournamentRulesResponse.swift */,
-				629EB7932C608DE7002E5D6D /* OrderIdResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -732,7 +739,6 @@
 				26BDA22E2C5E194800B2B0D9 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				26BDA2302C5E194800B2B0D9 /* FirebaseAppCheck */,
 				26BDA2322C5E194800B2B0D9 /* FirebaseAppDistribution-Beta */,
-				629EB7912C5B8610002E5D6D /* RazorpayCheckout */,
 			);
 			productName = BasicxSportSwiftUI;
 			productReference = 4C3FC5F5278C5DED00648BC3 /* Basicx Sport.app */;
@@ -768,7 +774,6 @@
 				4CCC0A3A2790576700CE0928 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				4CFFEA7A27A1744100A722D6 /* XCRemoteSwiftPackageReference "ACarousel" */,
 				62E589152B8E0745003A2452 /* XCRemoteSwiftPackageReference "Networking" */,
-				629EB7902C5B8610002E5D6D /* XCRemoteSwiftPackageReference "razorpay-pod" */,
 				26BDA2292C5E194800B2B0D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4C3FC5F6278C5DED00648BC3 /* Products */;
@@ -831,7 +836,6 @@
 				4CD81A9C278EE17400F4DD90 /* ShopProductDetailRequest.swift in Sources */,
 				4CD0C56727B0E883005E9304 /* AddDocumentViewModel.swift in Sources */,
 				4CD81A81278EBC1600F4DD90 /* API.swift in Sources */,
-				629EB7982C6262D1002E5D6D /* ViewExtension.swift in Sources */,
 				4C8E740F27992FA200D2E8D7 /* MobileOtpResponse.swift in Sources */,
 				4C962AD727EB446B0030800D /* TournamentRulesView.swift in Sources */,
 				26BDA2352C5E19F200B2B0D9 /* AppDelegate.swift in Sources */,
@@ -853,7 +857,6 @@
 				4CD81A9A278EE17400F4DD90 /* SignInRequest.swift in Sources */,
 				4CE8975727D2103B000AF545 /* PaytmView.swift in Sources */,
 				4C962AD127EAF3250030800D /* TournamentLocationMapView.swift in Sources */,
-				629EB7942C608DE7002E5D6D /* OrderIdResponse.swift in Sources */,
 				4CD81A7D278EB99900F4DD90 /* CartResponse.swift in Sources */,
 				4CAD8A0427ABE4210012BFBC /* CircleInfoResponse.swift in Sources */,
 				4C24843327D6165F008276CE /* DocumentListResponse.swift in Sources */,
@@ -928,6 +931,7 @@
 				4CD81AA0278EE17400F4DD90 /* ShopRequest.swift in Sources */,
 				4CBF87C727B64A98000371B6 /* ChangePasswordView.swift in Sources */,
 				4C7BF77F2796DCD800C70C37 /* AlertDialog.swift in Sources */,
+				4C94B10727E8895500DB17E9 /* RazorPayViewController.swift in Sources */,
 				4CD81A84278EDDEC00F4DD90 /* Defaults.swift in Sources */,
 				4C8E74152799B1CE00D2E8D7 /* RegistrationStep3View.swift in Sources */,
 				4CD81A73278EB99900F4DD90 /* SportsListResponse.swift in Sources */,
@@ -938,6 +942,7 @@
 				4C25B49F27968CB50070D1BF /* NewsViewModel.swift in Sources */,
 				4C6072FB27E340A50040E894 /* MyMatchesListResponse.swift in Sources */,
 				4CD81A60278EB88F00F4DD90 /* Error+.swift in Sources */,
+				4C94B10527E885A400DB17E9 /* RazorPayView.swift in Sources */,
 				4C808E6E27956CCA00901CD9 /* MyCircleView.swift in Sources */,
 				4CD25DCB27A8FBD1004490D6 /* GalleryListView.swift in Sources */,
 				4C9D56E127D7258D006F50EB /* EditProfileViewModel.swift in Sources */,
@@ -953,7 +958,6 @@
 				4C92D4D627B7D987002CA1E5 /* UserBadgeResponse.swift in Sources */,
 				4CCC0A362790223800CE0928 /* StateResponse.swift in Sources */,
 				4C8DF6CD27E9941C00B7A025 /* MyWallViewModel.swift in Sources */,
-				629EB7962C626284002E5D6D /* CheckoutView.swift in Sources */,
 				4CA41B9827CCE30900EF9EF9 /* ApplyCouponView.swift in Sources */,
 				4CD81A78278EB99900F4DD90 /* UpdateCartItemResponse.swift in Sources */,
 				4C7C726327981FCE00C7BF02 /* EmptyData.swift in Sources */,
@@ -1141,10 +1145,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.basicxsport.app;
 				PRODUCT_NAME = "Basicx Sport";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1188,10 +1188,6 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.basicxsport.app;
 				PRODUCT_NAME = "Basicx Sport";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1256,14 +1252,6 @@
 				minimumVersion = 0.2.0;
 			};
 		};
-		629EB7902C5B8610002E5D6D /* XCRemoteSwiftPackageReference "razorpay-pod" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/razorpay/razorpay-pod";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.10;
-			};
-		};
 		62E589152B8E0745003A2452 /* XCRemoteSwiftPackageReference "Networking" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/freshOS/Networking";
@@ -1314,11 +1302,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4CFFEA7A27A1744100A722D6 /* XCRemoteSwiftPackageReference "ACarousel" */;
 			productName = ACarousel;
-		};
-		629EB7912C5B8610002E5D6D /* RazorpayCheckout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 629EB7902C5B8610002E5D6D /* XCRemoteSwiftPackageReference "razorpay-pod" */;
-			productName = RazorpayCheckout;
 		};
 		62E589162B8E0745003A2452 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
