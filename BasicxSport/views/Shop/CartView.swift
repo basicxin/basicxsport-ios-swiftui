@@ -27,7 +27,7 @@ struct CartView: View {
                     Group {
                         NavigationLink(destination: ApplyCouponView(salesId: cart.id), isActive: $shouldShowApplyCouponView) { EmptyView() }
                     }
-                    
+                
                     LazyVStack {
                         ForEach(cart.items, id: \.self) { cartItem in
                             HStack {

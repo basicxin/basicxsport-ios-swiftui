@@ -286,3 +286,5 @@ extension Bundle {
         "v\(self.releaseVersionNumber ?? "1.0.0")"
     }
 }
+
+

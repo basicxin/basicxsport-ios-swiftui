@@ -11,7 +11,7 @@ import Networking
 
 class NetworkSetup {
     lazy var network: NetworkingClient = {
-        var client = NetworkingClient(baseURL: URLs.BASE_URL)
+        var client = NetworkingClient(baseURL: DynamicValues.baseURL)
         client.timeout = 20
         client.logLevels = .debug
         client.parameterEncoding = .json
