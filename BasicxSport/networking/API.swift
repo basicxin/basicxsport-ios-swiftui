@@ -22,7 +22,7 @@ class NetworkSetup {
             client.headers["Authorization"] = token
             client.headers["memberId"] = memberId.description
         } else {
-            client.headers["Authorization"] = "Bearer \(Constants.DEFAULT_TOKEN)"
+            client.headers["Authorization"] = "Bearer \(DynamicValues.staticKey)"
         }
 
         return client

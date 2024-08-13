@@ -10,7 +10,6 @@ import Foundation
 struct Constants {
     static let NA = "NA"
     static let NoData = "No data available"
-    static let DEFAULT_TOKEN = "bXTestKey"
     static let PLACEHOLDER_IMAGE = "basicxPlaceholder"
     static let RUPEE = "₹"
     static let DEFAULT_COUNTRY_ID = "145682"

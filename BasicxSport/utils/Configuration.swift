@@ -45,4 +45,9 @@ enum DynamicValues {
         let key:String = try! Configuration.value(for: "RAZOR_PAY_KEY")
         return key
     }
+    
+    static var staticKey: String {
+        let key:String = try! Configuration.value(for: "STATIC_KEY")
+        return key
+    }
 }

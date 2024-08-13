@@ -24,7 +24,7 @@ extension UserDefaults {
     }
 
     class var jwtKey: String {
-        get { UserDefaults.standard.string(forKey: Keys.jwtKey) ?? Constants.DEFAULT_TOKEN }
+        get { UserDefaults.standard.string(forKey: Keys.jwtKey) ?? DynamicValues.staticKey}
         set { UserDefaults.standard.set(newValue, forKey: Keys.jwtKey) }
     }
 
