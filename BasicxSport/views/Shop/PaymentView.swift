@@ -74,7 +74,7 @@ struct PaymentView: View {
         }
         .onAppear {
             if(viewModel.razorPayOrderId == nil){
-                viewModel.getOrderId(trxId:orderNoWithTimestamp, amount: ((Int (value) ?? 0 )*100) )
+                viewModel.getOrderId(trxId:orderNoWithTimestamp, amount: ((Float (value) ?? 0 )*100) )
             }
         }
         .onChange(of: viewModel.razorPayOrderId) { newValue in

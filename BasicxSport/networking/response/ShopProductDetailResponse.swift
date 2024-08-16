@@ -18,7 +18,7 @@ struct ShopProductDetailResponse: Codable {
 struct ShopProductDetailMerchandise: Codable {
     let id: Int
     let name: String
-    let price: Int
+    let price: Float
     let itemDescription, identifier: String
     let inCart: Bool
     let category, brand: Brand

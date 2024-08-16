@@ -17,7 +17,7 @@ class PaymentViewModel: ObservableObject {
     @Published var paytmToken: String?
     @Published var razorPayOrderId: String?
 
-    func getOrderId(trxId: String, amount: Int) {
+    func getOrderId(trxId: String, amount: Float) {
         isLoading = true
         let promise = api.getOrderId(trxId: trxId, amount: amount)
         PromiseHandler<BaseResponse<OrderIdResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in

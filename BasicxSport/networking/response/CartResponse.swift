@@ -18,10 +18,11 @@ struct CartResponse: Codable {
 struct Cart: Codable, Hashable {
     let id: Int
     let orderNo, promoCode: String
-    let discount, subTotal: Int
+    let discount: Int
     let otherCharges, tax: Double
     let roundOff: Int?
-    let totalItems, totalAmount: Int
+    let totalItems: Int
+    let totalAmount,subTotal: Float
     let items: [CartItem]
 }
 
@@ -30,10 +31,11 @@ struct Cart: Codable, Hashable {
 struct CartItem: Codable, Hashable {
     let id: Int
     let name: String
-    var itemID, quantity, price: Int
+    var itemID, quantity: Int
     let itemDescription: String
     let pictureURL: String
     let itemType: String
+    let price: Float
 
     enum CodingKeys: String, CodingKey {
         case id, name

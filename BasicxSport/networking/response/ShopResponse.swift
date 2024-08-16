@@ -26,7 +26,7 @@ struct ShopResponse: Codable {
 struct Merchandise: Codable, Hashable {
     let id: Int
     let name: String
-    let price: Int
+    let price: Float
     let itemPictureURL: String
 
     enum CodingKeys: String, CodingKey {
