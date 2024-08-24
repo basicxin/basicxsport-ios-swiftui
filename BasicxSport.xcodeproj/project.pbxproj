@@ -157,6 +157,10 @@
 		626C51462C6B37610066B421 /* OrderIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C51452C6B37610066B421 /* OrderIdResponse.swift */; };
 		62E32B262C663A1D00743984 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E32B252C663A1D00743984 /* Configuration.swift */; };
 		62E589172B8E0745003A2452 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 62E589162B8E0745003A2452 /* Networking */; };
+		62F85FBB2C70A87D00C9C591 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F85FBA2C70A87D00C9C591 /* DeleteAccountView.swift */; };
+		62F85FBD2C70A95600C9C591 /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F85FBC2C70A95600C9C591 /* DeleteAccountViewModel.swift */; };
+		62F85FBF2C70D0FE00C9C591 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 62F85FBE2C70D0FE00C9C591 /* FirebaseMessaging */; };
+		62F85FC12C70DBFE00C9C591 /* UtilsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F85FC02C70DBFE00C9C591 /* UtilsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -319,6 +323,9 @@
 		62E32B252C663A1D00743984 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		62E32B272C6643C000743984 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		62E32B282C6643DB00743984 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		62F85FBA2C70A87D00C9C591 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		62F85FBC2C70A95600C9C591 /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
+		62F85FC02C70DBFE00C9C591 /* UtilsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsViewModel.swift; sourceTree = "<group>"; };
 		AEBA3F80523C73FAEA36C081 /* Pods_BasicxSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicxSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44AF5E135F32EEE47F00FE3 /* Pods-BasicxSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicxSport.debug.xcconfig"; path = "Target Support Files/Pods-BasicxSport/Pods-BasicxSport.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -328,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F85FBF2C70D0FE00C9C591 /* FirebaseMessaging in Frameworks */,
 				26BDA22B2C5E194800B2B0D9 /* FirebaseAnalytics in Frameworks */,
 				62E589172B8E0745003A2452 /* Networking in Frameworks */,
 				626C51402C6B36660066B421 /* RazorpayCheckout in Frameworks */,
@@ -388,13 +396,13 @@
 		4C3FC5F7278C5DED00648BC3 /* BasicxSport */ = {
 			isa = PBXGroup;
 			children = (
+				4C3FC5FC278C5DEF00648BC3 /* Assets.xcassets */,
 				62E32B242C6639A500743984 /* Info.plist */,
 				26BDA2272C5E18CB00B2B0D9 /* GoogleService-Info.plist */,
 				4C8E7405279920AB00D2E8D7 /* data */,
 				4CD81A82278EDDE300F4DD90 /* utils */,
 				4CD81A56278EB87500F4DD90 /* networking */,
 				4CD81A46278EA58300F4DD90 /* views */,
-				4C3FC5FC278C5DEF00648BC3 /* Assets.xcassets */,
 				4C3FC5FE278C5DEF00648BC3 /* Preview Content */,
 				4C3FC5F8278C5DED00648BC3 /* BasicxSport.swift */,
 				4C8AA229278DAE9200D9009B /* Launch Screen.storyboard */,
@@ -500,6 +508,8 @@
 				4C808E7127956CE600901CD9 /* MoreView.swift */,
 				4CBF87C627B64A97000371B6 /* ChangePasswordView.swift */,
 				4CBF87C827B64AFA000371B6 /* ChangePasswordViewModel.swift */,
+				62F85FBA2C70A87D00C9C591 /* DeleteAccountView.swift */,
+				62F85FBC2C70A95600C9C591 /* DeleteAccountViewModel.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -689,6 +699,7 @@
 				4C7BF77E2796DCD700C70C37 /* AlertDialog.swift */,
 				4C6072F127E2FA1E0040E894 /* Events.swift */,
 				62E32B252C663A1D00743984 /* Configuration.swift */,
+				62F85FC02C70DBFE00C9C591 /* UtilsViewModel.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -734,6 +745,7 @@
 				26BDA2302C5E194800B2B0D9 /* FirebaseAppCheck */,
 				26BDA2322C5E194800B2B0D9 /* FirebaseAppDistribution-Beta */,
 				626C513F2C6B36660066B421 /* RazorpayCheckout */,
+				62F85FBE2C70D0FE00C9C591 /* FirebaseMessaging */,
 			);
 			productName = BasicxSportSwiftUI;
 			productReference = 4C3FC5F5278C5DED00648BC3 /* Basicx Sport.app */;
@@ -878,6 +890,7 @@
 				4CD81A9E278EE17400F4DD90 /* ForgetPasswordRequest.swift in Sources */,
 				4CE8975927D2127A000AF545 /* AIModel.swift in Sources */,
 				4CD81A7B278EB99900F4DD90 /* MyCircleResponse.swift in Sources */,
+				62F85FC12C70DBFE00C9C591 /* UtilsViewModel.swift in Sources */,
 				4C808E6C27956C1A00901CD9 /* HomeView.swift in Sources */,
 				4C808E6827952C8E00901CD9 /* NewsView.swift in Sources */,
 				62E32B262C663A1D00743984 /* Configuration.swift in Sources */,
@@ -897,6 +910,7 @@
 				4C23A07627F18BCD0098FD46 /* ImagePickerView.swift in Sources */,
 				4CD81A7F278EBB6D00F4DD90 /* URLs.swift in Sources */,
 				4C8DF6CF27E99A1200B7A025 /* MyWallResponse.swift in Sources */,
+				62F85FBD2C70A95600C9C591 /* DeleteAccountViewModel.swift in Sources */,
 				4C8E741127998CD700D2E8D7 /* RegistrationStep2View.swift in Sources */,
 				4C8E7407279920C500D2E8D7 /* RegistrationUser.swift in Sources */,
 				4CD81A7C278EB99900F4DD90 /* ShopProductDetailResponse.swift in Sources */,
@@ -951,6 +965,7 @@
 				4C92D4D427B7C756002CA1E5 /* ProfileViewModel.swift in Sources */,
 				4C0F9CB927CF8C0200EE2040 /* OrderHistoryResponse.swift in Sources */,
 				4CAD8A0227ABE0A10012BFBC /* CircleInfoView.swift in Sources */,
+				62F85FBB2C70A87D00C9C591 /* DeleteAccountView.swift in Sources */,
 				4C3FC5F9278C5DED00648BC3 /* BasicxSport.swift in Sources */,
 				4C92D4D627B7D987002CA1E5 /* UserBadgeResponse.swift in Sources */,
 				4CCC0A362790223800CE0928 /* StateResponse.swift in Sources */,
@@ -1325,6 +1340,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 62E589152B8E0745003A2452 /* XCRemoteSwiftPackageReference "Networking" */;
 			productName = Networking;
+		};
+		62F85FBE2C70D0FE00C9C591 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26BDA2292C5E194800B2B0D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -117,4 +117,6 @@ struct URLs {
     static let PAYMENT_CONFIRMED = AWARE_API_URL + "paymentConfirmed"
     static let UPDATE_SPORT_CLUB_NAME = AWARE_API_URL + "memberSportClub"
     static let NEW_CIRCLE_REVIEW = AWARE_API_URL + "newCircleReview"
+    static let DELETE_ACCOUNT_OTP_REQUEST = AWARE_API_URL + "deleteAccountRequest"
+    static let DELETE_ACCOUNT_CONFIRMATION = AWARE_API_URL + "finalDeleteAccountConfirmation"
 }

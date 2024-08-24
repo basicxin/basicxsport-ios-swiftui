@@ -40,7 +40,6 @@ struct LoginView: View {
                 shouldShowForgetPasswordView = true
             }
             .foregroundColor(Color.blue)
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: Alignment.leading)
             .padding(Edge.Set.vertical, 20)
 
             Spacer()
@@ -53,9 +52,11 @@ struct LoginView: View {
             .buttonStyle(.bordered)
 
             Spacer()
+            Spacer()
 
             Text("By downloading, installing, and using this App, you agree to the following Terms of Service and Privacy Policy")
                 .font(.footnote)
+                .padding(Edge.Set.vertical, 20)
         }
         .sheet(isPresented: $shouldShowForgetPasswordView, content: {
             ForgotPasswordView(shouldShowForgetPasswordView: $shouldShowForgetPasswordView)

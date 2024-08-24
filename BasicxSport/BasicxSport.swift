@@ -11,7 +11,7 @@ import SwiftUI
 struct BasicxSport: App {
     @StateObject var settings = UserSettings()
     // register app delegate for Firebase setup
-      @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {

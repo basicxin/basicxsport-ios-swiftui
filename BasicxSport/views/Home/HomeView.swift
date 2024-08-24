@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var settings: UserSettings
-
+    @StateObject var vm = UtilsViewModel()
+    
     var body: some View {
         TabView {
             NavigationView {
@@ -22,7 +23,7 @@ struct HomeView: View {
                 Label("News", systemImage: "newspaper")
             }
             .tag(0)
-
+            
             NavigationView {
                 CircleListView()
                     .navigationBarTitleDisplayMode(.inline)
@@ -32,7 +33,7 @@ struct HomeView: View {
             .tabItem {
                 Label("Circles", systemImage: "circle.hexagonpath")
             }.tag(1)
-
+            
             NavigationView {
                 MyCircleView()
                     .navigationBarTitleDisplayMode(.inline)
@@ -42,7 +43,7 @@ struct HomeView: View {
             .tabItem {
                 Label("My Circle", systemImage: "circle.hexagongrid.circle")
             }.tag(2)
-
+            
             NavigationView {
                 ShopView()
                     .navigationBarTitleDisplayMode(.inline)
@@ -52,7 +53,7 @@ struct HomeView: View {
             .tabItem {
                 Label("Shop", systemImage: "cart")
             }.tag(3)
-
+            
             NavigationView {
                 MoreView()
                     .environmentObject(settings)
@@ -63,6 +64,14 @@ struct HomeView: View {
             .tabItem {
                 Label("More", systemImage: "filemenu.and.selection")
             }.tag(4)
+        }.onAppear(perform: {
+            Task {
+                await vm.requestNotificationPermission()
+            }
+        }
+        )
+        .task {
+            await vm.getAuthStatus()
         }
         .navigationBarHidden(true)
         .navigationViewStyle(.stack)
