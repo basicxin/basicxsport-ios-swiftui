@@ -61,7 +61,7 @@ struct AddDocumentView: View {
                 } label: {
                     Text("Browse Photo").font(.caption)
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
                 .disabled(!viewModel.isEditingTheDocument)
             }
 

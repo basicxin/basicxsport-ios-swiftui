@@ -51,9 +51,9 @@ struct DeleteAccountView: View {
                     viewModel.sendOTPForAccountDelete()
                 }
             } label: {
-                Text(viewModel.isOTPSent ? "Delete Account": "Send OTP"  )
+                Text(viewModel.isOTPSent ? "Delete Account": "Send OTP")
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.bordered)
             .disabled(viewModel.isOTPSent ? !viewModel.isOTPValid : !viewModel.isMobileValid)
             
             Spacer()
@@ -90,7 +90,7 @@ struct DeleteAccountView: View {
 struct DeletePasswordView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChangePasswordView()
+            DeleteAccountView()
         }
     }
 }

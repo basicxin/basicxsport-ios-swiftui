@@ -55,13 +55,13 @@ struct TournamentCategoryListView: View {
                                     Button {} label: {
                                         Text("My Partner")
                                     }
-                                    .buttonStyle(.borderedProminent)
+                                    .buttonStyle(.bordered)
                                     .hidden()
                                 } else if category.seatType.caseInsensitiveCompare(Constants.Tournament.SEAT_TYPE_TEAM) == .orderedSame || category.seatType.caseInsensitiveCompare(Constants.Tournament.SEAT_TYPE_MIXED) == .orderedSame {
                                     Button {} label: {
                                         Text("My Team")
                                     }
-                                    .buttonStyle(.borderedProminent)
+                                    .buttonStyle(.bordered)
                                     .hidden()
                                 }
                             }
@@ -78,7 +78,7 @@ struct TournamentCategoryListView: View {
                                     }
                                 } label: {
                                     Text("Buy")
-                                }.buttonStyle(.borderedProminent)
+                                }.buttonStyle(.bordered)
                             }
                         }.padding(.bottom, 10)
                     }

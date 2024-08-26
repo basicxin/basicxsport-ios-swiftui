@@ -306,7 +306,7 @@ struct RenewCircleView: View {
                 showCircleDetailView = true
             } label: {
                 Text("Renew")
-            }.buttonStyle(.borderedProminent)
+            }.buttonStyle(.bordered)
         }
         .padding()
         .fullWidth()
