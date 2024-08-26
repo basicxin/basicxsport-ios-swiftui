@@ -25,7 +25,7 @@ struct ApplyCouponView: View {
                     Text("Apply")
                 }
                 .disabled(!viewModel.isEnteredCouponCodeValid)
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
                 .padding(.bottom, 10)
             }
             .padding()

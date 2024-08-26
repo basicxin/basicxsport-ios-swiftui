@@ -26,7 +26,7 @@ struct ChangePasswordView: View {
                 }
             } label: {
                 Text("Change Password")
-            }.buttonStyle(.borderedProminent)
+            }.buttonStyle(.bordered)
                 .disabled(!viewModel.canSubmit)
         }
         .padding()
