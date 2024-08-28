@@ -73,8 +73,24 @@ struct PaymentView: View {
             )
         }
         .onAppear {
-            if(viewModel.razorPayOrderId == nil){
-                viewModel.getOrderId(trxId:orderNoWithTimestamp, amount: ((Float (value) ?? 0 )*100) )
+            // Convert value to a float and multiply by 100
+            let amountInRuppes = (Float(value) ?? 0) * 100
+            let formattedDate = Date().getFormattedDate(format: Constants.DateFormats.STANDARD_DATE_TIME_FORMAT)
+            
+            if amountInRuppes <= 0 {
+                viewModel.sendPaymentTransaction(
+                    apiKey: UserDefaults.jwtKey,
+                    memberId: UserDefaults.memberId,
+                    orderId: orderNoWithTimestamp,
+                    amount: amountInRuppes.description,
+                    createdDate: formattedDate,
+                    paymentMethod: Constants.PROMO
+                ) {
+                    showReceipt = true
+                }
+            }
+            else if(viewModel.razorPayOrderId == nil){
+                viewModel.getOrderId(trxId:orderNoWithTimestamp,amount: amountInRuppes)
             }
         }
         .onChange(of: viewModel.razorPayOrderId) { newValue in

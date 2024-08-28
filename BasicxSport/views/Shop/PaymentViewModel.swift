@@ -38,9 +38,16 @@ class PaymentViewModel: ObservableObject {
             }
         }
     }
+    
     func getPaytmToken(orderId: String, callbackUrl: String, value: String, currency: String, custId: String) {
         isLoading = true
-        let promise = api.getPaytmToken(orderId: orderId, callbackUrl: callbackUrl, value: value, currency: currency, custId: custId)
+        let promise = api.getPaytmToken(
+            orderId: orderId,
+            callbackUrl: callbackUrl,
+            value: value,
+            currency: currency,
+            custId: custId
+        )
         PromiseHandler<BaseResponse<PaytmTokenResponse>>.fulfill(promise, storedIn: &cancellables) { [self] result in
             isLoading = false
             switch result {
@@ -59,10 +66,25 @@ class PaymentViewModel: ObservableObject {
             }
         }
     }
-
-    func sendPaymentTransaction(request: PaymentTransaction, completion: @escaping () -> ()) {
+    
+    func sendPaymentTransaction(
+        apiKey: String,
+        memberId: Int,
+        orderId: String,
+        amount: String,
+        createdDate: String,
+        paymentMethod: String,
+        completion: @escaping () -> ()
+    ) {
         isLoading = true
-        let promise = api.sendPaymentTransaction(request: request)
+        let promise = api.sendPaymentTransaction(
+            apiKey: apiKey,
+            memberId: memberId,
+            orderId: orderId,
+            amount: amount,
+            createdDate: createdDate,
+            paymentMethod: paymentMethod
+        )
         PromiseHandler<DefaultResponseAIM>.fulfill(promise, storedIn: &cancellables) { [self] result in
             isLoading = false
             switch result {

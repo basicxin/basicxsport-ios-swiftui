@@ -244,21 +244,14 @@ struct API: NetworkingService {
         get(URLs.DOCUMENT_LIST)
     }
     
-    func sendPaymentTransaction(request: PaymentTransaction) -> AnyPublisher<DefaultResponseAIM, Error> {
-        get(URLs.PAYMENT_CONFIRMED, params: ["apiKey": request.apiKey,
-                                             "memberid": request.memberid,
-                                             "paymentMethod": request.paymentMethod,
-                                             "TXNID": request.TXNID,
-                                             "BANKNAME": request.BANKNAME,
-                                             "BANKTXNID": request.BANKTXNID,
-                                             "CURRENCY": request.CURRENCY,
-                                             "GATEWAYNAME": request.GATEWAYNAME,
-                                             "MID": request.MID,
-                                             "ORDERID": request.ORDERID,
-                                             "PAYMENTMODE": request.paymentMethod,
-                                             "RESPCODE": request.RESPCODE,
-                                             "RESPMSG": request.RESPMSG,
-                                             "STATUS": request.STATUS])
+    
+    func sendPaymentTransaction(apiKey: String, memberId: Int, orderId: String, amount: String,createdDate: String,paymentMethod: String) -> AnyPublisher<DefaultResponseAIM, Error> {
+        get(URLs.PAYMENT_CONFIRMED, params: ["apiKey": apiKey,
+                                             "memberId": memberId,
+                                             "ORDERID": orderId,
+                                             "trx_amount": amount,
+                                             "created_at": createdDate,
+                                             "paymentMethod": paymentMethod])
     }
     
     func getMemberProfile() -> AnyPublisher<BaseResponse<MemberProfileResponse>, Error> {
@@ -275,8 +268,8 @@ struct API: NetworkingService {
     
     func deleteAccountOTPRequest(mobile: String, apiKey: String) -> AnyPublisher<MobileOtpResponse, Error> {
         post(URLs.DELETE_ACCOUNT_OTP_REQUEST, params: ["mobile": mobile,
-                                                   "apiKey": apiKey])
-    }    
+                                                       "apiKey": apiKey])
+    }
     
     func deleteAccount(memberId: Int, otp: String,  objectId: Int, apiKey: String) -> AnyPublisher<DefaultResponseAIM, Error> {
         post(URLs.DELETE_ACCOUNT_CONFIRMATION, params: ["memberId": memberId,
