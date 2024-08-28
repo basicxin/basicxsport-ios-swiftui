@@ -114,7 +114,7 @@ struct URLs {
     static let UPDATE_FCM_TOKEN = AWARE_API_URL + "updateFCMToken"
     static let NEW_RELATION_REGISTRATION = AWARE_API_URL + "addChildMember"
     static let SIGN_UP = AWARE_API_URL + "memberRegistration"
-    static let PAYMENT_CONFIRMED = AWARE_API_URL + "paymentConfirmed"
+    static let PAYMENT_CONFIRMED = AWARE_API_URL + "promoCheckout"
     static let UPDATE_SPORT_CLUB_NAME = AWARE_API_URL + "memberSportClub"
     static let NEW_CIRCLE_REVIEW = AWARE_API_URL + "newCircleReview"
     static let DELETE_ACCOUNT_OTP_REQUEST = AWARE_API_URL + "deleteAccountRequest"
