@@ -8,5 +8,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 BASE_URL = my.basicxsport.com/basicX/
-RAZOR_PAY_KEY = rzp_test_fm8b0zG8AY3Tgw
+RAZOR_PAY_KEY = rzp_live_KvKzGtodplkRUP
 STATIC_KEY = N#*mKjg!bZRPv5Tm6Agpmw
